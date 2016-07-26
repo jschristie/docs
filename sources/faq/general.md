@@ -1,6 +1,6 @@
-## How do I change the IP address of my Gluu Server?
+## How do I change the IP address and/or listening port of my Gluu Server?
 
-There is no easy way to change the IP address of your Gluu Server once it's already deployed. If you need to change an IP address, we recommend doing a fresh install on a new VM.
+There is no easy way to change the IP address or port of your Gluu Server once it's already deployed. At very least it would require to modify a lot of settings stored in LDAP configuration entries, in Apache/Tomcat configuration, and perhaps in custom authentication scripts' sources too (if you plan to use one). If you need to change an IP address, we recommend doing a fresh install on a new VM.
 
 ## How do I customize the IDP to ask for Email instead of Username for login? 
 
@@ -11,6 +11,14 @@ In oxTrust navigate to the Manage Authentication tab within the Configuration se
 Now you will want to update your IDP login page to display `Email Address` as the requested identifier. In order to do that you need to modify the `login.xhtml` file, which is located in `/opt/tomcat/webapps/oxauth/`. Insert `Email Address` as the value for `outputLabel`; this snippet is under the `dialog` class. See the screenshot below. 
 
 ![Screenshot](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrustConfiguration/Configuration/Authentication/Email_Address.png)
+
+## How do I add additional roles to oxTrust (Gluu's web UI) and/or change permissions set for existing ones
+
+To accomplish something like that, you would need to implement new dynamic rules in Jboss Seam, and then implement those rules in the UI, as current "manager" and "user" roles are defined within `security.drl` are hard-coded in OxTrust. During login, it checks for the manager group membership, and adds the role to the web context. If you'll still opt to change this framework, we won't be able to provide you any help regarding this at this moment.
+
+oxTrust was designed to be a tool for administrators. There are some basic user features, but we don't really encourage usage of oxTrust as a user facing application.
+
+A better approach might be to write a standalone application that calls the SCIM API's or even the LDAP API's with just the data that you want to expose. And make that new application an Openid Connect Relying Party (so authentication of users attempting to use it can be handled by the Gluu Server).
 
 ## How do I perform matinenace on my Gluu Server?
 
