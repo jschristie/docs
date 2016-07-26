@@ -12,7 +12,7 @@ Now you will want to update your IDP login page to display `Email Address` as th
 
 ![Screenshot](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrustConfiguration/Configuration/Authentication/Email_Address.png)
 
-## How do I add additional roles to oxTrust (Gluu's web UI) and/or change permissions set for existing ones
+## How do I add additional roles to oxTrust (Gluu's web UI) and/or change permissions set for existing ones?
 
 To accomplish something like that, you would need to implement new dynamic rules in Jboss Seam, and then implement those rules in the UI, as current "manager" and "user" roles are defined within `security.drl` and hard-coded in OxTrust. During login, it checks for the manager group's membership, and adds the role to the web context. If you'll still opt to change this framework, we won't be able to provide you any help regarding this currently.
 
