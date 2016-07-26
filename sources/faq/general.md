@@ -18,7 +18,7 @@ To accomplish something like that, you would need to implement new dynamic rules
 
 oxTrust was designed to be a tool for administrators. There are some basic user features, but we don't really encourage usage of oxTrust as a user facing application.
 
-A better approach might be to write a standalone application that calls the SCIM API's or even the LDAP API's with just the data that you want to expose. And make that new application an Openid Connect Relying Party (so authentication of users attempting to use it can be handled by the Gluu Server).
+A better approach might be to write a standalone application that calls the SCIM API's or even the LDAP API's with just the data that you want to expose, then make that new application an [Openid Connect](http://openid.net/connect/) Relying Party (so authentication of users attempting to use it could be handled by your Gluu instance).
 
 ## How do I perform matinenace on my Gluu Server?
 
