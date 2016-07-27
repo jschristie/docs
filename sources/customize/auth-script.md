@@ -10,13 +10,19 @@ Gluu Server User Interface allows the developer to specify the path to
 script rather than use the text box from oxTrust. The script will be
 loaded from the specified path. This feature will improve script
 development and there is an option to revert back to working script, if
-the script is faulty or needs further development. The administrator can
-select `File` from the Script Location Type in oxTrust and the file
-input box will be displayed. The 'LDAP' option in the Script Location
+the script is faulty or needs further development. 
+
+The administrator can select `File` from the Script Location Type in oxTrust and the file
+input box will be displayed:
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/auth_article/script_upload_box.png)
+
+The 'LDAP' option in the Script Location
 Type can be used to store the script in the LDAP tree once the
 development is complete. Remember that selecting the `LDAP` method
 requires that the script has to be copied in the input box that appears
-upon LDAP selection.
+upon LDAP selection:
+
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/auth_article/script_in_ldap.png)
 
 ## Suggested Development Environment
 
@@ -167,3 +173,4 @@ sometimes those exceptions may give you a hint as to what's going wrong.
 
 # Reverting Authentication Method
 It is not unlikely that you will lock yourself out of Gluu Server while testing the authentication script, if there is any problem in it. In such a case the following method can be used to revert back the older authentication method. Please see the [FAQ](../faq/troubleshooting.md) for details.
+
