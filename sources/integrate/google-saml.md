@@ -64,7 +64,17 @@ Google Apps, and the protocol used is SAML.
 
 In order to create a Trust Relationship, we need to grab the metadata of
 Google Apps. This metadata can be collected from Google. It's generally
-specific to an organization account.
+specific to an organization account. The following is a template of the Google metadata.
+
+```
+<EntityDescriptor entityID="google.com/a/domain.com" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+<AssertionConsumerService index="1" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+Location="https://www.google.com/a/domain.com/acs" ></AssertionConsumerService>
+</SPSSODescriptor>
+</EntityDescriptor>
+```
 
 Got the metadata? Great, we are ready to move forward. 
 
