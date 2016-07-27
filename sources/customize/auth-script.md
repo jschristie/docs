@@ -113,7 +113,7 @@ authentication workflow. Notice how you can switch on the step, with the
 1 and step 2 happen on the same server, so the step is sent into the
 `authenticate` method.
 
-To access  information from requestParameters in your script with ServerUtil.getFirstValue(requestParameters, <key>) where <key> specifies the value you want to retrieve, you can also use another method requestParameters.get("<key>") where <key> specifies the value you want to retrieve .
+To access  information from requestParameters in your script with 'ServerUtil.getFirstValue(requestParameters, <key>)' where '<key>' specifies the value you want to retrieve, you can also use another method 'requestParameters.get("<key>")' where '<key>' specifies the value you want to retrieve .
 
 Another method you usually need to implement is
 `getCountAuthenticationSteps`. This method normally just returns 1, 2,
