@@ -86,7 +86,7 @@ you can do to achieve your goal:
 * Uninstall existing Gluu Server installation.
 * For a new installation you can either grab a new VM, or just use the
   existing one.
-* Run all the commands until `service gluu-server24 login`.
+* Run all the commands until `# /sbin/gluu-serverd-2.4.3 login`.
 * Copy your file `setup.properties.last` into the new server's
   `/install/community-edition-setup/` location.
 * Rename the file `setup.properties.last` to `setup.properties`.
