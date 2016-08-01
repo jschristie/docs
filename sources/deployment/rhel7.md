@@ -13,7 +13,7 @@ As an alternative, use our Gluu repository for RHEL 7:
 # wget https://repo.gluu.org/rhel/RPM-GPG-KEY-GLUU -O /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU
 # rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-GLUU
 # yum clean all
-# yum install gluu-server-2.4.3
+# yum install gluu-server-2.4.4
 ```
 
 ## Configuring Gluu Server
@@ -22,11 +22,11 @@ software package start the Gluu Server, and login into the local chroot
 environment to configure the Gluu Server. These are the single steps:
 
 ```
-# /sbin/gluu-serverd-2.4.3 start
+# /sbin/gluu-serverd-2.4.4 start
 
-# /sbin/gluu-serverd-2.4.3 enable
+# /sbin/gluu-serverd-2.4.4 enable
 
-# /sbin/gluu-serverd-2.4.3 login
+# /sbin/gluu-serverd-2.4.4 login
 
 # cd /install/community-edition-setup/
 
@@ -62,19 +62,19 @@ scripts).
 You can start the Gluu Server with this command:
 
 ```
-# /sbin/gluu-serverd-2.4.3 start
+# /sbin/gluu-serverd-2.4.4 start
 ```
 
 You can stop the Gluu Server with this command:
 
 ```
-# /sbin/gluu-serverd-2.4.3 stop
+# /sbin/gluu-serverd-2.4.4 stop
 ```
 
 ## Login to the chroot environment
 
 ```
-# /sbin/gluu-serverd-2.4.3 login
+# /sbin/gluu-serverd-2.4.4 login
 ```
 
 ### Scripted Installation
@@ -102,11 +102,11 @@ packages that are installed, and the home directory of the Gluu Server
 user. The following commands illustrate the single steps:
 
 ```
-# /sbin/gluu-serverd-2.4.3 stop
+# /sbin/gluu-serverd-2.4.4 stop
 
-# yum remove gluu-server-2.4.3
+# yum remove gluu-server-2.4.4
 
-# rm -rf /opt/gluu-server-2.4.3*
+# rm -rf /opt/gluu-server-2.4.4*
 ```
 
 On an installation, any modified files are saved in the directory
