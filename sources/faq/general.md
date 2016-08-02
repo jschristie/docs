@@ -2,6 +2,8 @@
 
 There is no easy way to change the IP address or port of your Gluu Server once it's already deployed. At very least it would require to modify a lot of settings stored in LDAP configuration entries, in Apache/Tomcat configuration, and perhaps in custom authentication scripts' sources too (if you plan to use one). If you need to change an IP address, we recommend doing a fresh install on a new VM.
 
+Aside from using static public ip address, you could opt to use some static ip address from private range of your internal network, and to employ some sort of reverse proxy, or load balancer, or simple port forwarding on another internet-facing device that will forward connections to your instance in that network. When it's set up this way you can freely change your public ip address on this internet-facing intermediary device (just will need to make sure your DNS records will be updated accordingly each time)
+
 ## How do I customize the IDP to ask for Email instead of Username for login? 
 
 In oxTrust navigate to the Manage Authentication tab within the Configuration section. By default the Primary Key and Local Key are set to `uid`. Set those values to `mail` and now your Gluu Server will expect email as the identifier instead of username.
