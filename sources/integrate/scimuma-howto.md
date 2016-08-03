@@ -120,3 +120,32 @@ public class TestScimClient {
 }
 
 ```
+
+# SCIM 2.0 Test Mode (v2.4.4+)
+
+Starting with CE v2.4.4, the "test mode" configuration will help developers test the SCIM 2.0 endpoints easier. Instead of UMA + SCIM-Client, in test mode a long-lived OAuth2 access token issued by the Gluu server is used to authorize with the SCIM 2.0 endpoints.
+
+To enable test mode, do the following:
+
+* Login to the oxTrust GUI and go to "Configuration" -> "JSON Configuration" -> "OxTrust Configuration", then locate the property `scimTestMode`.
+
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-false.png)
+
+* Set it to `true`, then click the "Save Configuration" button. The Gluu server will then create a long-lived OAuth2 access token with a validity period of one year. Doing this will also switch the authentication scheme from UMA to OAuth2 Access Token.
+* Click again "JSON Configuration" -> "OxTrust Configuration" in the left navigation pane. This will retrieve the access token and be displayed in the `scimTestModeAccessToken` property.
+
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-true.png)
+
+* If the access token has expired, just repeat the previous steps to create a new one.
+ 
+The access token can then be used as the query string parameter `access_token` in accessing the SCIM 2.0 endpoints, for example:
+
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-example.png)
+
+You can verify the current authentication scheme of the SCIM 2.0 endpoints by browsing its `ServiceProviderConfig`:
+
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-config.png)
+
+To exit test mode, just set `scimTestMode` back to `false` then click the "Save Configuration" button. This will switch the authentication scheme from OAuth2 Access Token to UMA. If you try using your access token again, you will now get the `403 Unauthorized` error:
+
+![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-403.png)
