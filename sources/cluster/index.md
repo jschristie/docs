@@ -12,7 +12,7 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 
 |	Number of VMs	|CPU Units	|	RAM	|Root Partion	|	Port Requirements	|
 |-----------------------|---------------|---------------|---------------|-------------------------------|
-|	2		|	2 CPU ea.	|	8 GB	|	40 GB	|	4444 and 8989		|
+|	2		|	2 CPU ea.	|	8 GB	|	40 GB	|	4444 and 8989 (LDAP replication), 30865 (file system syncing)|
 
 **Note:** For convenience, the VMs are identified as `host-1` and `host-2`
 
@@ -132,7 +132,7 @@ operation.
 ## File System Replication
 
 <sub>*`(!)` Be advised that backup feature is broken in some of earlier versions of csync2 you may get installed from your distribution's repo. In that case you will need either to disable it by commenting out `backup-*` clauses in tool's configuration file, or to build csync2 of version 2.0+ from sources and use key `-l` in your xinetd.d's config (like `server_args     = -i -l -N idp1.gluu.org`) on both nodes.*</sub>   
-<sub>*`(!)` Be sure to verify all pathes (for executables, keys ets) in configuration files' examples before using them in your production instance, as they may differ for different linux distros.*</sub>
+<sub>*`(!)` Be sure to verify all pathes (for executables, keys etc) in configuration files' examples before using them in your production instance, as they may differ for different linux distros.*</sub>
 
 `csync2` is used for file system syncing between `host-1` and `host-2`. The following locations are synced in between the two VMs.
 
