@@ -125,5 +125,4 @@ pages:
     - 'Custom ID Generation API': 'api/id-generation.md'
     - 'SCIM 1.1': 'api/scim-1.1.md'
     - 'SCIM 2.0': 'api/scim-2.0.md'
-    - 'Federation Endpoints': 'api/federation.md'
 
