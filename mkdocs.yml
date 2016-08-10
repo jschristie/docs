@@ -18,6 +18,7 @@ pages:
 - Install Gluu CE:
     - 'Preparing VM': 'deployment/index.md'
     - 'Ubuntu 14.04': 'deployment/ubuntu.md'
+    - 'Ubuntu 16.04': 'deployment/ubuntu-xenial.md'
     - 'CentOS 6.x': 'deployment/centos.md'
     - 'CentOS 7.2': 'deployment/centos7.md'
     - 'RHEL 6.x': 'deployment/rhel.md'
