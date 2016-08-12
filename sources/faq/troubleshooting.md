@@ -136,6 +136,53 @@ As an example, we shall call this file `changeAuth.ldif`.
 
 `/opt/opendj/bin/ldapmodify -p 1389 -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/changeAuth.ldif
 
+## No admin access after Cache Refresh?
+Add the password for your admin account to `~/.pw` and then use the commands below to add yourself as an admin.
+
+```bash
+# set this to your actual user name
+export newgluuadmin='myusername'
+
+# this is the file that will hold the info to be imported
+export ldiffile='addManagers.ldif'
+
+# run this and verify that the output is for your account
+/opt/opendj/bin/ldapsearch -h localhost -p 1636 -D "cn=directory manager" -j ~/.pw -Z -X -b "o=gluu" "uid=$newgluuadmin" uid givenName sn cn
+
+dn: inum=@!134D.3C3D.796E.FECE!0001!E022.CC3C!0000!A8F2.DE1E.D7FB,ou=people,o=@!134D.
+ 3C3D.796E.FECE!0001!E022.CC3C,o=gluu
+uid: myusername
+givenName: John
+sn: Doe
+cn: John Doe
+```
+
+Now you can run these commands to make the file above:
+
+```bash
+head -n1 /opt/opendj/ldif/groups.ldif > $ldiffile
+echo 'changetype: modify' >> $ldiffile
+echo 'add: member' >> $ldiffile
+echo "member: $(/opt/opendj/bin/ldapsearch -h localhost -p 1636 -D "cn=directory manager" -j ~/.pw -Z -X -b "o=gluu" "uid=$newgluuadmin" uid givenName sn cn |grep -A1 dn |cut -d ' ' -f 2- | sed 'N;s/\n//')" >> $ldiffile
+```
+
+The resulting ldif will look like this:
+
+```bash
+dn: inum=@!134D.3C3D.796E.FECE!0001!E022.CC3C!0003!60B7,ou=groups,o=@!134D.3C3D.796E.FECE!0001!E022.CC3C,o=gluu
+changetype: modify
+add: member
+member: inum=@!134D.3C3D.796E.FECE!0001!E022.CC3C!0000!A8F2.DE1E.D7FB,ou=people,o=@!134D.3C3D.796E.FECE!0001!E022.CC3C,o=gluu
+```
+
+Once the ldif looks right, run this to grant your account admin rights in Gluu:
+
+```bash
+/opt/opendj/bin/ldapmodify -h localhost -p 1636 -D "cn=directory manager" -j ~/.pw -Z -X -f addManagers.ldif
+```
+
+Log into the web interface and pick up where you left off :)
+
 # Lock users?
 ## Lock Account using Custom Scripts
 This section will help in locking a user account using custom scripts in solutions where it is
