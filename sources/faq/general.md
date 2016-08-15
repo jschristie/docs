@@ -1,3 +1,5 @@
+[TOC]
+
 ## How do I change hostname and/or IP address and/or listening port of my Gluu Server?
 
 There is no easy way to change any of those once your instance is already deployed. At very least it would require to modify a lot of settings stored in LDAP configuration entries, in Apache/Tomcat configuration, and perhaps in custom authentication scripts' sources too (if you plan to use one). If you need to change an IP address, we recommend doing a fresh install on a new VM.
