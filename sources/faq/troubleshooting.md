@@ -41,7 +41,7 @@ ones used by your installation):
 2) Run this command:
 
 ```
-#/opt/opendj/bin/ldapsearch -p 1389 -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu gluuGroupType=gluuManagerGroup 1.1
+#/opt/opendj/bin/ldapsearch -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu gluuGroupType=gluuManagerGroup 1.1
 ```
 
 and remember the displayed dn of the Gluu Manager Group for future use.
@@ -49,7 +49,7 @@ and remember the displayed dn of the Gluu Manager Group for future use.
 3) Run this command:
 
 ```
-# /opt/opendj/bin/ldapsearch -p 1389 -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu ou=people 1.1
+# /opt/opendj/bin/ldapsearch -p -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu ou=people 1.1
 ```
 
 and remember the displayed dn of the People ou for future use.
@@ -78,7 +78,7 @@ step 3).
 5) Run this command:
 
 ```
-# /opt/opendj/bin/ldapmodify -p 1389 -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/add_user.ldif
+# /opt/opendj/bin/ldapmodify -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/add_user.ldif
 ```
 
 This will create new user tempadmin with attributes provided via file
@@ -103,7 +103,7 @@ specified in the 1st line of the file in step 4).
 7) Run this command:
 
 ```
-# /opt/opendj/bin/ldapmodify -p 1389 -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/add_2_group.ldif
+# /opt/opendj/bin/ldapmodify -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/add_2_group.ldif
 ```
 
 This will add tempadmin user to the IdP managers group and you can then
@@ -134,7 +134,7 @@ As an example, we shall call this file `changeAuth.ldif`.
 
 3. Replace the the authentication mode using `ldapmodify` command.
 
-`/opt/opendj/bin/ldapmodify -p 1389 -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/changeAuth.ldif
+`/opt/opendj/bin/ldapmodify -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -f ~/changeAuth.ldif
 
 ## No admin access after Cache Refresh?
 Add the password for your admin account to `~/.pw` and then use the commands below to add yourself as an admin.
