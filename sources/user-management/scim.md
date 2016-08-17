@@ -108,7 +108,7 @@ To delete a user only the id (the LDAP `inum`) is needed.
 
 ## User Extensions
 
-SCIM 2.0 User Extensions implementation in Gluu server is very simple. Just set the custom attribute's `SCIM Attribute` parameter to `true` in oxTrust GUI and it will be recognized as a User extension. It is a must to create/use custom attributes as User extensions for a cleaner implemention.
+SCIM 2.0 User Extensions implementation in Gluu server is very simple. Just set the custom attribute's `SCIM Attribute` parameter to `true` in oxTrust GUI and it will be recognized as a User extension. It is a must to create new custom attributes to be used as User extensions for a cleaner implementation.
 
 ![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-attribute.png)
 
