@@ -10,7 +10,7 @@ Primarily, the Gluu Server is used to achieve the following solutions:
 - Strong authentication
 - Identity Federation
 
-The code is open source, and available on [Github](github.com/GluuFederation/).
+The code is open source, and available on [Github](https://github.com/gluufederation).
 
 Community support can be enlisted on the [Gluu support site](http://support.gluu.org). If your organization needs to open private tickets with us, or needs an SLA or consultative support, Gluu offers a range of [VIP support](gluu.org/pricing) options. 
 
