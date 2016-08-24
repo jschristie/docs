@@ -6,6 +6,8 @@ any LDAP/AD. The registry service is already a part of the Gluu CE Installation 
 disabled by default. The custom-script feature of the Gluu Server is used to prepare the 
 `User Registration`.
 
+> Note: When possible, we recommend handling user registration in your app locally, then pushing the information to the Gluu Server via [SCIM 2.0](../api/scim-2.0.md). This will give you much more control and flexibility in defining the exact registration process you want users to go through.
+
 ## Preparing Gluu Server
 The user registry requires enabling from the [custom scripts](../customize/script.md) section
 of the Admin Panel. In brief, the admin has to click on the [configuration](../oxtrust/configuration.md) menu 
