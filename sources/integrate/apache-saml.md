@@ -43,7 +43,7 @@ server on your machine/Linux environment:
 ```
 # yum install httpd
 # service httpd start
-# Stop the firewall
+# service iptables stop 
 ```
 
 #### Configuration
@@ -52,7 +52,7 @@ Edit the file `httpd.conf`, and do the following changes:
 
 * Change the `ServerName` directive to the server name of the SP.
 
-* Set `UseCanonicalName = On`.
+* Set `UseCanonicalName On`.
 
 * Restart the httpd service using the command `service httpd restart`.
 
@@ -98,7 +98,7 @@ This section describes how to configure the file `shibboleth2.xml`.
 * Create a directory named under `/var/www/secure`.
 
 * Change the permissions for that directory `secure` to
-  `www-data:www-data` (owner and group of the web server).
+  `apache:apache` (owner and group of the web server).
 
 * `httpd.conf`
 
