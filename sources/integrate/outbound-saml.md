@@ -121,3 +121,5 @@ observe a confirmation page like the one below. Please note that for
 testing purposes we did not provide any certificates. The IdP created
 both the key and certificate by itself. The image below shows a sample
 Trust Relationship after successful creation.
+
+Gluu Server administrator will be able to 'search' any trust relationship from 'Trust Relationship' search box. Searching syntax can be anything affiliated with specific Trust. It's also possible to see all Trusts by just hitting 'Search' button by keeping search box blank. ![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/SAMLTrustRelationships/TR_all.png)
