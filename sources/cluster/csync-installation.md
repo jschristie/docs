@@ -20,7 +20,7 @@ On the moment of writing csync2 can't be found in public repositories. The only 
 
 2. Enable epel-release repo: `# yum install epel-release`
 
-3. Install compiler and development environment: `# yum group install "Development Tools"`
+3. Install compiler and development environment: `# yum groupinstall "Development Tools"`
 
 4. Install csync2's dependencies:
 
