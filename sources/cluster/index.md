@@ -68,7 +68,7 @@ Enabling Replication Complete.
 [ldap@...]$
 ```
 
-* Initialize directory server replication with this command `/opt/opendj/bin/dsreplication initialize` and it will give the following output:
+* Initialize directory server replication with this command `/opt/opendj/bin/dsreplication initialize` and it will give the following output (some issues were reported for this step, resulting in "Invalid credentials" errors; in that case try to run the tool in console mode rather than interactive: `/opt/opendj/bin/dsreplication initialize-all --hostname 127.0.0.1 --port 4444 -I 'admin' -w 'GLOB_ADMIN_PASS' -b 'o=gluu' --trustAll --no-prompt`):
 
 ```
 [ldap@...]$ /opt/opendj/bin/dsreplication initialize
@@ -383,7 +383,7 @@ group cluster_group
 ## Certificate Management
 
 The certificates do not vary in the manual cluster configuration. The certificates should be updated manually 
-in each host, when required. Move to `/etc/certs/` on the 1st node (inside the container). Copy all keys, certs and key storages conforming to these masks: `httpd.*`, `asimba.*`, `asimbaIDP.*` and `shibIDP.*` to the same directory on the 2nd node (overwriting files that exist there; you may opt to backup them first, just in case).
+in each host, when required. Move to `/etc/certs/` on the 1st node (inside the container). Copy all keys, certs and key storages conforming to these masks: `httpd.*`, `asimba.*`, `asimbaIDP.*`, `idp-encryption.*`, `idp-signing.*`, `shibIDP.*`, `oxauth-keys.*` and ` scim-rs.*` - to the same directory on the 2nd node (overwriting files that exist there; you may opt to backup them first, just in case).
 
 After that's done you still will need to update default system storage (`cacerts` file) at the 2nd node with these newly copied certificates. The [Certificate Page](../gluu-defaults/certificates.md) contains the details about available certificates and how to change them.
 
@@ -403,7 +403,7 @@ To achieve this you should run initial sync manualy after completing configuring
 
 4. Previous commands did initial scan and filled metadata database. Now run `# csync2 -xrvvv -N idp1.gluu.org /` on the 1st node. That will try to sync files with the 2nd node, and most likely will fail to replicate all files due to some conflicts.
 
-5. You should be now in a state of conflict, as certain files in directories to be synced differ between nodes and tool can't decide which to prefer. Run this `# csync2 -frvvv -N idp1.gluu.org /` on the 1st node to mark its files that still in dirty state as the ones that will win any conflict next time.
+5. You should be now in a state of conflict, as certain files in directories to be synced differ between nodes and tool can't decide which to prefer. Run this `# csync2 -frvvv -N idp1.gluu.org /` on the 1st node to mark its files that are still in dirty state as the ones that will win any conflict next time.
 
 6. Run `# csync2 -xrvvv -N idp1.gluu.org /` on the 1st node to complete your initial sync. Now all your 2nd node's directories covered by csync should be identical to the 1st node's.
 
