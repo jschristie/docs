@@ -325,7 +325,7 @@ chkconfig xinetd on
 **Note:** The status can be checked by running `chkconfig xinetd –list` and `iptables -L -nv | grep 30865`. For confirmation, telnet 30865 port from the VMs.
 
 <ol start ="7">
-<li> Configure `csync2.cfg` to reflect the configuration below (Please note that csync2 doesn't allow to use symlinks in this file; you'll may need to correct full paths to certain directories as they may change in future Gluu's CE packages):</li>
+<li> Configure <code>csync2.cfg</code> to reflect the configuration below (Please note that csync2 doesn't allow to use symlinks in this file; you'll may need to correct full paths to certain directories as they may change in future Gluu's CE packages):</li>
 </ol>
 ```
 #nossl * *;
@@ -397,14 +397,14 @@ To achieve this you should run initial sync manualy after completing configuring
 
 1. Comment out `auto younger;` string in `csync2.cfg` on both nodes to disable autoresolution of conflicts
 
-2. Run `# csync2 -crvvv -N idp1.gluu.org` on the 1st node
+2. Run `# csync2 -crvvv -N idp1.gluu.org /` on the 1st node
 
-3. Run `# csync2 -crvvv -N idp2.gluu.org` on the 2nd node
+3. Run `# csync2 -crvvv -N idp2.gluu.org /` on the 2nd node
 
-4. Previous commands did initial scan and filled metadata database. Now run `# csync2 -xrvvv -N idp1.gluu.org` on the 1st node. That will try to sync files with the 2nd node, and most likely will fail to replicate all files due to some conflicts.
+4. Previous commands did initial scan and filled metadata database. Now run `# csync2 -xrvvv -N idp1.gluu.org /` on the 1st node. That will try to sync files with the 2nd node, and most likely will fail to replicate all files due to some conflicts.
 
 5. You should be now in a state of conflict, as certain files in directories to be synced differ between nodes and tool can't decide which to prefer. Run this `# csync2 -frvvv -N idp1.gluu.org /` on the 1st node to mark its files that still in dirty state as the ones that will win any conflict next time.
 
-6. Run `# csync2 -xrvvv -N idp1.gluu.org` on the 1st node to complete your initial sync. Now all your 2nd node's directories covered by csync should be identical to the 1st node's.
+6. Run `# csync2 -xrvvv -N idp1.gluu.org /` on the 1st node to complete your initial sync. Now all your 2nd node's directories covered by csync should be identical to the 1st node's.
 
 7. Uncomment `auto younger;` string and proceed to installing cron jobs
