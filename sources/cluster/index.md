@@ -255,7 +255,7 @@ group cluster_group
 </ol>
 
 <ol start ="10"> 
-<li>Run `mkdir -p /var/backups/csync2`</li>
+<li>Run <code>mkdir -p /var/backups/csync2</code></li>
 </ol>
 
 <ol start ="11">
