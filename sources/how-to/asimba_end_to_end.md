@@ -128,7 +128,7 @@ We need to enable 'saml' interception script.
       - asimba_saml_certificate_file: /etc/certs/saml.pem [ SAML certificate of asimba server ] 
       - asimba_entity_id: https://hostname_of_gluu_server/saml [ EntityID of SAML Issuer ] 
       - enforce_uniqueness_attr_list: edupersonprincipalname 
-    - Script: Grab script from [[https://github.com/GluuFederation/oxAuth/blob/master/Server/integrations/saml/SamlExternalAuthenticator.py|here]]
+    - Script: Grab script from [here](https://github.com/GluuFederation/oxAuth/blob/master/Server/integrations/saml/SamlExternalAuthenticator.py)
     - Sample interception script properties: ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/interception_scripts/saml_script_properties.png?raw=true)
 
 ### [Service Provide Trust Relationship](#sp-tr)
