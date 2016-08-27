@@ -1,15 +1,17 @@
+# SAML Proxy Configuration and testing in Gluu Server 2.4.4
+
+
 **Table of Contents**
 
 - [Required items to configure Gluu SAML Proxy Server](#required-items-to-configure-Gluu-SAML-Proxy-Server)
 
-*SAML Proxy Configuration and testing in Gluu Server 2.4.4*
 
 The whole workflow will be:
 
 Service Provider → Gluu Server with SAML Proxy → Gluu Server oxAuth interception Script ( SAML Script) → SAML Proxy Discovery list of available AuthN servers → Selected AuthN server → Gluu Server oxAuth(acr_values) → back_in reverser_order
 
 
-=====Required items to configure Gluu SAML Proxy Server=====
+# Required items to configure Gluu SAML Proxy Server
 
   - Remote AuthN server metadata and SAML cert.
   - SP metadata. 
