@@ -149,8 +149,8 @@ Create Trust Relationship here with Gluu SAML Proxy Server.
     - Metadata Type: File
       - Upload Gluu SAML Proxy Server metadata. You will be able to get the SAML Proxy Server metadata with: `wget -c https://hostname_of_gluu_server/asimba/profiles/saml2`
     - Upload public certificate: Nothing required 
-    - Configure specific RelyingParty: Yes{{ :asimba:relyingpartyconfigurationsaml2sso.png?600 |}}
-    - Released attribute: Whichever is preferable and required for SSO. Here in test setup we are releasing eduPersonPrincipalName, First Name, Last Name, TransientID and Username. {{ :asimba:testgluuorgasimba.png?600 |}}
+    - Configure specific RelyingParty: Yes. ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/SAMLTrustRelationships/RelyingPartyConfigurationSAML2SSO.png?raw=true)
+    - Released attribute: Whichever is preferable and required for SSO. Here in test setup we are releasing eduPersonPrincipalName, First Name, Last Name, TransientID and Username. ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/SAMLTrustRelationships/testGluuOrgAsimba.png?raw=true)
 
 
 ## [Service Provider Configuration: Connect Gluu Server Shibboleth](#remote-sp-configuration)
