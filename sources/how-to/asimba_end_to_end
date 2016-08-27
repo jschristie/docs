@@ -1,4 +1,8 @@
-======SAML Proxy Configuration and testing in Gluu Server 2.4.4======
+**Table of Contents**
+
+- [Required items to configure Gluu SAML Proxy Server](#required-items-to-configure-Gluu-SAML-Proxy-Server)
+
+*SAML Proxy Configuration and testing in Gluu Server 2.4.4*
 
 The whole workflow will be:
 
