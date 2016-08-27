@@ -1,4 +1,4 @@
-# Gluu Server SAML Proxy configuration
+# Gluu SAML Proxy Server configuration
 
 
 **Table of Contents**
