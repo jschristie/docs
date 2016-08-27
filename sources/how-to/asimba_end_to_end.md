@@ -137,9 +137,9 @@ Create Trust Relationship for every SP which will be connected in this SAML Prox
 
 ## [Gluu Asimba Extra Features](#extra-features)
 
-  - Discovery
+  - Discovery:
 If you want to allow your end users to select their own authentication server, the list of available IDPs can be shown in Discovery page. ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/discovery_page.png?raw=true)
-  - Selector
+  - Selector:
 This feature 'automatically' forward users to specified Authentication server from service provider. As for example in below example user will automatically go to 'https://ce.gluu.info/idp/shibboleth' for authentication from 'https://ce.gluu.info/shibboleth' service provider. ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/selector.png?raw=true)
 
 ## [Configure Gluu Server SAML Proxy ( Asimba server ) in Remote Authentication Server](#authn-server-tr)
