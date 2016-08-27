@@ -18,8 +18,9 @@
 
 The whole workflow will be:
 
-Service Provider → Gluu Server with SAML Proxy → Gluu Server oxAuth interception Script ( SAML Script) → SAML Proxy Discovery list of available AuthN servers → Selected AuthN server → Gluu Server oxAuth(acr_values) → back_in reverser_order
-
+```
+Service Provider → Gluu Server with SAML Proxy → Gluu Server oxAuth interception Script ( SAML Script) → Gluu Server Proxy Server Discovery page  → Selected AuthN server → Gluu Server oxAuth(acr_values) → back_in reverser_order
+```
 
 ## [Required items to configure Gluu SAML Proxy Server](#required-items)
 
