@@ -1,4 +1,4 @@
-# SAML Proxy Configuration and testing in Gluu Server 2.4.4
+# Gluu Server SAML Proxy configuration
 
 
 **Table of Contents**
@@ -62,7 +62,7 @@ To complete SAML Proxy configuration in Gluu Server we need to follow below:
     - ACS index: Yes
     - Send NameIDPolicy: Yes
     - Avoid Subject Confirmations: By default 'NO' 
-    - Here is a sample setup: ![Image]((https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/SAMLTrustRelationships/IDP_setup.png?raw=true)
+    - Here is a sample setup: ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/SAMLTrustRelationships/IDP_setup.png?raw=true)
   - For adding every IDP/AuthN server, administrator need to follow above steps.
   
 
