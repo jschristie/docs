@@ -80,10 +80,10 @@ To complete SAML Proxy configuration in Gluu Server we need to follow below:
       - Friendly Name: oxAuth SAML
       - Metadata URL: leave it blank
       - Metadata Timeout: -1
-      - Metadata File: Create a xml file with below snippet and upload new xml file.  
+      - Metadata File: Create a xml file with below snippet and upload new xml file. [ Replace 'hostname_of_gluu_server' with your own Gluu Server hostname ] 
 ```
 <!--Unsigned metadata for oxAuth-->
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://test.gluu.org/saml">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://hostname_of_gluu_server/saml">
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.gluu.org/oxauth/postlogin" index="0"/>
   </md:SPSSODescriptor>
