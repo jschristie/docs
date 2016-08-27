@@ -115,26 +115,28 @@ We need to enable 'saml' interception script.
     - Custom Properties ( Key/Value ): 
       - saml_deployment_type: enroll 
       - saml_name_identifier_format: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent [ This is the name identifier or nameID for SSO transactions ] 
-      - saml_idp_sso_target_url: https://test.gluu.org/asimba/profiles/saml2/sso/web [ Asimba discovery page which will allow end users to select their desired IDP for authentication ] 
+      - saml_idp_sso_target_url: https://hostname_of_gluu_server/asimba/profiles/saml2/sso/web [ Asimba discovery page which will allow end users to select their desired IDP for authentication ] 
       - saml_validate_response: false [ Specify if Saml script should valide Saml response signature. The path to IdP certificate should be specified in saml_certificate_file property. It's optional property. Default mode specify to validate Saml response. ] 
       - saml_use_authn_context: true [ Specify if Saml request should contains samlp:RequestedAuthnContext section. ] 
       - user_object_classes: eduPerson [ Define objectClasses which are required for enrollment other than 'top' and 'gluuPerson'. 'top' and 'gluuPerson' are default OCs shipped out of the box in Gluu Server ] 
       - saml_idp_attributes_list: urn:oid:0.9.2342.19200300.100.1.3, urn:oid:2.5.4.42, urn:oid:2.5.4.4, urn:oid:1.3.6.1.4.1.5923.1.1.1.6, urn:oid:0.9.2342.19200300.100.1.1 [ LDAP value of attributes which will be used in this SSO ] 
       - saml_local_attributes_list: mail, givenName, sn, edupersonprincipalname, uid [ Equivalent name of attributes which are enlisted in above idp_attributes_list ]
       - asimba_saml_certificate_file: /etc/certs/saml.pem [ SAML certificate of asimba server ] 
-      - asimba_entity_id: https://test.gluu.org/saml [ EntityID of SAML Issuer ] 
-      - enforce_uniqueness_attr_list: edupersonprincipalname
+      - asimba_entity_id: https://hostname_of_gluu_server/saml [ EntityID of SAML Issuer ] 
+      - enforce_uniqueness_attr_list: edupersonprincipalname 
     - Script: Grab script from [[https://github.com/GluuFederation/oxAuth/blob/master/Server/integrations/saml/SamlExternalAuthenticator.py|here]]
     - Sample interception script properties: ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/interception_scripts/saml_script_properties.png?raw=true)
 
 ### [Service Provide Trust Relationship](#sp-tr)
 
-Create Trust Relationship for every SP which will be connected in this SAML Proxy Single Sign On workflow. How to create Trust Relationship in Gluu Server is available here: https://gluu.org/docs/integrate/outbound-saml/#how-to-create-trust-relationship
+Create Trust Relationship for every SP which will be connected in this SAML Proxy Single Sign On workflow. How to create Trust Relationship in Gluu Server is available [here](https://gluu.org/docs/integrate/outbound-saml/#how-to-create-trust-relationship).
 
 ## [Gluu Asimba Extra Features](#extra-features)
 
   - Discovery
+If you want to allow your end users to select their own authentication server, the list of available IDPs can be shown in Discovery page. ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/discovery_page.png?raw=true)
   - Selector
+This feature 'automatically' forward users to specified Authentication server from service provider. As for example in below example user will automatically go to 'https://ce.gluu.info/idp/shibboleth' for authentication from 'https://ce.gluu.info/shibboleth' service provider. ![Image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/selector.png?raw=true)
 
 ## [Configure Gluu Server SAML Proxy ( Asimba server ) in Remote Authentication Server](#authn-server-tr)
 
