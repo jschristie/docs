@@ -3,7 +3,17 @@
 
 **Table of Contents**
 
-- [Required items to configure Gluu SAML Proxy Server](#required-items-to-configure-Gluu-SAML-Proxy-Server)
+- [Required items to configure Gluu SAML Proxy Server](#required-items)
+- [Attribute Release Policy](#attribute-release)
+- [Gluu Server Configuration](#gluu-server-configuration)
+  - [Asimba Configuration](#asimba-configuration)
+    - [Remote Authentication Server Configuration](#remote-authentication-server)
+    - [SP Requestor configuration](#sp-requestors)
+  - [Interception Script Configuration](#interception-script)
+  - [Service Provide Trust Relationship](#sp-tr)
+- [Gluu Asimba Extra Features](#extra-features)
+- [Configure Gluu Server SAML Proxy ( Asimba server ) in Remote Authentication Server](#authn-server-tr)
+- [Service Provider Configuration: Connect Gluu Server Shibboleth](#remote-sp-configuration)
 
 
 The whole workflow will be:
@@ -11,13 +21,13 @@ The whole workflow will be:
 Service Provider → Gluu Server with SAML Proxy → Gluu Server oxAuth interception Script ( SAML Script) → SAML Proxy Discovery list of available AuthN servers → Selected AuthN server → Gluu Server oxAuth(acr_values) → back_in reverser_order
 
 
-# Required items to configure Gluu SAML Proxy Server
+## [Required items to configure Gluu SAML Proxy Server] (#required-items)
 
   - Remote AuthN server metadata and SAML cert.
   - SP metadata. 
   - Required attributes for SAML AuthN and AuthZ
 
-=====Attribute Release Policy=====
+## [Attribute Release Policy](#attribute-release)
 
 Required attributes of SP are configured in three sections: 
   - In Interception Script Configuration: 
@@ -28,13 +38,13 @@ Required attributes of SP are configured in three sections:
   - From Remote AuthN Server ( IDP / ADFS ). 
   - 'transientID' is a default nameID in this whole scenario but other nameID can be configured as well. 
 
-=====Gluu Server Configuration=====
+## [Gluu Server Configuration](#gluu-server-configuration)
 
 To complete SAML Proxy configuration in Gluu Server we need to follow below: 
 
-====Asimba Configuration====
+### [Asimba Configuration](#asimba-configuration)
 
-===Remote AuthN Server Configuration===
+#### [Remote Authentication Server Configuration](#remote-authentication-server)
   - Log into Gluu Server oxTrust
   - SAML --> IDPs
   - 'Add IDPs'
@@ -56,7 +66,7 @@ To complete SAML Proxy configuration in Gluu Server we need to follow below:
   - For adding every IDP/AuthN server, administrator need to follow above steps.
   
 
-===SP Requestor configuration===
+#### [SP Requestor configuration](#sp-requestors)
 
   - Add 'oxAuth SAML' requestor. This requestor will act as SP in oxAuth interception script. 
   - Log into oxTrust
@@ -66,9 +76,9 @@ To complete SAML Proxy configuration in Gluu Server we need to follow below:
       - Friendly Name: oxAuth SAML
       - Metadata URL: leave it blank
       - Metadata Timeout: -1
-      - Metadata File: Create a xml file with below snippet and upload new xml file. <code> <!--
-   Unsigned metadata for oxAuth
--->
+      - Metadata File: Create a xml file with below snippet and upload new xml file.  
+```
+<!--Unsigned metadata for oxAuth-->
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://test.gluu.org/saml">
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.gluu.org/oxauth/postlogin" index="0"/>
@@ -88,10 +98,10 @@ To complete SAML Proxy configuration in Gluu Server we need to follow below:
       - 'Enabled': Yes
       - 'Signing': No
  
+```
+### [Interception Script Configuration](#interception-script)
 
-====Interception Script Configuration====
-
-We need to enabled 'saml' interception script. 
+We need to enable 'saml' interception script. 
 
   - Log into oxTrust
   - Configuration --> Manage Custom Script
@@ -117,18 +127,19 @@ We need to enabled 'saml' interception script.
     - Script: Grab script from [[https://github.com/GluuFederation/oxAuth/blob/master/Server/integrations/saml/SamlExternalAuthenticator.py|here]]
     - Sample interception script properties: {{ :asimba:saml_script_properties.png?600 |}}
 
-====Service Provide Trust Relationship====
+### [Service Provide Trust Relationship](#sp-tr)
 
 Create Trust Relationship for every SP which will be connected in this SAML Proxy Single Sign On workflow. How to create Trust Relationship in Gluu Server is available here: https://gluu.org/docs/integrate/outbound-saml/#how-to-create-trust-relationship
 
-=====Gluu Asimba Extra Features=====
+## [Gluu Asimba Extra Features](#extra-features)
 
   - Discovery
   - Selector
 
-=====Configure Gluu Server SAML Proxy ( Asimba server ) in Remote Authentication Server=====
+## [Configure Gluu Server SAML Proxy ( Asimba server ) in Remote Authentication Server](#authn-server-tr)
 
 We are using another Gluu Server as remote Authentication server. 
+
 Create Trust Relationship here with Gluu SAML Proxy Server.
   - Log into oxTrust
   - SAML --> Trust Relationship
@@ -142,6 +153,6 @@ Create Trust Relationship here with Gluu SAML Proxy Server.
     - Released attribute: Whichever is preferable and required for SSO. Here in test setup we are releasing eduPersonPrincipalName, First Name, Last Name, TransientID and Username. {{ :asimba:testgluuorgasimba.png?600 |}}
 
 
-======Service Provider Configuration: Connect Gluu Server Shibboleth======
+## [Service Provider Configuration: Connect Gluu Server Shibboleth](#remote-sp-configuration)
 
 This is just a standard Shibboleth SP configuration which will be configured as SP can talk to Gluu Server Shibboleth part. 
