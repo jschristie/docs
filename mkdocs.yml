@@ -6,6 +6,10 @@ docs_dir: sources
 repo_url: https://github.com/GluuFederation/docs
 theme: readthedocs
 theme_dir: ./theme/mkdocs/
+
+markdown_extensions:
+- admonition
+
 pages:
 
 - Home: 'index.md'
