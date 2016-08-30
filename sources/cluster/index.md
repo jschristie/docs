@@ -68,7 +68,7 @@ Enabling Replication Complete.
 [ldap@...]$
 ```
 
-* Initialize directory server replication with this command `/opt/opendj/bin/dsreplication initialize` and it will give the following output (some issues were reported for this step, resulting in "Invalid credentials" errors; in that case try to run the tool in console mode rather than interactive: `/opt/opendj/bin/dsreplication initialize-all --hostname 127.0.0.1 --port 4444 -I 'admin' -w 'GLOB_ADMIN_PASS' \
+* Initialize directory server replication with this command `/opt/opendj/bin/dsreplication initialize` and it will give the following output (some issues were reported for this step, resulting in "Invalid credentials" errors; in that case try to run the tool in console mode rather than interactive: `/opt/opendj/bin/dsreplication initialize-all --hostname 127.0.0.1 --port 4444 -I 'admin' -w 'REPLICATION_ADMIN_PASSWORD' \
 -b 'o=gluu' --trustAll --no-prompt`):
 
 ```
