@@ -313,7 +313,7 @@ Registration](http://openid.net/specs/openid-connect-registration-1_0.html)
 which efficiently pushes the task to the application developer. If you
 do not want to write an application to register your client, there are a
 few web pages around that can do the job for you. Gluu publishes the
-[oxAuth-RP](https://seed.gluu.org/oxauth-rp) and there is also another in [PHP
+[oxAuth-RP](https://ce-dev.gluu.org/oxauth-rp) and there is also another in [PHP
 RP](http://www.gluu.co/php-sample-rp).
 
 If you cannot get the developer to help themselves, or if your domain
@@ -337,18 +337,19 @@ new client.
 ![Add new client](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/oxTrust/admin_oauth2_newclient.png)
 
 * _Client Name:_ This contains the recognizable and unique display name
-  of the client.
+  of the client. The name of the Client to be presented to the End-User.
 
 * _Client Secret:_ This is the Data Encryption Standard scheme used by
-  Confidential Clients to authenticate the token endpoints. The value for
+  Confidential Clients to authenticate to the token endpoint. The value for
   the secret can be inserted manually, but it is highly recommended to use
   the Dynamic Client Registration Endpoint. The Gluu oxAuth provides a
   random, generated Client Secret in the Dynamic Client Registration
   procedure.
 
 * _Application Type:_ There are two types of applications, Web and
-  Native. The different configuration for the different application types
-  are given below.
+  Native. The default, if omitted, is web when using the Dynamic
+  Client Registration Endpoint. The different configuration for the
+   different application types are given below.
 
 	* _Web:_ The Dynamic Client Registration is the default for web. In
     this type the redirect_uri for implicit grant type must be a real
@@ -362,54 +363,124 @@ new client.
     the client secret between itself and the authorization server.
 
 * _Pre Authorization:_ The Gluu Server disables this option by default,
-but it is possible to allow the users to access any URL according to the
-Organization Policy by the Gluu Server administrator.
+  but it is possible to allow pre-authorized Client Applications according to the
+  Organization Policy by the Gluu Server administrator.
 
-* _Logo URI:_ The logo for the client application
+* _Logo URI:_ The URL of the logo for the client application.
+  If present, the server will display this image to the End-User during approval.
 
-* _Client URI:_ The home page for the client
+* _Client URI:_ The URL of the home page of the client.
 
-* _Policy URI:_ The URI for the client policy 
+* _Policy URI:_ URL that the Relying Party Client provides to the End-User to read about
+  the how the profile data will be used. The value of this field must point
+  to a valid web page. The OpenID Provider will display this URL to the End-User if it is given.
 
-* _Terms of Service URI:_ The conditions for the client
+* _Terms of Service URI:_ URL that the Relying Party Client provides to the End-User to
+  read about the Relying Party's terms of service. The value of this field must point to
+  a valid web page. The OpenID Provider will display this URL to the End-User if it is given.
 
-* _JWKS URI:_ The URL for the Client's JSON Web Key Set
+* _JWKS URI:_ The URL for the Client's JSON Web Key Set document.
+  If the Client signs requests to the Server, it contains the signing key(s) the Server uses to
+  validate signatures from the Client. The JWK Set may also contain the Client's encryption keys(s),
+  which are used by the Server to encrypt responses to the Client.
+  When both signing and encryption keys are made available, a use (Key Use) parameter value is
+  required for all keys in the referenced JWK Set to indicate each key's intended usage.
+  Although some algorithms allow the same key to be used for both signatures and encryption,
+  doing so is NOT RECOMMENDED, as it is less secure.
+  
+* _JWKS:_ Client's JSON Web Key Set document, passed by value.
+  The semantics of the jwks parameter are the same as the jwks_uri parameter, other than that the
+  JWK Set is passed by value, rather than by reference.
+  This parameter is intended only to be used by Clients that, for some reason, are unable to use
+  the jwks_uri parameter, for instance, by native applications that might not have a location to
+  host the contents of the JWK Set.
+  If a Client can use jwks_uri, it must not use jwks. One significant downside of jwks is that it
+  does not enable key rotation (which jwks_uri does).
+  The jwks_uri and jwks parameters MUST NOT be used together.
 
-* _Sector Identifier URI:_ The Sector Identifier URL
+* _Sector Identifier URI:_ URL using the https scheme to be used in calculating Pseudonymous
+  Identifiers by the OP.
+  The URL references a file with a single JSON array of redirect_uri values.
+  Providers that use pairwise sub (subject) values should utilize the sector_identifier_uri
+  value provided in the Subject Identifier calculation for pairwise identifiers.
+  
+* _Subject Type:_ The subject type requested for responses to this Client.
+  The subject_types_supported Discovery parameter contains a list of the
+  supported subject_type values for this server. Valid types include pairwise and public.
 
-* _JWS alg Algorithm for signing the ID Token:_ The algorithm to sign the ID token. See available algorithms
+* _JWS alg Algorithm for signing the ID Token:_ JWS alg algorithm for signing the ID Token issued to this Client.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWE alg Algorithm for encrypting the ID Token:_ See [Algorithms section](#algorithm) for options
+* _JWE alg Algorithm for encrypting the ID Token:_ JWE alg algorithm for encrypting the ID Token issued to this Client.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWE enc Algorithm for encrypting the ID Token:_ See [Algorithms section](#algorithm) for options
+* _JWE enc Algorithm for encrypting the ID Token:_ JWE enc algorithm for encrypting the ID Token issued to this Client.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWS alg Algorithm for signing the UserInfo Responses:_ If this is specified, the response will be JWT serialized, and signed using JWS. The default, if omitted, is for the UserInfo Response to return the Claims as a UTF-8 encoded JSON object using the application/json content-type. See [Algorithms section](#algorithm) for options
+* _JWS alg Algorithm for signing the UserInfo Responses:_ JWS alg algorithm for signing UserInfo Responses.
+  If this is specified, the response will be JWT serialized, and signed using JWS.
+  The default, if omitted, is for the UserInfo Response to return the Claims as a UTF-8 encoded JSON object
+  using the application/json content-type.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWS alg Algorithm for encrypting the UserInfo Responses:_ See [Algorithms section](#algorithm) for options
+* _JWS alg Algorithm for encrypting the UserInfo Responses:_  JWE alg algorithm for encrypting UserInfo Responses.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWE enc Algorithm for encrypting the UserInfo Responses:_ See [Algorithms section](#algorithm) for options
+* _JWE enc Algorithm for encrypting the UserInfo Responses:_ JWE enc algorithm for encrypting UserInfo Responses. 
+  See [Algorithms section](#algorithm) for options.
 
-* _JWS alg Algorithm for signing Request Objects:_ See [Algorithms section](#algorithm) for options
+* _JWS alg Algorithm for signing Request Objects:_ JWS alg algorithm used for signing Request Objects sent to the OP.
+  This algorithm is used both when the Request Object is passed by value (using the request parameter) and when it is
+  passed by reference (using the request_uri parameter).
+  The default, if omitted, is that any algorithm supported by the OP and the RP can be used.
+  The value none can be used.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWE alg Algorithm for encrypting Request Objects:_ See [Algorithms section](#algorithm) for options
+* _JWE alg Algorithm for encrypting Request Objects:_ JWE alg algorithm the RP is declaring that it use for
+  encrypting Request Objects sent to the OP.
+  See [Algorithms section](#algorithm) for options.
 
-* _JWE enc Algorithm for encrypting Request Objects:_ See [Algorithms section](#algorithm) for options
+* _JWE enc Algorithm for encrypting Request Objects:_ JWE enc algorithm the RP is declaring that it may use for
+  encrypting Request Objects sent to the OP.
+  See [Algorithms section](#algorithm) for options.
 
-* _Authntication method for the Token Endpoint:_ The authentication method can be `client_secret_basic, client_secret_post, client_secret_jwt, private_key_jwt, none`
+* _Authentication method for the Token Endpoint:_ Requested Client Authentication method for the Token Endpoint.
+  The options are client_secret_post, client_secret_basic, client_secret_jwt, private_key_jwt, and none.
+  If omitted, the default is client_secret_basic, the HTTP Basic Authentication Scheme.
 
-* _JWS alg Algorithm for Authentication method to Token Endpoint:_ See [Algorithms section](#algorithm) for options
+* _JWS alg Algorithm for Authentication method to Token Endpoint:_ JWS alg algorithm used for signing the JWT
+  used to authenticate the Client at the Token Endpoint for the private_key_jwt and client_secret_jwt
+  authentication methods. The value none cannot be used.
+  The default, if omitted, is that any algorithm supported by the OP and the RP can be used.
+  See [Algorithms section](#algorithm) for options.
 
-* _Default Maximum Authentication Age:_ Enter validity of authntication in seconds
+* _Default Maximum Authentication Age:_ Specifies that the End-User must be actively authenticated if the End-User was
+  authenticated longer ago than the specified number of seconds.
+  If omitted, no default Maximum Authentication Age is specified.
 
-* _Require Auth Time:_ The requirement for authentication time
+* _Require Auth Time:_ Specifies whether the auth_time Claim in the ID Token is required.
+  If omitted, the default value is false.
 
-* _Persist Client Authorizations*:_ The options are `true, false`
+* _Persist Client Authorizations*:_ Specifies whether to persist user authorizations.
 
-* _Initiate Login URI:_ The https scheme that can be used by third party to initiate login by RP
+* _Initiate Login URI:_ URI using the https scheme that a third party can use to initiate a login by the RP.
 
-* _Logout URI:_ The logout URL
+* _Request URIs:_ Array of request_uri values that are pre-registered by the RP for use at the OP.
+   The Server cache the contents of the files referenced by these URIs and not retrieve them at
+   the time they are used in a request.
+   If the contents of the request file could ever change, these URI values should include the base64url
+   encoded SHA-256 hash value of the file contents referenced by the URI as the value of the URI fragment.
+   If the fragment value used for a URI changes, that signals the server that its cached value for that URI
+   with the old fragment value is no longer valid. 
 
-* _Logout Session Required*:_ The options are `true, false`
+* _Logout URIs:_ Redirect logout URLs supplied by the RP to which it can request that the End-User's
+  User Agent be redirected using the post_logout_redirect_uri parameter after a logout has been performed.
+
+* _Logout Session Required*:_ Specifies whether the RP requires that a sid (session ID) query parameter
+  be included to identify the RP session at the OP when the logout_uri is used.
+  If omitted, the default value is false.
+
+* _Client Secret Expires:_ Time at which the client will expire or 0 if it will not expire.
 
 **Buttons at the bottom**
 
