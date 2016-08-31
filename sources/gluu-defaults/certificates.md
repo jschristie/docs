@@ -36,7 +36,7 @@ For example, follow these steps in order to update the Apache SSL cert:
   - Import this DER into java keystore (cacerts), command: `keytool -importcert -file httpd.der -keystore cacerts -alias <hostname_of_your_Gluu_Server>_httpd`
 - restart LDAP server, apache2/httpd and tomcat.
 
-You may find more info on certificates Gluu CE uses, as well as detailed steps to update them, in [this article](../further-reading/cert-full-update-procedures.md)
+You may find more info on certificates Gluu CE uses, as well as detailed steps to update them, in [this article](../how-to/update-certificate.md)
 
 ### Installing Intermediate Certificates
 

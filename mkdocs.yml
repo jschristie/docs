@@ -1,6 +1,6 @@
 site_name: Gluu Docs
 site_description: Documenation for the Gluu Server
-#site_favicon: '/img/gluu_favicon.ico'
+site_favicon: '/img/gluu_favicon.ico'
 copyright: Copyright &copy; 2014, Gluu, Inc.
 docs_dir: sources
 repo_url: https://github.com/GluuFederation/docs
@@ -69,7 +69,7 @@ pages:
     - 'Protect SCIM endpoints with UMA': 'integrate/scimuma-howto.md'
     - 'Lock User on Failed Attempt': 'user-management/lock-user.md'
     - 'Configure UMA': 'how-to/uma-demo.md'
-
+    - 'Update Gluu Server Certificates': 'how-to/update-certificate.md'
 - Customize Gluu Server: 
     - 'Design Customization': 'customize/design.md'
     - 'Behaviour Customization': 'customize/script.md'
@@ -107,7 +107,6 @@ pages:
     - 'Gluu Policy': 'gluu-defaults/policy.md'
     - 'Configurations': 'gluu-defaults/config.md'
     - 'Certificates': 'gluu-defaults/certificates.md'
-    - 'Certificates: Further Reading': 'further-reading/cert-full-update-procedures.md'
     - 'LDAP': 'gluu-defaults/ldap.md'
     - 'Logout': 'gluu-defaults/logout.md'
     - 'Schema': 'gluu-defaults/schema.md'
