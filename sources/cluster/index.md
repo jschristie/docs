@@ -18,7 +18,7 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 
 ## Preparing VMs
 
-* Install Gluu CE following the [Deployment Page](../deployment/index.md) in `host-1`
+* Install Gluu CE following the [Deployment Page](../deployment/index.md) in `host-1`. Please note you must provide hostname of the cluster itself to `setup.py` script (`idp.gluu.org` in this example), not hostnames of individual nodes!
 
 * <sub>*`(!)`Please note: you must do this step right after initial installation on the 2nd node, but before you'll run setup.py script there`(!)`*</sub> Copy `setup.properties.last` that will be generated in `/install/community-edition-setup/` right after `setup.py`'s completion on `host-1`, change IP address in it to the one of `host-2` and put it into the same directory of `host-2` while renaming the file to `setup.properties`, then run `setup.py` the usual way. As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run `# ./setup.py -h` for full list of them) Please be sure to read [this part](./index.md#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup the 2nd node using `setup.properties.last` file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.
 
