@@ -173,7 +173,7 @@ In case you've compiled csync from sources you may opt to just run `# make cert`
 ::1             ip6-localhost ip6-loopback
 ff02::1         ip6-allnodes
 ff02::2         ip6-allrouters
-192.168.6.1     idp1.gluu.org
+192.168.6.1     idp.gluu.org idp1.gluu.org
 192.168.6.2     idp2.gluu.org  
 ```
 <ol start ="6">
@@ -290,7 +290,7 @@ In case you've compiled csync from sources you may opt to just run `# make cert`
 ff02::1         ip6-allnodes
 ff02::2         ip6-allrouters
 192.168.6.1     idp1.gluu.org
-192.168.6.2     idp2.gluu.org
+192.168.6.2     idp.gluu.org idp2.gluu.org
 ```
 
 <ol start ="5">
