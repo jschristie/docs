@@ -87,4 +87,4 @@ Install the `json-merge` Python package and run the import script.
 # ./import244.py backup_24
 ```
 
-Any error or warning will be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place.
+Any error or warning will be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place. After the completion of import, stop/start 2.4.4 container one more time. 
