@@ -61,11 +61,10 @@ Enter the required information for the setup and complete the installation.
 Go to the folder where you have the `backup_24` folder (if the above commands were followed, it is in /root/) and  get the necessary scripts.
 
 ```
-# cd ~
 
-# wget https://raw.githubusercontent.com/GluuFederation/community-edition-setup/master/static/scripts/import24.py
+# wget -c https://raw.githubusercontent.com/GluuFederation/community-edition-setup/master/static/scripts/import244.py
 
-# wget https://raw.githubusercontent.com/GluuFederation/community-edition-setup/master/ldif.py
+# wget -c https://raw.githubusercontent.com/GluuFederation/community-edition-setup/master/ldif.py
 ```
 
 Install the `python-pip` package using your package manager.
@@ -83,9 +82,9 @@ Install the `json-merge` Python package and run the import script.
 ```
 # pip install jsonmerge
 
-# chmod +x import24.py
+# chmod +x import244.py
 
-# ./import24.py backup_24
+# ./import244.py backup_24
 ```
 
 Any error or warning will be displayed in the terminal or can be seen in the import log generated. Now the admin should be able to log into the oxTrust web-UI with the old admin credentials and see all previous data in place.
