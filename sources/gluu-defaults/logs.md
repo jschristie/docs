@@ -10,15 +10,49 @@ Gluu Server logs can be found in the following locations:
 Gluu Server logs use the log4j logging levels which can be changed in the `log4j.xml` file under the `/opt/tomcat/webapps/oxauth/WEB-INF/classes` folder.
 The available logging levels are :
 
-!Level!Description!
-!-----!-----------!
-!ALL!All log levels are documented!
-!DEBUG!Detailed events useful to debug application!
-!ERROR!Errors are documented!
-!INFO!Logs informational messages as the application runs!
-!OFF!No logs are recorded!
-!TRACE!Logs detailed events; more than DEBUG!
+|Level|Description|
+|-----|-----------|
+|ALL|All log levels are documented|
+|DEBUG|Detailed events useful to debug application|
+|ERROR|Errors are documented|
+|INFO|Logs informational messages as the application runs|
+|OFF|No logs are recorded|
+|TRACE|Logs detailed events; more than DEBUG|
 
+As mentioned above the `log4j.xml` contains the log levels. Open the file using the command below
+
+```
+# vi /opt/tomcat/webapps/oxauth/WEB-INF/classes/log4j.xml
+```
+
+The log leves are defined under the ` <level value=" " />` tags which can be changed to one of the above from the table. The following section is taken from a live Gluu Server `log4j.xml` file showing different log levels for different logs. The changes made this section will reflect in the logs.
+```
+ <logger name="org.xdi.oxauth.service.status.ldap" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="OX_PERSISTENCE_LDAP_STATISTICS_FILE" />
+    </logger>
+
+    <logger name="org.xdi.service.PythonService" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="OX_SCRIPT_LOG_FILE" />
+    </logger>
+
+    <logger name="org.xdi.service.custom.script" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="OX_SCRIPT_LOG_FILE" />
+    </logger>
+
+    <logger name="org.xdi.oxauth.service.custom" additivity="false">
+        <level value="TRACE"/>
+        <appender-ref ref="OX_SCRIPT_LOG_FILE" />
+    </logger>
+```
+
+Please restart `tomcat` after any change in log levels to allow the changes to take effect. Use the following command to restart tomcat:
+
+```
+# service tomcat restart
+```
 #### System logs 
 - For Ubuntu: `/var/log/syslog`
 - For RPM based systems: `/var/log/messages`
