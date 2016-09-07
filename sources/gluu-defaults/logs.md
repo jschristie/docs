@@ -6,6 +6,19 @@ The Gluu Server administrator can investigate logs from the oxTrust [View Logs](
 
 Gluu Server logs can be found in the following locations:
 
+## Log Levels
+Gluu Server logs use the log4j logging levels which can be changed in the `log4j.xml` file under the `/opt/tomcat/webapps/oxauth/WEB-INF/classes` folder.
+The available logging levels are :
+
+!Level!Description!
+!-----!-----------!
+!ALL!All log levels are documented!
+!DEBUG!Detailed events useful to debug application!
+!ERROR!Errors are documented!
+!INFO!Logs informational messages as the application runs!
+!OFF!No logs are recorded!
+!TRACE!Logs detailed events; more than DEBUG!
+
 #### System logs 
 - For Ubuntu: `/var/log/syslog`
 - For RPM based systems: `/var/log/messages`
