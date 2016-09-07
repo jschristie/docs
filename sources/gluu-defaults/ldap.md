@@ -18,23 +18,23 @@ Refresh feature.
 The following table has a list of all the major branches of the tree
 under `o=gluu`:
 
-| base DN                                  | Description                                               |
-| ---------------------------------------- | --------------------------------------------------------- |
-| ou=appliances,o=gluu                     | oxTrust configuration information for the instance        |
-| o=1234,o=gluu                            | organization entry, IPv6 style id by default              |
-| ou=people,o=1234,o=gluu                  | User entities                                             |
-| ou=groups,o=1234,o=gluu                  | Group entities                                            |
-| ou=clients,o=1234,o=gluu                 | OAuth2 client entities                                    |
-| ou=attributes,o=1234,o=gluu              | Attribute or user claim metadata                          |
-| ou=scopes,o=1234,o=gluu                  | Oauth2 scope entities                                     |
-| ou=session,o=1234,o=gluu                 | oxAuth Session data (if persistent sessions are enabled)  |
-| ou=uma,o=1234,o=gluu                     | UMA policies, scopes, and resource sets                   |
-| ou=push,o=1234,o=gluu                    | Mobile device metadata used by oxPush                     |
-| ou=federation,o=1234,o=gluu              | OAuth2 federation metadata                                |
-| ou=oxProx,o=1234,o=gluu                  | oxProx configuration data                                 |
-| oxAuthGrantId=grantId,inum=clientId,ou=clients,o=1234,o=gluu | Granted tokens |
-| ou=pairwiseIdentifiers,inum=personId,ou=people,o=1234,o=gluu | Pairwise Identifier for each Sector Identifier |
-|
+| base DN                       | Description						|
+| ------------------------------| ------------------------------------------------------|
+| o=gluu                        | organization entry, IPv6 style id by default          |
+| @!.....			| Basic info with inum 					|
+| ou=clients	                | OAuth2 client entities                                |
+| ou=federation	                | OAuth2 federation metadata                            |
+| ou=groups	      	        | Group entities                                        |
+| ou=hosts  			| Hosts							|
+| ou=oxasimba			| Asimba configuration is stored in this branch		|
+| ou=oxProx	 		| oxProx configuration data				|
+| ou=people	                | User entities                                         |
+| ou=push			| Mobile device metadata used by oxPush			|
+| ou=scopes			| Oauth2 scope entities					|
+| ou=scripts			| Custom scripts are stored in this branch		|
+| ou=session			| oxAuth Session data (if persistent sessions are enabled)|
+| ou=u2f			| The U2F authentication requests, registration requests and registered devices are stored in this branch|
+| ou=uma			| UMA policies, scopes, and resource sets 		|
 
 # LDAP Configuration
 
