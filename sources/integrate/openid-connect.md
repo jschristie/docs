@@ -513,6 +513,17 @@ The `acr_values` parameter is used to specify the use of specific multi-factor a
 
 **Supported ACR Values in Client Registration: "u2f", "duo", "basic", "mt", "oxpush2", "gplus", "internal"**
 
+The ACR value dictates the authorization server to use the specific authorization server to process the request. The values appear in order of preference and the successful authentication is sent as the acr claim value in the issued ID Token. The table below explains the acr values. Please click on the description to navigate to enabling the specific authentication guide for Gluu Server.
+
+|  ACR Value  	| Description			|
+|---------------|-------------------------------|
+|  u2f		| [FIDO U2F Device](../multi-factor/u2f)|
+|  duo		| [Duo soft-token authentication](../multi-factor/duo)|
+|  basic	| Username/Password authentication from LDAP Server|
+|  oxpush2	| [Multi-factor authentication](../multi-factor/oxpush2)|
+|  gplus	| [Google+ authentication](../customize/social-login-google)|
+|  internal	| Use Gluu Server LDAP to authenticate users|
+
 ### Algorithm
 oxAuth supports various types of signature and encryption
 algorithms for authorizing request parameter passing, ID token signature
