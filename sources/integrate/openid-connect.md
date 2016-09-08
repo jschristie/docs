@@ -111,7 +111,7 @@ Content-Type: application/json
         "implicit",
         "urn:ietf:params:oauth:grant-type:jwt-bearer"
     ],
-    "acr_values_supported": ["internal"],
+    "acr_values_supported": [""u2f", "duo", "basic", "mt", "oxpush2", "gplus", "internal"],
     "auth_level_mapping": {"-1": [["internal"]]},
     "subject_types_supported": [
         "public",
@@ -504,9 +504,14 @@ new client.
 
 * _Add Contact:_ Use this option to add the email address for the Client contact
 
-* _Add Default ACR value:_ Use this option to define the default ACR Value
+* _Add Default ACR value:_ Use this option to define the default ACR Value. This value is used to include multi-factor authentication in registered clients.
 
 * _Add Request URI:_ Use this option to add the Request URI
+
+### Multi-Factor Authentication for Clients
+The `acr_values` parameter is used to specify the use of specific multi-factor authentication for each client. If a scenario is presented where different clients use different authentication mechanism, then the `acr_value` parameter is used to specify the choice. The supported authentication modes are U2F, DUO, Basic, oxPush/SuperGluu, Google+ and internal LDAP. While registering new clients, put the mode in `Add Default ACR value` to chosen mechanism. The authentication mechanism must be enabled in the `Custom Scripts` section as well.
+
+**Supported ACR Values in Client Registration: "u2f", "duo", "basic", "mt", "oxpush2", "gplus", "internal"**
 
 ### Algorithm
 oxAuth supports various types of signature and encryption
