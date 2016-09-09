@@ -12,6 +12,8 @@ Backup all your current certificates, keys and java key storages that may be aff
 (if you use Gluu CE older than 2.4 you should update to current version)
 2. Backup everything under `/etc/certs/` directory, then also backup your container's default java key storage (`cacerts` file); it can be located under `/etc/ssl/certs/java/` for Ubuntu- and Debian-based container, and under `/etc/pki/java/` for CentOS- and RHEL-based containers. It also usually has symbolic link insalled for it, which is the same for both families: `/usr/java/latest/lib/security/cacerts`
 
+In order to have the new cert used for anything in oxtrust, i.e. anything hitting `/identity` and `/oxauth` you only need to follow the steps for [updating the Apache web server](#apache-web-server-certificate-update-process).
+
 ## Default JVM Keystore
 
 Java programs making SSL connections to an external server may use the default JVM truststore, `/usr/java/latest/lib/security/cacerts`, to establish trust for certificates they are presented with. During installation, `setup.py` generates self-signed certificates for all components and adds them to the `cacerts` truststore.
