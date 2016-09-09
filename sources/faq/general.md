@@ -33,16 +33,16 @@ A better approach might be to write a standalone application that calls the SCIM
 ## How do I properly reboot my Gluu Server?
 Follow these instructions to properly reboot your Gluu Server:
 
-1. Stop Gluu Server container first:    
-   a) For CentOS 6.x / RHEL6.x / Ubuntu 14.04: service gluu-server-2.x.x stop     
-   b) For CentOS 7.x / RHEL7.x: /sbin/gluu-server-2.x.x stop      
-2. Reboot the server.    
+1. Stop Gluu Server container first:    
+   a) For CentOS 6.x / RHEL6.x / Ubuntu 14.04: `service gluu-server-2.x.x stop`        
+   b) For CentOS 7.x / RHEL7.x: `/sbin/gluu-server-2.x.x stop`       
+2. Reboot the server    
 3. After return, check if Gluu Server container started or not:     
-   a) For CentOS 6.x / RHEL6.x / Ubuntu 14.04: gluu-server-2.x.x status    
-   b) For CentOS 7.x / RHEL7.x: /sbin/gluu-server-2.x.x status     
-4. If the Gluu Server didn't start, start it:     
-   a) For CentOS 6.x / RHEL6.x / Ubuntu 14.04: service gluu-server-2.x.x start     
-   b) For CentOS 7.x / RHEL7.x: /sbin/gluu-server-2.x.x start     
+   a) For CentOS 6.x / RHEL6.x / Ubuntu 14.04: `gluu-server-2.x.x status`    
+   b) For CentOS 7.x / RHEL7.x: `/sbin/gluu-server-2.x.x status`     
+4. If the Gluu Server didn't start, start it:     
+   a) For CentOS 6.x / RHEL6.x / Ubuntu 14.04: `service gluu-server-2.x.x start`     
+   b) For CentOS 7.x / RHEL7.x: `/sbin/gluu-server-2.x.x start`           
 5. Wait 10 mins while the server is prepared. Check the login from your web browser.     
 
 ## How do I perform matinenace on my Gluu Server?
