@@ -57,6 +57,15 @@ of the installation. As an alternative you may check the file
 `setup_errors.log` to just see the errors (or stderr output from the
 scripts).
 
+## Removing/disabling Gluu repo
+
+After initial installation is completed, it's recommended to remove Gluu
+repos from sources list so you won't inadvertently upgrade your Gluu package by
+conducting regular system's update procedures (like, by running `# yum update`)
+
+Either remove `/etc/apt/sources.list.d/gluu-repo.list` file, or modify it
+commenting out lines declaring Gluu CE's repos there.
+
 ## Starting and Stopping the Gluu Server
 
 You can start the Gluu Server with this command:
