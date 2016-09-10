@@ -61,7 +61,7 @@ scripts).
 
 After initial installation is completed, it's recommended to remove Gluu
 repos from sources list so you won't inadvertently upgrade your Gluu package by
-conducting regular system's update procedures (like, by running `# yum update`)
+conducting regular system's update procedures (like, by running `# apt-get update`)
 
 Either remove `/etc/apt/sources.list.d/gluu-repo.list` file, or modify it
 commenting out lines declaring Gluu CE's repos there.
