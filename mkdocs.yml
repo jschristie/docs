@@ -85,14 +85,15 @@ pages:
     - 'SCIM 2.0': 'api/scim-2.0.md'
  
 - SP / RP Integration Modules:
+    - 'oxd OAuth2 Client Software ': 'integrate/oxd.md'
+    - 'OpenID Connect RP in Ubuntu': 'integrate/ubuntu-installation.md'
+    - 'OpenID Connect RP in CentOS': 'integrate/centos-installation.md'
+    - 'OpenID Connect Liferay Plugin': 'integrate/oxray.md'
     - 'SAML SP in CentOS': 'integrate/apache-saml.md'
     - 'SAML SP in Ubuntu': 'integrate/ubuntu-shib-apache.md'
     - 'SAML SP in IIS7': 'integrate/iis-saml.md'
     - 'SAML SP in Windows': 'integrate/saml-windows.md'
-    - 'OpenID Connect RP in Ubuntu': 'integrate/ubuntu-installation.md'
-    - 'OpenID Connect RP in CentOS': 'integrate/centos-installation.md'
-    - 'OpenID Connect Liferay Plugin': 'integrate/oxray.md'
-    - 'OXD Server': 'integrate/oxd.md'
+
 - Integration Guides:
     - 'Google SSO': 'integrate/google-saml.md'
     - 'Office 365 SSO': 'integrate/office365.md'
