@@ -225,10 +225,12 @@ appear:
   3. Photo
   4. Date
 
-* _Edit Type:_ This field defines the user who has access to edit the
-  specific attributes.
+* _Edit Type:_ This field controls which type of an user is allowed to edit
+  corresponding attribute at his/her "Profile" page of the web UI (when feature
+"User can edit own profile" is enabled).
 
-* _View Type:_ This field defines the user who can view this attribute.
+* _View Type:_ This field controls which type of an user is allowed to view
+  corresponding attribute at his/her "Profile" page of the web UI.
 
 * _Privacy Level:_ Please select the desired privacy level from the
   drop-down menu. The privacy level has a specific range of 1 to 5.
