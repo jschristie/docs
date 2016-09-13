@@ -16,8 +16,7 @@ Some helpful definitions:
   User-Managed Access. This is typically an end-user (a natural person)
   but it can also be a corporation or other legal person.   
 - *Resource Server (RS)*: Where the resources are held.    
-- *Authorization Server (AS)*: A server that governs access based on  
-  resource owner policies.    
+- *Authorization Server (AS)*: A server that governs access based on resource owner policies.     
 - *Requesting Party (RP)*: An end-user, or a corporation or other legal
   person, that uses a client to seek access to a protected resource. The
   requesting party may or may not be the same party as the resource owner.    
