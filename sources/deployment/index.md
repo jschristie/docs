@@ -68,6 +68,9 @@ The following ports need to stay open for the Gluu Server to run. Please keep th
 |	80		|	tcp		|
 |	443		|	tcp		|
 
+## Disable SELinux
+* Configure SELINUX=disabled in the /etc/selinux/config file.
+* Reboot your system. After reboot, confirm that the __getenforce__ command returns __Disabled__.
 # Cloud Specific Requirements
 ## Amazon AWS
 Amazon AWS provides a public and private IP address to its clouds. While
