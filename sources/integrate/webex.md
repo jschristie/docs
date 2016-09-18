@@ -115,4 +115,7 @@ Add below snippets in 'attribute-resolver.xml.vm' ( location: /opt/tomcat/conf/s
                                    nameFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"/>
     </resolver:AttributeDefinition>
 ```
+- Restart tomcat
+
+
 ### Trust Relationship
