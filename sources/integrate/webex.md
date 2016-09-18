@@ -43,5 +43,18 @@
   - SCIM Attribute: False
   - Description: Custom attribute for WebEX SSO, pulling 'givenname' from backend. 
   - ![wxfirstname](https://raw.githubusercontent.com/docs/sources/img/SAMLTrustRelationships/webex_wxfirstname.png)
+- 'wxlastname'
+  - Name: lastname_webex
+  - SAML1 URI: lastname
+  - SAML2 URI: lastname
+  - Display Name: wxlastname
+  - Type: Text
+  - Edit Type: admin
+  - View Type: admin + user
+  - Usage Type: Not defined
+  - Multivalued: False
+  - SCIM Attribute: False
+  - Description: Custom attribute for WebEX SSO, pulling 'sn' from backend. 
+  - ![wxlastname](https://raw.githubusercontent.com/docs/sources/img/SAMLTrustRelationships/webex_wxlastname.png)
 
 ### Trust Relationship
