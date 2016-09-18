@@ -28,6 +28,6 @@
   - Multivalue: False
   - SCIM Attribute: False
   - Description: Custom attribute for WebEX SSO. Pulling email from backend. 
-  - 
+  - ![wxemail](https://raw.githubusercontent.com/docs/sources/img/SAMLTrustRelationships/webex_wxemail.png)
 
 ### Trust Relationship
