@@ -25,9 +25,23 @@
   - Type: Text
   - Edit type: admin
   - View type: admin + user
+  - Usage type: Not defined
   - Multivalue: False
   - SCIM Attribute: False
   - Description: Custom attribute for WebEX SSO. Pulling email from backend. 
   - ![wxemail](https://raw.githubusercontent.com/docs/sources/img/SAMLTrustRelationships/webex_wxemail.png)
+- 'wxfirstname'
+  - Name: firstname_webex
+  - SAML1 URI: firstname
+  - SAML2 URI: firstname
+  - Display Name: wxfirstname
+  - Type: Text
+  - Edit Type: admin
+  - View Type: admin + user
+  - Usage Type: Not defined
+  - Multivalued: False
+  - SCIM Attribute: False
+  - Description: Custom attribute for WebEX SSO, pulling 'givenname' from backend. 
+  - ![wxfirstname](https://raw.githubusercontent.com/docs/sources/img/SAMLTrustRelationships/webex_wxfirstname.png)
 
 ### Trust Relationship
