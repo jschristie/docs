@@ -4,6 +4,8 @@
 
 ### Attributes
 
+#### Attribute creation with oxTrust
+
 - 'WebexNameID'
   - Name: webexnameid
   - SAML1 URI: urn:gluu:dir:attribute-def:webexnameid
@@ -70,4 +72,47 @@
   - Description: Custom attribute for WebEX SSO, pulling 'uid' from backend. 
   - ![wxuid](https://raw.githubusercontent.com/docs/sources/img/SAMLTrustRelationships/webex_wxuid.png)
 
+
+#### Configuring attribute resolver
+
+Add below snippets in 'attribute-resolver.xml.vm' ( location: /opt/tomcat/conf/shibboleth2/idp )
+
+- Attribute definition: 
+```
+#if( ! ($attribute.name.equals('transientId') or $attribute.name.equals('webexnameid') or $attribute.name.equals('webexnameidmail') or $attribute.name.equals('firstname_webex') or $attribute.name.equals('uid_webex') or $attribute.name.equals('lastname_webex') or $attribute.name.equals('email_webex')  ) )
+```
+
+- Attribute declaration: 
+
+```
+<resolver:AttributeDefinition xsi:type="ad:Simple" id="firstname_webex" sourceAttributeID="firstname_webex">
+        <resolver:Dependency ref="siteLDAP" />
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" name="firstname" />
+    </resolver:AttributeDefinition>
+
+<resolver:AttributeDefinition xsi:type="ad:Simple" id="uid_webex" sourceAttributeID="uid_webex">
+        <resolver:Dependency ref="siteLDAP" />
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" name="uid" />
+    </resolver:AttributeDefinition>
+
+<resolver:AttributeDefinition xsi:type="ad:Simple" id="lastname_webex" sourceAttributeID="lastname_webex">
+        <resolver:Dependency ref="siteLDAP" />
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" name="lastname" />
+    </resolver:AttributeDefinition>
+
+<resolver:AttributeDefinition xsi:type="ad:Simple" id="email_webex" sourceAttributeID="email_webex">
+        <resolver:Dependency ref="siteLDAP" />
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified" name="email" />
+    </resolver:AttributeDefinition>
+
+    <resolver:AttributeDefinition id="webexnameid"
+                                      xsi:type="Simple"
+                                      xmlns="urn:mace:shibboleth:2.0:resolver:ad"
+                                      sourceAttributeID="uid">
+        <resolver:Dependency ref="siteLDAP" />
+        <resolver:AttributeEncoder xsi:type="SAML2StringNameID"
+                                   xmlns="urn:mace:shibboleth:2.0:attribute:encoder"
+                                   nameFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"/>
+    </resolver:AttributeDefinition>
+```
 ### Trust Relationship
