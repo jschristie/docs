@@ -31,9 +31,9 @@ pages:
     - 'Setup Script Options': 'deployment/setup_py.md'
     - 'Microsoft Azure Guide': 'deployment/azure.md'
     - 'Linode VM Guide': 'deployment/linode.md'
-- Upgrade Gluu CE:
+- Upgrade/Update Gluu CE:
     - 'Upgrade from 2.4.x': 'deployment/upgrading.md'
-
+    - 'Update Gluu CE 2.4.4': 'deployment/updating.md'
 - Cluster Configuration:
     - 'Requirements: csync2 Installation': 'cluster/csync-installation.md'
     - 'Clustering with CE': 'cluster/index.md'
