@@ -1,7 +1,6 @@
 [TOC]
 
 # Style Customizations
-
 Static style elements like CSS, JavaScript and images are packaged into
 separate jar files. They are named _\<ProjectName\>_ Static-
 _\<version\>_ .jar, e.g. 'oxTrustStatic-1.3.0.Final.jar' and
@@ -43,29 +42,25 @@ node) it looks like that:
 
 # Page Customizations
 
-To change the content of the pages, you will need to edit the XHTML
-files. Be careful not to remove any of the important form elements. 
+Gluu server Community Edition makes editing public-facing pages easy
+withour requiring the building of new war file. The files are in the
+`xhtml` format and it is recommended to take backups so that no 
+important element is deleted from the pages.
 
-To meet your needs you can add further HTML elements as '.xhtml' files
-inside the two directories `/opt/tomcat/webapps/identity` and
+The availbale pages are inside the two directories `/opt/tomcat/webapps/identity` and
 `/opt/tomcat/webapps/oxauth`.
 
-The standard forms in oxAuth are:
-
+oxAuth Pages:
 - Default login page: `/opt/tomcat/webapps/oxauth/login.xhtml`
-- Error page: `/opt/tomcat/webapps/oxauth/error.xhtml`
 - Authorization page: `/opt/tomcat/webapps/oxauth/authorize.xhtml`
+- Error page: `/opt/tomcat/webapps/oxauth/error.xhtml`
 - Custom authentication scripts: XHTML files in `/opt/tomcat/webapps/oxauth/auth`
 
-The standard forms in oxTrust are:
+oxTrust Pages:
 
 - Default registration page: `/opt/tomcat/webapps/identity/register.xhtml`
 
-To remove the Gluu copyright icon from your login page, navigate to the
-file `template.xhtml` that is located under
-`/opt/tomcat/webapps/identity/WEB-INF/incl/layout`. Then, simply remove
-this snippet:
-
+To remove the Gluu copyright icon from your login page, navigate to the file template.xhtml that is located under /opt/tomcat/webapps/identity/WEB-INF/incl/layout. Then, simply remove this snippet:
 ```
 <s:fragment rendered="#{not isLogin}">
     <div class="footer">
@@ -77,6 +72,31 @@ A new tomcat wrapper variable is added to avoid hard coding or changing applicat
 ```
 wrapper.java.additional.20=-Dgluu.external.resource.base=/var/gluu/webapps
 ```
+
+## Customizing Pages
+A new location is added inside the Gluu Server `chroot` to make the customizations easy. The `/var/gluu/webapps/` folder contains the `oxauth` and `oxtrust` folder which contains the `libs`, `pages` and `resources` folder where the customized pages can be placed to overwrite the default pages. The structure can be illustrated as follows:
+
+```
+    /var/gluu/webapps/
+	|-- oxauth
+	|   |-- libs
+	|   |-- pages
+	|   `-- resources
+	`-- oxtrust
+    		|-- libs
+    		|-- pages
+    		`-- resources
+```
+
+!!! Warning
+    Log into the Gluu Server chroot before working on the customized pages
+
+* Please make way to the default pages folder to copy the default file to the external resource folder
+```
+# cd /opt/tomcat/webapps/oxauth/
+# cp login.xhtml /var/gluu/webapps/oxauth/pages/ 
+```
+The example above shows that the `login.xhtml` file is copied to the external pages. The changes can be made here and restarting Tomcat server will display the changes made to the specific customized page. The customizations must not be made by people will little/no web-development knowledge.
 
 ## Tomcat Restart Policy
 Tomcat Server does not need restart generally when custom pages are added in Gluu Server. However in the following cases, please restart Tomcat.
