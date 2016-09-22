@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Clustering with CE - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Clustering with CE</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#manual-cluster">Manual Cluster</a></li>
+                
+                    <li><a class="toctree-l4" href="#design">Design</a></li>
+                
+                    <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+                
+                    <li><a class="toctree-l4" href="#preparing-vms">Preparing VMs</a></li>
+                
+                    <li><a class="toctree-l4" href="#ldap-replication">LDAP Replication</a></li>
+                
+                    <li><a class="toctree-l4" href="#file-system-replication">File System Replication</a></li>
+                
+                    <li><a class="toctree-l4" href="#certificate-management">Certificate Management</a></li>
+                
+                    <li><a class="toctree-l4" href="#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">[Optional] Actions in case setup.properties.last method of installation didn't work for you</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../integrate/asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Cluster Configuration &raquo;</li>	 
+        
+      
+    
+    <li>Clustering with CE</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/cluster/index.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#manual-cluster">Manual Cluster</a><ul>
+<li><a href="#design">Design</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#preparing-vms">Preparing VMs</a></li>
+<li><a href="#ldap-replication">LDAP Replication</a></li>
+<li><a href="#file-system-replication">File System Replication</a><ul>
+<li><a href="#csync2-installation">Csync2 installation</a></li>
+<li><a href="#csync2-configuration-for-host-1">Csync2 configuration for host-1</a></li>
+<li><a href="#csync2-configuration-for-host-2">Csync2 configuration for host-2</a></li>
+</ul>
+</li>
+<li><a href="#certificate-management">Certificate Management</a></li>
+<li><a href="#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">[Optional] Actions in case setup.properties.last method of installation didn't work for you</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="manual-cluster">Manual Cluster</h1>
+<h2 id="design">Design</h2>
+<p>The following diagram outlines the design of the cluster.
+<img alt="image" src="https://cloud.githubusercontent.com/assets/7156097/13850591/9a553fde-ec28-11e5-8fa7-675f96743a10.png" /></p>
+<h2 id="requirements">Requirements</h2>
+<p>For complete deployment requirements and instructions, please see the <a href="../deployment/">Deployment Page</a>.
+The requirements for Clusters vary only in the RAM requirement. Clusters require at least 8GB RAM for smooth performance. The requirements below are specific for Cluster Installation VMs.</p>
+<table>
+<thead>
+<tr>
+<th>Number of VMs</th>
+<th>CPU Units</th>
+<th>RAM</th>
+<th>Root Partion</th>
+<th>Port Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2 CPU ea.</td>
+<td>8 GB</td>
+<td>40 GB</td>
+<td>4444 and 8989 (LDAP replication), 30865 (file system syncing)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> For convenience, the VMs are identified as <code>host-1</code> and <code>host-2</code></p>
+<h2 id="preparing-vms">Preparing VMs</h2>
+<ul>
+<li>
+<p>Install Gluu CE following the <a href="../deployment/">Deployment Page</a> in <code>host-1</code>. Please note you must provide hostname of the cluster itself to <code>setup.py</code> script (<code>idp.gluu.org</code> in this example), not hostnames of individual nodes!</p>
+</li>
+<li>
+<p><sub><em><code>(!)</code>Please note: you must do this step right after initial installation on the 2nd node, but before you'll run setup.py script there<code>(!)</code></em></sub> Copy <code>setup.properties.last</code> that will be generated in <code>/install/community-edition-setup/</code> right after <code>setup.py</code>'s completion on <code>host-1</code>, change IP address in it to the one of <code>host-2</code> and put it into the same directory of <code>host-2</code> while renaming the file to <code>setup.properties</code>, then run <code>setup.py</code> the usual way. As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run <code># ./setup.py -h</code> for full list of them) Please be sure to read <a href="./#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">this part</a> in case you failed to setup the 2nd node using <code>setup.properties.last</code> file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.</p>
+</li>
+</ul>
+<h2 id="ldap-replication">LDAP Replication</h2>
+<ul>
+<li>Things to know</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>host-1</th>
+<th>host-2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP Address eg. 192.168.6.1</td>
+<td>Ip Address eg. 192.168.6.2</td>
+</tr>
+<tr>
+<td>LDAP admin pass</td>
+<td>LDAP admin pass</td>
+</tr>
+<tr>
+<td>ldapGeneralConfigInstall.py</td>
+<td></td>
+</tr>
+<tr>
+<td>replicationSetup.py</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Run <a href="./ldapGeneralConfigInstall.py">ldapGeneralConfigInstall.py</a> in <code>host-1</code>. This script will prepare the <code>host-1</code> LDAP server to accept various configurations such as <code>allow-pre-encoded-passwords</code> or applyting the host and port for LDAP Server.</p>
+</li>
+<li>
+<p>Run <a href="./replicationSetup.py">replicationSetup.py</a> in <code>host-1</code> and it will give a similar output as below:</p>
+</li>
+</ul>
+<pre><code>[ldap@]$ python replicationSetup.py 
+Create a password for the replication admin: 
+Enter number of OpenDJ servers: 2
+Enter the hostname of server 1: 192.168.6.1
+Enter the Directory Manager password for 192.168.6.1: xxxxx
+Enter the hostname of server 2: 192.168.6.2
+Enter the Directory Manager password for 192.168.6.2: yyyyy
+
+Establishing connections ..... Done.
+Checking registration information ..... Done.
+Configuring Replication port on server 192.168.6.1:4444 ..... Done.
+Configuring Replication port on server 192.168.6.2:4444 ..... Done.
+Updating replication configuration for baseDN o=gluu on server 192.168.6.1:4444 ..... Done.
+Updating replication configuration for baseDN o=gluu on server 192.168.6.2:4444 ..... Done.
+Updating registration configuration on server 192.168.6.1:4444 ..... Done.
+Updating registration configuration on server 192.168.6.2:4444 ..... Done.
+Updating replication configuration for baseDN cn=schema on server 192.168.6.1:4444 ..... Done.
+Updating replication configuration for baseDN cn=schema on server 192.168.6.2:4444 ..... Done.
+Initializing registration information on server 192.168.6.2:4444 with the contents of server 192.168.6.1:4444 ..... Done.
+Initializing schema on server 192.168.6.2:4444 with the contents of server 192.168.6.1:4444 ..... Done.
+
+Replication has been successfully enabled.  Note that for replication to work you must initialize the contents of the base DNs that are being replicated (use dsreplication initialize to do so).
+
+See /tmp/opendj-replication-8140652343601372868.log for a detailed log of this
+operation.
+
+Enabling Replication Complete.
+[ldap@...]$
+</code></pre>
+
+<ul>
+<li>Initialize directory server replication with this command <code>/opt/opendj/bin/dsreplication initialize</code> and it will give the following output (some issues were reported for this step, resulting in "Invalid credentials" errors; in that case try to run the tool in console mode rather than interactive: <code>/opt/opendj/bin/dsreplication initialize-all --hostname 127.0.0.1 --port 4444 -I 'admin' \
+-w 'REPLICATION_ADMIN_PASSWORD' -b 'o=gluu' --trustAll --no-prompt</code>):</li>
+</ul>
+<pre><code>[ldap@...]$ /opt/opendj/bin/dsreplication initialize
+
+
+&gt;&gt;&gt;&gt; Specify server administration connection parameters for the source server
+
+Directory server hostname or IP address [idp.gluu.org]: 192.168.6.1
+
+Directory server administration port number [4444]: 
+
+How do you want to trust the server certificate?
+
+    1)  Automatically trust
+    2)  Use a truststore
+    3)  Manually validate
+
+Enter choice [3]: 1
+
+Global Administrator User ID [admin]: 
+
+Password for user 'admin': #!0^GluU(sWoWSm)
+
+
+&gt;&gt;&gt;&gt; Specify server administration connection parameters for the destination
+server
+
+Directory server hostname or IP address [idp.gluu.org]: 192.168.6.2
+
+Directory server administration port number [4444]: 
+
+How do you want to trust the server certificate?
+
+    1)  Automatically trust
+    2)  Use a truststore
+    3)  Manually validate
+
+Enter choice [3]: 1
+
+You must choose at least one base DN to be initialized.
+Initialize base DN o=gluu? (yes / no) [yes]: 
+
+
+Initializing the contents of a base DN removes all the existing contents of
+that base DN.  Do you want to remove the contents of the selected base DNs on
+server 192.168.6.2:4444 and replace them with the contents of server
+192.168.6.1:4444? (yes / no) [yes]: 
+
+
+Initializing base DN o=gluu with the contents from 192.168.6.1:4444:
+0 entries processed (0 % complete).
+36336 entries processed (99 % complete).
+Base DN initialized successfully.
+
+See /tmp/opendj-replication-808135637744675184.log for a detailed log of this
+operation.
+</code></pre>
+
+<p><sub><em><code>(!)</code> OpenDJ may become picky about certificates used for SSL connections during replication in certain linux distros. Make sure you've added certificates of each OpenDJ instance to default java key storage of each node; another option is to use the same OpenDJ certificate/key pair for both nodes</em></sub>   </p>
+<h2 id="file-system-replication">File System Replication</h2>
+<p><sub><em><code>(!)</code> Be advised that backup feature is broken in some of earlier versions of csync2 you may get installed from your distribution's repo. In that case you will need either to disable it by commenting out <code>backup-*</code> clauses in tool's configuration file, or to build csync2 of version 2.0+ from sources and use key <code>-l</code> in your xinetd.d's config (like <code>server_args     = -i -l -N idp1.gluu.org</code>) on both nodes.</em></sub> <br />
+<sub><em><code>(!)</code> Be sure to verify all pathes (for executables, keys etc) in configuration files' examples before using them in your production instance, as they may differ for different linux distros.</em></sub></p>
+<p><code>csync2</code> is used for file system syncing between <code>host-1</code> and <code>host-2</code>. The following locations are synced in between the two VMs.</p>
+<ol>
+<li>/opt/idp/conf</li>
+<li>/opt/idp/metadata</li>
+<li>/opt/idp/ssl</li>
+<li>/opt/tomcat/conf</li>
+<li>/etc/csync2/csync2.cfg</li>
+</ol>
+<h3 id="csync2-installation">Csync2 installation</h3>
+<p>Please follow steps provided in next articles to install csync2 on both nodes: <a href="csync-installation/#centos-6x">CentOS 6.x</a>, <a href="csync-installation/#centos-7x">CentOS 7.x</a>, <a href="csync-installation/#ubuntu-14x-from-repo">Ubuntu 14.x (from repo)</a>, <a href="csync-installation/#ubuntu-14x-compiling-from-sources">Ubuntu 14.x (compiling from sources)</a>.</p>
+<h3 id="csync2-configuration-for-host-1">Csync2 configuration for host-1</h3>
+<ol>
+<li>
+<p>Log into Gluu-Server container</p>
+</li>
+<li>
+<p>Generate <code>csync2</code> private key by running <code>csync2 -k csync2.key</code> and put it into <code>/etc/csync2/csync2.key</code> file</p>
+</li>
+<li>
+<p>Copy the private key to <code>host-2</code> and put it into the same file there</p>
+</li>
+<li>
+<p>Generate certificate/key pair that will be used to establish SSL protection layer for incoming connections by running next commands on <code>host-1</code> (location of the files and their names are hardcoded into executable). Don't fill any fields, just hit <code>Enter</code> accepting default values:</p>
+</li>
+</ol>
+<pre><code>openssl genrsa -out /etc/csync2_ssl_key.pem 1024
+openssl req -new -key /etc/csync2_ssl_key.pem -out /etc/csync2_ssl_cert.csr
+openssl x509 -req -days 600 -in /etc/csync2_ssl_cert.csr -signkey /etc/csync 2_ssl_key.pem \
+-out /etc/csync2_ssl_cert.pem
+</code></pre>
+
+<p>In case you've compiled csync from sources you may opt to just run <code># make cert</code> while in the sources' directory, it will do everything for you.</p>
+<ol start ="5">
+<li> Add IP and hostnames in the <code>hosts</code> file. In the hosts file example below <code>host-1</code> is called <code>idp1.gluu.org</code> and <code>host-2</code> is called <code>idp2.gluu.org</code></li>
+</ol>
+
+<pre><code>127.0.0.1       localhost
+::1             ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+192.168.6.1     idp.gluu.org idp1.gluu.org
+192.168.6.2     idp2.gluu.org  
+</code></pre>
+
+<ol start ="6">
+<li> Modify <code>csync2</code> in the <code>/etc/xinetd.d/</code> folder (some packages may reqire you to install it first; run <code># yum install xinetd</code>, then <code># chkconfig xinetd on</code>):</li>
+</ol>
+
+<pre><code># default: off
+# description: csync2
+service csync2
+{
+        flags           = REUSE
+        socket_type     = stream
+        wait            = no
+        user            = root
+        group           = root
+        server          = /usr/sbin/csync2
+        server_args     = -i -N idp1.gluu.org
+        port            = 30865
+        type            = UNLISTED
+        #log_on_failure += USERID
+        disable         = no
+        # only_from     = 192.168.199.3 192.168.199.4
+}
+</code></pre>
+
+<ol start ="7">
+<li> Run the following commands</li>
+</ol>
+
+<pre><code>service xinetd restart
+chkconfig xinetd on
+</code></pre>
+
+<p><strong>Note:</strong> The status can be checked by running <code>chkconfig xinetd –list</code> and <code>iptables -L -nv | grep 30865</code>. For confirmation, telnet 30865 port from the VMs.</p>
+<ol start="8">
+<li> Configure <code>csync2.cfg</code> to reflect the configuration below (Please note that csync2 doesn't allow to use symlinks in this file; you'll may need to correct full paths to certain directories as they may change in future Gluu's CE packages)</li>
+</ol>
+
+<pre><code>#nossl * *;
+group cluster_group
+{
+
+        host idp1.gluu.org;
+        host idp2.gluu.org;
+
+        key /etc/csync2/csync2.key;
+        include /etc/csync2/csync2.cfg;
+        include /opt/idp/conf;
+        include /opt/idp/metadata;
+        include /opt/idp/ssl;
+        include /opt/apache-tomcat-7.0.65/conf;
+
+        exclude *~ .*;
+
+
+        action
+        {
+
+                logfile &quot;/var/log/csync2_action.log&quot;;
+                do-local;
+        }
+
+        action
+        {
+                pattern /opt/apache-tomcat-7.0.65/conf/*;
+
+                exec &quot;/sbin/service tomcat restart&quot;;
+                logfile &quot;/var/log/csync2_action.log&quot;;
+                do-local;
+        }
+
+        backup-directory /var/backups/csync2;
+        backup-generations 3;
+
+        auto younger;
+} 
+</code></pre>
+
+<ol start ="9">
+<li> Start <code>csync2</code> by running <code>csync2 -cvvv -N idp2.gluu.org</code></li>
+</ol>
+
+<ol start ="10"> 
+<li>Run <code>mkdir -p /var/backups/csync2</code></li>
+</ol>
+
+<ol start ="11">
+<li> Add cronjob to automate csync2 run. The cronjob example is given below:</li>
+</ol>
+
+<pre><code>1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp1.gluu.org -xv 2&gt;/var/log/csync2.log 
+</code></pre>
+
+<h3 id="csync2-configuration-for-host-2">Csync2 configuration for host-2</h3>
+<ol>
+<li>
+<p>Log into Gluu-Server container</p>
+</li>
+<li>
+<p>(If you haven't done it yet) Copy the private key you generated on <code>host-1</code> previously to <code>host-2</code> and put it into <code>/etc/csync2/csync2.key</code> file </p>
+</li>
+<li>
+<p>Generate certificate/key pair that will be used to establish SSL protection layer for incoming connections by running next commands on <code>host-2</code> (location of the files and their names are hardcoded into executable). Don't fill any fields, just hit "Enter" accepting default values:</p>
+</li>
+</ol>
+<pre><code>openssl genrsa -out /etc/csync2_ssl_key.pem 1024
+openssl req -new -key /etc/csync2_ssl_key.pem -out /etc/csync2_ssl_cert.csr
+openssl x509 -req -days 600 -in /etc/csync2_ssl_cert.csr -signkey /etc/csync2_ssl_key.pem \
+-out /etc/csync2_ssl_cert.pem
+</code></pre>
+
+<p>In case you've compiled csync from sources you may opt to just run <code># make cert</code> while in the sources' directory, it will do everything for you.</p>
+<ol start ="4">
+<li>Add IP and hostnames in the <code>hosts</code> file. In the hosts file example below <code>host-1</code> is called <code>idp1.gluu.org</code> and <code>host-2</code> is called <code>idp2.gluu.org</code></li>
+</ol>
+
+<pre><code>127.0.0.1       localhost
+::1             ip6-localhost ip6-loopback
+ff02::1         ip6-allnodes
+ff02::2         ip6-allrouters
+192.168.6.1     idp1.gluu.org
+192.168.6.2     idp.gluu.org idp2.gluu.org
+</code></pre>
+
+<ol start ="5">
+<li> Modify <code>csync2</code> in the <code>/etc/xinetd.d/</code> folder (some packages may reqire you to install it first; run <code># yum install xinetd</code>, then <code># chkconfig xinetd on</code>):</li>
+</ol>
+
+<pre><code># default: off
+# description: csync2
+service csync2
+{
+        flags           = REUSE
+        socket_type     = stream
+        wait            = no
+        user            = root
+        group           = root
+        server          = /usr/sbin/csync2
+        server_args     = -i -N idp2.gluu.org
+        port            = 30865
+        type            = UNLISTED
+        #log_on_failure += USERID
+        disable         = no
+        # only_from     = 192.168.199.3 192.168.199.4
+}
+</code></pre>
+
+<ol start ="6">
+<li> Run the following commands</li>
+</ol>
+
+<pre><code>service xinetd restart
+chkconfig xinetd on
+</code></pre>
+
+<p><strong>Note:</strong> The status can be checked by running <code>chkconfig xinetd –list</code> and <code>iptables -L -nv | grep 30865</code>. For confirmation, telnet 30865 port from the VMs.</p>
+<ol start ="7">
+<li> Configure <code>csync2.cfg</code> to reflect the configuration below (Please note that csync2 doesn't allow to use symlinks in this file; you'll may need to correct full paths to certain directories as they may change in future Gluu's CE packages):</li>
+</ol>
+
+<pre><code>#nossl * *;
+group cluster_group
+{
+
+        host idp1.gluu.org;
+        host idp2.gluu.org;
+
+        key /etc/csync2/csync2.key;
+        include /etc/csync2/csync2.cfg;
+        include /opt/idp/conf;
+        include /opt/idp/metadata;
+        include /opt/idp/ssl;
+        include /opt/apache-tomcat-7.0.65/conf;
+
+        exclude *~ .*;
+
+
+        action
+        {
+
+                logfile &quot;/var/log/csync2_action.log&quot;;
+                do-local;
+        }
+
+        action
+        {
+                pattern /opt/apache-tomcat-7.0.65/conf/*;
+
+                exec &quot;/sbin/service tomcat restart&quot;;
+                logfile &quot;/var/log/csync2_action.log&quot;;
+                do-local;
+        }
+
+        backup-directory /var/backups/csync2;
+        backup-generations 3;
+
+        auto younger;
+} 
+</code></pre>
+
+<ol start ="8">
+<li> Start <code>csync2</code> by running <code>csync2 -cvvv -N idp2.gluu.org</code></li>
+</ol>
+
+<ol start ="9"><li> Run <code>mkdir -p /var/backups/csync2</code></li></ol>
+
+<ol start ="10">
+<li> Add cronjob to automate csync2 run. The cronjob example is given below:</li></ol>
+
+<pre><code>1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp2.gluu.org -xv 2&gt;/var/log/csync2.log 
+</code></pre>
+
+<h2 id="certificate-management">Certificate Management</h2>
+<p>Certificates are not being synced automatically in the proposed setup. They must be initially copied by hand from one node to the other, and must be synced in this manner each time they are being updated.
+in each host, when required. Move to <code>/etc/certs/</code> on the 1st node (inside the container). Copy all keys, certs and key storages conforming to these masks: <code>httpd.*</code>, <code>asimba.*</code>, <code>asimbaIDP.*</code>, <code>idp-encryption.*</code>, <code>idp-signing.*</code>, <code>shibIDP.*</code>, <code>oxauth-keys.*</code> and <code>scim-rs.*</code> - to the same directory on the 2nd node (overwriting files that exist there; you may opt to backup them first, just in case).</p>
+<p>After that's done you still will need to update default system storage (<code>cacerts</code> file) at the 2nd node with these newly copied certificates. The <a href="../gluu-defaults/certificates/">Certificate Page</a> contains the details about available certificates and how to update certificates are detailed in the <a href="../how-to/update-certificate/">update-certificate page</a>.</p>
+<h2 id="optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">[Optional] Actions in case setup.properties.last method of installation didn't work for you</h2>
+<p>In this case jks keystores you'll be moving to the 2nd node will be protected by passwords hardcoded into different configuration files on the 1st node, which are different from the similar passwords hardcoded into the same files on the 2nd node.</p>
+<p>Thus you MUST ensure that the 1st node will be the one that will initialize the 2nd node during first csync's run (i.e., that it will win any conflicts due to changes in files that csync may detect during its very first run), as otherwise different components won't be able to decrypt these keystores and will fail.</p>
+<p>To achieve this you should run initial sync manualy after completing configuring it, but before you install cron jobs:</p>
+<ol>
+<li>
+<p>Comment out <code>auto younger;</code> string in <code>csync2.cfg</code> on both nodes to disable autoresolution of conflicts</p>
+</li>
+<li>
+<p>Run <code># csync2 -crvvv -N idp1.gluu.org /</code> on the 1st node</p>
+</li>
+<li>
+<p>Run <code># csync2 -crvvv -N idp2.gluu.org /</code> on the 2nd node</p>
+</li>
+<li>
+<p>Previous commands did initial scan and filled metadata database. Now run <code># csync2 -xrvvv -N idp1.gluu.org /</code> on the 1st node. That will try to sync files with the 2nd node, and most likely will fail to replicate all files due to some conflicts.</p>
+</li>
+<li>
+<p>You should be now in a state of conflict, as certain files in directories to be synced differ between nodes and tool can't decide which to prefer. Run this <code># csync2 -frvvv -N idp1.gluu.org /</code> on the 1st node to mark its files that are still in dirty state as the ones that will win any conflict next time.</p>
+</li>
+<li>
+<p>Run <code># csync2 -xrvvv -N idp1.gluu.org /</code> on the 1st node to complete your initial sync. Now all your 2nd node's directories covered by csync should be identical to the 1st node's.</p>
+</li>
+<li>
+<p>Uncomment <code>auto younger;</code> string and proceed to installing cron jobs</p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../oxtrust/configuration/" class="btn btn-neutral float-right" title="Configuration"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="csync-installation/" class="btn btn-neutral" title="Requirements: csync2 Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="csync-installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../oxtrust/configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

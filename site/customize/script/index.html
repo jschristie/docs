@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Behaviour Customization - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Behaviour Customization</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#custom-scripts">Custom Scripts</a></li>
+                
+                    <li><a class="toctree-l4" href="#interception-script-logs">Interception Script Logs</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#person-authentication">Person Authentication</a></li>
+                
+                    <li><a class="toctree-l4" href="#certificate-authentication">Certificate Authentication</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#update-user">Update User</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#user-registration">User Registration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#client-registration">Client Registration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#dynamic-scopes">Dynamic Scopes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#id-generator">ID Generator</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cache-refresh">Cache Refresh</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#uma-authorization-policies">UMA Authorization Policies</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#application-session-management">Application Session Management</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Customize Gluu Server &raquo;</li>	 
+        
+      
+    
+    <li>Behaviour Customization</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/customize/script.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#custom-scripts">Custom Scripts</a><ul>
+<li><a href="#interception-script-logs">Interception Script Logs</a></li>
+</ul>
+</li>
+<li><a href="#person-authentication">Person Authentication</a><ul>
+<li><a href="#certificate-authentication">Certificate Authentication</a></li>
+</ul>
+</li>
+<li><a href="#update-user">Update User</a></li>
+<li><a href="#user-registration">User Registration</a></li>
+<li><a href="#client-registration">Client Registration</a></li>
+<li><a href="#dynamic-scopes">Dynamic Scopes</a></li>
+<li><a href="#id-generator">ID Generator</a></li>
+<li><a href="#cache-refresh">Cache Refresh</a></li>
+<li><a href="#uma-authorization-policies">UMA Authorization Policies</a></li>
+<li><a href="#application-session-management">Application Session Management</a></li>
+</ul>
+</div>
+<h1 id="overview">Overview</h1>
+<p>The Gluu Server was designed to be very flexible. Gluu Server admins can use <a href="http://www.jython.org/docs/tutorial/indexprogress.html">Jython</a> interception scripts to customize behavior.</p>
+<p>Jython was chosen because an interpreted language facilitates dynamic creation of business logic, and makes it easier to distribute this logic to a cluster of Gluu servers.</p>
+<p>Another advantage of Jython was that developers can use either Java or Python classes. Combined with the option of calling web services from Python or Java, this enables the Gluu Server to support any business-driven policy requirement.</p>
+<p>To access custom scripts within oxTrust, navigate to <a href="../../oxtrust/configuration/#manage-custom-scripts">Configuration &gt; Manage Custom Scripts</a>.</p>
+<h1 id="custom-scripts">Custom Scripts</h1>
+<p>There are three methods that inherit a base interface</p>
+<table>
+<thead>
+<tr>
+<th>Inherited Methods</th>
+<th>Method description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>def init(self, configurationAttributes)</td>
+<td>This method is only called once during the script initialization. It can be used for global script initialization, initiate objects etc</td>
+</tr>
+<tr>
+<td>def destroy(self, configurationAttributes)</td>
+<td>This method is called once to destroy events. It can be used to free resource and objects created in the <code>init()</code> method</td>
+</tr>
+<tr>
+<td>def getApiVersion(self)</td>
+<td>The <code>getApiVersion</code> method allows API changes in order to do transparent migration from an old script to a new API. Currently all scripts should return <code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>configurationAttributes</code> parameter is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code> with properties specified in <code>oxConfigurationProperty</code> attributes.</p>
+<p>The script manager only loads enabled scripts. Hence, after enabling a
+script, the script manager should trigger an event to either load or
+destroy a script. All scripts are stored in LDAP in the
+<code>ou=scripts,o=&lt;org_inum&gt;,o=gluu</code> branch.</p>
+<p>This is a sample entry:</p>
+<pre><code>dn: inum=@!1111!031C.4A65,ou=scripts,o=@!1111,o=gluu
+objectClass: oxCustomScript
+objectClass: top
+description: &lt;custom_script_description&gt;
+displayName: &lt;display_name&gt;
+gluuStatus: true
+inum: @!1111!031C.4A65
+oxLevel: &lt;priority&gt;
+oxModuleProperty: {"value1":"module_property_name","value2":"module_property_value","description":""}
+oxConfigurationProperty: {"value1":"configuration_property_name","value2":"configuration_property_value","description":""}
+oxRevision: &lt;revision&gt;
+oxScript: &lt;custom_script&gt;
+oxScriptType: &lt;script_type&gt;
+programmingLanguage: python
+</code></pre>
+<p>The script manager reloads scripts automatically without needing to
+restart the application once <code>oxRevision</code> is increased.</p>
+<h2 id="interception-script-logs">Interception Script Logs</h2>
+<p>The log files regarding interception scripts are not stored in the
+<code>wrapper.log</code> file. The logs are separated according to the module they
+affect. The oxAuth custom script logs are stored in <code>oxauth_script.log</code>
+and the oxTrust custom script logs are stored in the
+<code>oxtrust_script.log</code>. Please refer to these log files for any errors in
+the interception scripts or following the workflow of the script.</p>
+<h1 id="person-authentication">Person Authentication</h1>
+<p><strong>For a list of pre-written, open source Gluu authentication scripts, view our <a href="https://github.com/GluuFederation/oxAuth/tree/master/Server/integrations">server integrations</a></strong></p>
+<p>An authentication script enables you to customize the user
+authentication experience. For example, you can write a script that
+enables a two-factor authentication mechanism like Duo Security. By
+default oxAuth uses simple username/password authentication method. This
+script type allows an admin to implement more secure workflows to cover
+an organizations security requirements. It extends the base script type
+with the <code>init</code>, <code>destroy</code> and <code>getApiVersion</code> methods but also adds the
+following methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>isValidAuthenticationMethod(self, usageType, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method is used to check if the authentication method is in a valid state. For example we can check there if a 3rd party mechanism is available to authenticate users. As a result it should either return <code>True</code> or <code>False</code></td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>usageType</code> is <code>org.xdi.model.AuthenticationScriptUsageType</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def getAlternativeAuthenticationMethod(self, usageType, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method is called only if the current authentication method is in an invalid state. Hence authenticator calls it only if <code>isValidAuthenticationMethod</code> returns False. As a result it should return the reserved authentication method name</td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>uageType</code> is <code>org.xdi.model.AuthenticationScriptUsageType</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def authenticate(self, configurationAttributes, requestParameters, step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method is the key method within the person authentication script. It checks if the user has passed the specified step or not. As a result it should either return <code>True</code> or <code>False</code></td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>requestParameters</code> is <code>java.util.Map&lt;String, String[]&gt;</code><br/><code>step</code> is java integar<br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def prepareForStep(self, configurationAttributes, requestParameters, step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method can be used to prepare variables needed to render the login page and store them in an according event context. As a result it should either return <code>True</code> or <code>False</code></td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>requestParameters</code> is <code>java.util.Map&lt;String, String[]&gt;</code><br/><code>step</code> is a java integer<br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def getCountAuthenticationSteps(self, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method should return an integer value with the number of steps in the authentication workflow</td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def getExtraParametersForStep(self, configurationAttributes, step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method provides a way to notify the authenticator that it should store specified event context parameters event in the oxAuth session. It is needed in a few cases, for example when an authentication script redirects the user to a 3rd party authentication system and expects the workflow to resume after that. As a result it should return a java array of strings</td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code><br/><code>step</code> is a java integer</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def getPageForStep(self, configurationAttributes, step)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method allows the admin to render a required page for a specified authentication step. It should return a string value with a path to an XHTML page. If the return value is empty or null, the authenticator should render the default log in page <code>/login.xhtml</code></td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code><br/><code>step</code> is a java integar</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def logout(self, configurationAttributes, requestParameters)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method is not mandatory. It can be used in cases when you need to execute specific logout logic within the authentication script when oxAuth receives an end session request. Also, it allows oxAuth to stop processing the end session request workflow if it returns <code>False</code>. As a result it should either return <code>True</code> or <code>False</code></td>
+</tr>
+<tr>
+<td>Method Parameters</td>
+<td><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code><br/><code>requestParameters</code> is <code>java.util.Map&lt;String, String[]&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in oxAuth application only.</p>
+<ul>
+<li><a href="../sample-authentication-script.py">Sample Authentication Script</a></li>
+</ul>
+<h2 id="certificate-authentication">Certificate Authentication</h2>
+<p>Gluu Server CE offers a person authentication module enabling Certificate Authentication.
+The image below contains the design diagram for this module.</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/oxAuth/master/Server/integrations/cert/docs/Cert%20design.jpg" /></p>
+<p>The script has a few properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Allowed Values</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chain_cert_file_path</td>
+<td>mandatory property pointing to certificate chains in <a href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail" title="Privacy-enhanced Electronic Mail">pem</a> format</td>
+<td>file path</td>
+<td>/etc/certs/chain_cert.pem</td>
+</tr>
+<tr>
+<td>map_user_cert</td>
+<td>specifies if the script should map new user to local account</td>
+<td>true/false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>use_generic_validator</td>
+<td>enable/disable specific certificate validation</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>use_path_validator</td>
+<td>enable/disable specific certificate validation</td>
+<td>true/false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>use_oscp_validator</td>
+<td>enable/disable specific certificate validation</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>use_crl_validator</td>
+<td>enable/disable specific certificate validation</td>
+<td>true/false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>crl_max_response_size</td>
+<td>specifies the maximum allowed size of [CRL][crl] response</td>
+<td>Integer &gt; 0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://raw.githubusercontent.com/GluuFederation/oxAuth/master/Server/integrations/cert/UserCertExternalAuthenticator.py">Sample Certificate Authentication Script</a></li>
+</ul>
+<h1 id="update-user">Update User</h1>
+<p>oxTrust allows an admin to add and modify users which belong to groups.
+In order to simplify this process and apply repeating actions, oxTrust
+supports an Update User script. In this script it is possible to modify
+a person entry before it is stored in LDAP.</p>
+<p>This script type adds only one method to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def updateUser(self, user, persisted, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method updates the user</td>
+</tr>
+<tr>
+<td>Method Parameter</td>
+<td><code>user</code> is <code>org.gluu.oxtrust.model.GluuCustomPerson</code><br/>persisted is a boolean value to specify the operation type: add/modify<br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in an oxTrust application only.</p>
+<ul>
+<li><a href="../sample-update-user-script.py">Sample Update User Script</a></li>
+</ul>
+<h1 id="user-registration">User Registration</h1>
+<p>oxTrust allows users to perform self-registration. In order to
+control/validate user registrations there is the user registration
+script type.</p>
+<p>This script type adds three methods to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Methods</th>
+<th>def initRegistration(self, user, requestParameters, configurationAttributes)<br/>def preRegistration(self, user, requestParameters, configurationAttributes)<br/>def postRegistration(self, user, requestParameters, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Description</strong></td>
+<td>This method enables/disables user account based on the custom property's value</td>
+</tr>
+<tr>
+<td>Method Parameters</td>
+<td><code>user</code> is <code>org.gluu.oxtrust.model.GluuCustomPerson</code><br/><code>requestParameters</code> is <code>java.util.Map&lt;String, String[]&gt;</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+<tr>
+<td>Custom Property</td>
+<td><code>enable_user</code>--&gt; defaults to <code>false</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>It controls whether or not this user account will be ready for loggin into the Gluu Server CE instance</td>
+</tr>
+</tbody>
+</table>
+<p>The methods are executed in the following order:</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Method</th>
+<th>Expected Return</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First</td>
+<td>initRegistration()</td>
+<td>True/False</td>
+</tr>
+<tr>
+<td>Second</td>
+<td>preRegistration()</td>
+<td>True/False</td>
+</tr>
+<tr>
+<td>Third</td>
+<td>postRegistration()</td>
+<td>True/False</td>
+</tr>
+</tbody>
+</table>
+<p>First oxTrust executes the <code>initRegistration</code> method to do an initial
+user entry update. The <code>preRegistration</code> method is called before storing
+the user entry in LDAP. Hence in this script it is possible to validate
+the user entry. The <code>postRegistration</code> method is called after
+successfully storing the user entry in LDAP. In this method, for
+example, the script can send an e-mail or send notifications to other
+organization systems about the new user entry.</p>
+<ul>
+<li><a href="../sample-user-registration-script.py">Sample User Registration Script</a></li>
+</ul>
+<h1 id="client-registration">Client Registration</h1>
+<p>oxAuth implements the <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect dynamic client
+registration</a>
+specification. All new clients have the same default access scopes and
+attributes except password and client ID. The Client Registration script
+allows an admin to modify this limitation. In this script it is possible
+to get a registration request, analyze it, and apply customizations to
+registered clients. For example, a script can give access to specified
+scopes if <code>redirect_uri</code> belongs to a specified service or domain.</p>
+<p>This script type adds only one method to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def updateClient(self, registerRequest, client, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Method Parameter</strong></td>
+<td><code>registerRequest</code> is <code>org.xdi.oxauth.client.RegisterRequest</code><br/><code>client</code> is <code>org.xdi.oxauth.model.registration.Client</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in an oxAuth application only.</p>
+<ul>
+<li><a href="../sample-client-registration-script">Sample Client Registration Script</a></li>
+</ul>
+<h1 id="dynamic-scopes">Dynamic Scopes</h1>
+<p>The dynamic scope custom script allows the parsing of token returned from <code>user_info endpoint</code> into 
+LDAP attributes. The <code>id_token</code> is returned from <code>user_info endpoint</code> and the values are dynamically placed 
+in the LDAP attributes in Gluu Server.</p>
+<ul>
+<li><a href="../sample-dynamic-script.py">Sample Dynamic Scope Script</a> </li>
+</ul>
+<h1 id="id-generator">ID Generator</h1>
+<p>By default oxAuth/oxTrust uses an internal method to generate unique
+identifiers for new person/client, etc. entries. In most cases the
+format of the ID is:</p>
+<p><code>'!' + idType.getInum() + '!' + four_random_HEX_characters + '.' + four_random_HEX_characters.</code></p>
+<p>The ID generation script enables an admin to implement custom ID
+generation rules.</p>
+<p>This script type adds only one method to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def generateId(self, appId, idType, idPrefix, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Method Parameter</strong></td>
+<td><code>appId</code> is application ID<br/><code>idType</code> is ID Type<br/><code>idPrefix</code> is ID Prefix<br/><code>user</code> is <code>org.gluu.oxtrust.model.GluuCustomPerson</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in an oxTrust application only.</p>
+<ul>
+<li><a href="../sample-id-generation.py">Sample ID Generation Script</a></li>
+</ul>
+<h1 id="cache-refresh">Cache Refresh</h1>
+<p>In order to integrate an interception script with an existing
+authentication server oxTrust provides a mechanism called <a href="../../cache-refresh/">Cache
+Refresh</a> to copy
+user data to the local LDAP server. During this process it is possible
+to specify key attribute(s) and specify attribute name transformations.
+There are also cases when it can be used to overwrite attribute values
+or to add new attributes based on other attribute values.</p>
+<p>This script type adds only one method to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def updateUser(self, user, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Method Parameter</strong></td>
+<td><code>user</code> is <code>org.gluu.oxtrust.model.GluuCustomPerson</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in an oxTrust application only.</p>
+<ul>
+<li><a href="../sample-cache-refresh-script.py">Sample Cache Refresh Script</a></li>
+</ul>
+<h1 id="uma-authorization-policies">UMA Authorization Policies</h1>
+<p>This is a special script for UMA. It allows an admin to protect UMA
+scopes with policies. It is possible to add more than one UMA policy to
+an UMA scope. On requesting access to a specified resource, the
+application should call specified UMA policies in order to grant or deny
+access.</p>
+<p>This script type adds only one method to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def authorize(self, authorizationContext, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Method Parameter</strong></td>
+<td><code>authorizationContext</code> is <code>org.xdi.oxauth.service.uma.authorization.AuthorizationContext</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in an oxAuth application only.</p>
+<ul>
+<li><a href="../sample-uma-authorization-script.py">Sample Authorization Script</a></li>
+</ul>
+<h1 id="application-session-management">Application Session Management</h1>
+<p>This script allows an admin to notify 3rd party systems about requests
+to end an OAuth session. This method is triggered by an oxAuth call to
+the <code>end_session</code> endpoint. It's possible to add multiple scripts with
+this type. The application should call all of them according to the
+level.</p>
+<p>This script type adds only one method to the base script type:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>def endSession(self, httpRequest, authorizationGrant, configurationAttributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Method Parameter</strong></td>
+<td><code>httpRequest</code> is <code>javax.servlet.http.HttpServletRequest</code><br/><code>authorizationGrant</code> is <code>org.xdi.oxauth.model.common.AuthorizationGrant</code><br/><code>configurationAttributes</code> is <code>java.util.Map&lt;String, SimpleCustomProperty&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>This script can be used in an oxAuth application only.</p>
+<ul>
+<li><a href="../sample-application-session-script.py">Sample Application Session Management Script</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../auth-script/" class="btn btn-neutral float-right" title="Custom Script How-To"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../design/" class="btn btn-neutral" title="Design Customization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../design/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../auth-script/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

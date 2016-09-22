@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Update Gluu Server Certificates - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Update Gluu Server Certificates</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#full-procedures-for-manually-updating-certificates-of-a-live-gluu-ce-instance">Full procedures for manually updating certificates of a live Gluu CE instance.</a></li>
+                
+                    <li><a class="toctree-l4" href="#before-you-start-changing-anything">Before you start changing anything</a></li>
+                
+                    <li><a class="toctree-l4" href="#default-jvm-keystore">Default JVM Keystore</a></li>
+                
+                    <li><a class="toctree-l4" href="#apache-web-server-certificate-update-process">Apache Web Server Certificate Update Process</a></li>
+                
+                    <li><a class="toctree-l4" href="#updating-certificate-used-by-shibboleth-module-idpwar">Updating certificate used by Shibboleth module (idp.war)</a></li>
+                
+                    <li><a class="toctree-l4" href="#updating-certificate-used-by-asimba-module-asimbawar">Updating certificate used by Asimba module (asimba.war)</a></li>
+                
+                    <li><a class="toctree-l4" href="#updating-opendjs-certificate-in-the-default-java-keystore">Updating OpenDJ's certificate in the default java keystore</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>How To &raquo;</li>	 
+        
+      
+    
+    <li>Update Gluu Server Certificates</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/how-to/update-certificate.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#full-procedures-for-manually-updating-certificates-of-a-live-gluu-ce-instance">Full procedures for manually updating certificates of a live Gluu CE instance.</a><ul>
+<li><a href="#before-you-start-changing-anything">Before you start changing anything</a></li>
+<li><a href="#default-jvm-keystore">Default JVM Keystore</a></li>
+<li><a href="#apache-web-server-certificate-update-process">Apache Web Server Certificate Update Process</a><ul>
+<li><a href="#how-to-test">How to test</a></li>
+</ul>
+</li>
+<li><a href="#updating-certificate-used-by-shibboleth-module-idpwar">Updating certificate used by Shibboleth module (idp.war)</a><ul>
+<li><a href="#how-to-test_1">How to test</a></li>
+</ul>
+</li>
+<li><a href="#updating-certificate-used-by-asimba-module-asimbawar">Updating certificate used by Asimba module (asimba.war)</a></li>
+<li><a href="#updating-opendjs-certificate-in-the-default-java-keystore">Updating OpenDJ's certificate in the default java keystore</a><ul>
+<li><a href="#how-to-test_2">How to test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="full-procedures-for-manually-updating-certificates-of-a-live-gluu-ce-instance">Full procedures for manually updating certificates of a live Gluu CE instance.</h1>
+<p>This page describes how to manually update SSL/TLS certificates used by different components of Gluu CE instance. Ubuntu-based container's environment will be used for all command examples, if not stated otherwise explicitly. Commands may differ slightly for other distro families.</p>
+<h2 id="before-you-start-changing-anything">Before you start changing anything</h2>
+<p>Backup all your current certificates, keys and java key storages that may be affected:</p>
+<ol>
+<li>Log into your instance: <code># service gluu-server-2.4.3 login</code>
+(if you use Gluu CE older than 2.4 you should update to current version)</li>
+<li>Backup everything under <code>/etc/certs/</code> directory, then also backup your container's default java key storage (<code>cacerts</code> file); it can be located under <code>/etc/ssl/certs/java/</code> for Ubuntu- and Debian-based container, and under <code>/etc/pki/java/</code> for CentOS- and RHEL-based containers. It also usually has symbolic link insalled for it, which is the same for both families: <code>/usr/java/latest/lib/security/cacerts</code></li>
+</ol>
+<p>Note: In order to have the new cert used for anything in oxtrust, i.e. anything hitting <code>/identity</code> and <code>/oxauth</code>, you only need to follow the instructions for <a href="#apache-web-server-certificate-update-process">updating the Apache web server</a>.</p>
+<h2 id="default-jvm-keystore">Default JVM Keystore</h2>
+<p>Java programs making SSL connections to an external server may use the default JVM truststore, <code>/usr/java/latest/lib/security/cacerts</code>, to establish trust for certificates they are presented with. During installation, <code>setup.py</code> generates self-signed certificates for all components and adds them to the <code>cacerts</code> truststore.</p>
+<h2 id="apache-web-server-certificate-update-process">Apache Web Server Certificate Update Process</h2>
+<p>This is a common task. Before you launch your production Gluu Server, you may want to install a certificate from a well known certification authority like Verisign or Godaddy. Also, Web SSL certificates usually expire each year. To import it into Gluu CE:</p>
+<ol>
+<li>Log into your instance: <code># service gluu-server-2.4.3 login</code>
+    (if you use Gluu CE older than 2.4.x you should update to current version)</li>
+<li>Create a file containing full set of all intermediary CA certificates and root certificates for the commercial CA which issued your Web SSL certificate. You can name the file whatever you want, but place it under <code>/etc/certs</code>. The file should contain intermediate certificate(s), followed by the root CA'a certificate. <img alt="image" src="" /> For more info see doc page about the <a href="https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcertificatechainfile">SSLCertificateChainFile directive</a></li>
+<li>Put your new commercial certificate in PEM format in one file, and the private key you used to generate the CSR for this certificate in the other file under <code>/etc/certs/</code>; make sure your private key isn't password protected.</li>
+<li>Verify that user under which your Apache process runs has read permissions to all three files: certificate chain, server ssl certificate, key.</li>
+<li>Update <code>SSLCertificateFile</code>, <code>SSLCertificateKeyFil</code> and <code>SSLCertificateChainFile</code> directives in Gluu's Apcache configuration file so they point to the files you've added; in Ubuntu you can find the configuration in <code>/etc/apache2/sites-enabled/https_gluu.conf</code>. For Centos and RedHat, it is located in <code>/etc/httpd/conf.d/https_gluu.conf</code>.</li>
+</ol>
+<p>Now its time to update the default keystore of your JVM:</p>
+<ol>
+<li>Create a copy of your commercial certificate encoded in DER format: <code># openssl x509 -in pem-formatted-cert.crt -outform der -out der-formatted-cert.der</code></li>
+<li>Find out the exact alias name of your current (self-signed) Apache certificate in the cacerts file: <code># keytool -list -v -keystore /usr/java/latest/lib/security/cacerts -storepass changeit | grep -i '_httpd'</code> It should have an alias of sort “your-instance-hostname_httpd”</li>
+<li>Remove your old certificate from the store: <code># keytool -delete -alias your-instance-hostname_httpd -keystore /usr/java/latest/lib/security/cacerts \
+-storepass changeit</code></li>
+<li>Import the new one with the same alias: <code># keytool -import -alias your-instance-hostname_httpd --trustcacerts -file /etc/certs/der-formatted-cert.der \
+-keystore /usr/java/latest/lib/security/cacerts -storepass changeit</code></li>
+<li>Restart Tomcat service: <code># /etc/init.d/tomcat restart</code></li>
+<li>Restart Apache service: <code># /etc/init.d/apache2 restart</code></li>
+</ol>
+<h3 id="how-to-test">How to test</h3>
+<p>You have next options:</p>
+<ol>
+<li>Checking how certificate chain is visualized and its healthiness is evaluated by your browser. For example, correctly configured certificate chain may look like this in Firefox: <img alt="image" src="" /></li>
+<li>You could use one of online validation tools, like the Qualys® SSL Labs' SSL Server Test</li>
+<li>Using console tools, like connecting to the SSL/TLS enabled port your Gluu's Apache listens on (443 by default) with <code># openssl s_client -showcerts -connect &lt;host&gt;:&lt;port&gt;</code>. It will display the whole certificate chain sent by the web server together with secure overlay's parameters which were negotiated during SSL/TLS handshake.</li>
+</ol>
+<h2 id="updating-certificate-used-by-shibboleth-module-idpwar">Updating certificate used by Shibboleth module (idp.war)</h2>
+<p>Shibboleth has it's own java keystore protected by a password that is unique to each instance. Due to this just copying previous Shibboleth keystore file is not the easiest way to proceed, as you would need to find all possible places in configuration files from which it's being referenced and update all settings in them mentioning that password. It's better to recreate this keystore using key pair imported from your previous instance and password which the new instance uses, with the same console commands <code>setup.py</code> script employs. To properly install your previous Shibboleth certificate:</p>
+<ol>
+<li>Log into the your new instance: <code># service gluu-server-2.4.3 login</code> (if you use Gluu CE older than 2.4.x you should update to current version)</li>
+<li>Copy your Shibboleth's secret key (in non-encrypted form) and certificate in PEM format into <code>/etc/certs</code> directory, overwriting corresponding files there. In Gluu CE 2.4.x these files are named <code>shibIDP.key</code> and <code>shibIDP.crt</code>, respectively.</li>
+<li>Acquire Shibboleth's keystore's password this instance uses. One option is to get it from the <code>setup.properties.last</code> file: <code># cat /install/community-edition-setup/setup.properties.last | grep -i 'shibJksPass'</code></li>
+<li>Merge together certificate and key files into PKCS12 archive: <code># openssl pkcs12 -export -inkey /etc/certs/shibIDP.key -in /etc/certs/shibIDP.crt -out /etc/certs/shibIDP.pkcs12 \
+-passout pass:YOUR_SHIB_KEYSTORE_PASS -name your-instance-hostname</code></li>
+<li>Transform your PKCS12 archive into new instance's Shibboleth's java keystore file (this command will overwrite your privous keystore in <code>/etc/certs</code>): <code># keytool -importkeystore -srckeystore /etc/certs/shibIDP.pkcs12 -srcstorepass YOUR_SHIB_KEYSTORE_PASS \
+-srcstoretype PKCS12 -destkeystore /etc/certs/shibIDP.jks -deststoretype JKS -deststorepass YOUR_SHIB_KEYSTORE_PASS \
+-keyalg RSA -noprompt</code></li>
+<li>Verify that user “tomcat” has read access to all 4 files mentioned (shibIDP.key, shibIDP.crt, shibIDP.pkcs12 and shibIDP.jks)</li>
+<li>Create a copy of your Shibboleth certificate encoded in DER format: <code># openssl x509 -in /etc/certs/shibIDP.crt -outform der -out /etc/certs/shibIDP.der</code></li>
+<li>Find out the exact alias name of your current Shibboleth's certificate in the <code>cacerts</code> file: <code># keytool -list -v -keystore /usr/java/latest/lib/security/cacerts -storepass changeit | grep -i '_shibidp'</code>. It should have an alias of sort “your-instance-hostname_shibidp”</li>
+<li>Remove your old certificate from the store: <code># keytool -delete -alias your-instance-hostname_shibidp -keystore /usr/java/latest/lib/security/cacerts \
+-storepass changeit</code></li>
+<li>Import the new one with the same alias: <code># keytool -import -alias your-instance-hostname_shibidp --trustcacerts -file /etc/certs/shibIDP.der \
+-keystore /usr/java/latest/lib/security/cacerts -storepass changeit</code></li>
+<li>Restart Tomcat service: <code># /etc/init.d/tomcat restart</code></li>
+<li>Restart Apache service: <code># /etc/init.d/apache2 restart</code></li>
+</ol>
+<h3 id="how-to-test_1">How to test</h3>
+<p>After Tomcat's restart Shibboleth's configuration generated from a set of Velocity templates should be updated to include your changes to it. One way to test they have been applied is to check the current certificate the module includes in its SAML metadata that is shown at url like <a href="https://your-instance-hostname/idp/shibboleth">https://your-instance-hostname/idp/shibboleth</a>, or can be found in the file <code>/opt/idp/metadata/YOUR-ORG-INUM-idp-metadata.xml</code> - it should show the same certificate you tried to import following steps above. If it does not, try to wait until Tomcat has fully started and restart it one more time. Please also pay attention to any error messages appearing in <code>/opt/idp/logs/idp-process.log</code> during Tomcat's startup.</p>
+<h2 id="updating-certificate-used-by-asimba-module-asimbawar">Updating certificate used by Asimba module (asimba.war)</h2>
+<p>This procedure is quite similar to updating Shibboleth's certificate: </p>
+<ol>
+<li>Log into your instance: <code># service gluu-server-2.4.3 login</code> (if you use Gluu CE older than 2.4 you should update to current version)</li>
+<li>Copy your Asimba's secret key (in non-encrypted form) and certificate in PEM format into <code>/etc/certs</code> directory, overwriting corresponding files there. In Gluu CE 2.4.x these files are named <code>asimba.key</code> and <code>asimba.crt</code>, respectively.</li>
+<li>Acquire Shibboleth keystore's password this instance uses. One option is to get it from the <code>setup.properties.last</code> file: <code># cat /install/community-edition-setup/setup.properties.last | grep -i 'asimbaJksPass'</code></li>
+<li>Merge together certificate and key files into PKCS12 archive: <code># openssl pkcs12 -export -inkey /etc/certs/asimba.key -in /etc/certs/asimba.crt -out /etc/certs/asimba.pkcs12 \
+-passout pass:YOUR_ASIMBA_KEYSTORE_PASS -name your-instance-hostname</code></li>
+<li>Transform your PKCS12 archive into new instance's Asimba's java keystore file: <code># keytool -importkeystore -srckeystore /etc/certs/asimba.pkcs12 -srcstorepass YOUR_ASIMBA_KEYSTORE_PASS \
+-srcstoretype PKCS12 -destkeystore /etc/certs/asimbaIDP.jks -deststoretype JKS -deststorepass YOUR_ASIMBA_KEYSTORE_PASS \
+-keyalg RSA -noprompt</code></li>
+<li>Verify that user “tomcat” has read access to all 4 files mentioned (asimba.key, asimba.crt, asimba.pkcs12 and asimbaIDP.jks)</li>
+<li>Create a copy of your Shibboleth certificate encoded in DER format: <code># openssl x509 -in /etc/certs/asimba.crt -outform der -out /etc/certs/asimba.der</code></li>
+<li>Find out the exact alias name of your current Shibboleth's certificate in the cacerts file: <code># keytool -list -v -keystore /usr/java/latest/lib/security/cacerts -storepass changeit | grep -i '_asimba'</code>
+It should have an alias of sort “your-instance-hostname_asimba”</li>
+<li>Remove your old certificate from the store: <code># keytool -delete -alias your-instance-hostname_asimba -keystore /usr/java/latest/lib/security/cacerts \
+-storepass changeit</code></li>
+<li>Import the new one with the same alias: <code># keytool -import -alias your-instance-hostname_asimba --trustcacerts -file /etc/certs/asimba.der \
+-keystore /usr/java/latest/lib/security/cacerts -storepass changeit</code></li>
+<li>Restart Tomcat service: <code># /etc/init.d/tomcat restart</code></li>
+<li>Restart Apache service: <code># /etc/init.d/apache2 restart</code></li>
+</ol>
+<h2 id="updating-opendjs-certificate-in-the-default-java-keystore">Updating OpenDJ's certificate in the default java keystore</h2>
+<p>As was mentioned before, if some component of Gluu CE package needs to connect to OpenDJ via LDAPS, it must be able to verify the authenticity and credibility of certificate presented by it by referencing java default keystore. Sometimes you may need to import cacerts file from your previous instance, overwriting corresponding file of the new container. After that it will contain your OpenDJ's certificate from the previous instance which won't match the certificate used by OpenDJ in this one.</p>
+<p>OpenDJ has its own password-protected java keystore where it stores his key pair together with certificate. It can be found at this path: <code>/opt/opendj/config/keystore</code>. Your options are either to recreate this keystore using the key pair and certificate from your previous instance (not recommended; you should refer to OpenDJ's documentation for requirements to this keystore's composition if you choose to do so), or remove the certificate of previous OpenDJ's instance from default keystore, and add the current certificate to it. To achieve the later: </p>
+<ol>
+<li>Log into your instance: <code># service gluu-server-2.4.3 login</code> (if you use Gluu CE older than 2.4 you should update to current version)</li>
+<li>
+<p>If you didn't preserve original certificates from the <code>/etc/certs</code> directory of the new container (you should do that) and OpenDJ certificate which is also placed there by setup scripts (it should be named “opendj.crt”) got overwritten by the certificate transferred from the previous one, you still can export it from the OpenDJ's own keystore with command like that:</p>
+<ol>
+<li>Acquire password for your keystore: <code># cat /opt/opendj/config/keystore.pin</code></li>
+<li>Find out the exact alias name of your current OpenDJ certificate: <code># keytool -list -v -keystore /opt/opendj/config/keystore -storepass YOUR_OPENDJ_JKS_PIN</code> It should have alias “server-cert” and there should be no other entries in the keystore, but it may change in the future.</li>
+<li>Fetch the certificate from the store: <code># keytool -export -alias alias_you_discovered -file /etc/certs/opendj-exported-cert.der \
+-keystore /opt/opendj/config/keystore -storepass opendj_jks_pin</code> Now you are ready to import it into default java keystore</li>
+</ol>
+</li>
+<li>
+<p>Find out the exact alias name of your current OpenDJ's certificate in the cacerts file: <code># keytool -list -v -keystore /usr/java/latest/lib/security/cacerts -storepass changeit | \
+grep -i '_opendj'</code> It should have an alias of sort “your-instance-hostname_opendj”</p>
+</li>
+<li>Remove your old certificate from the store: <code># keytool -delete -alias your-instance-hostname_opendj -keystore /usr/java/latest/lib/security/cacerts \
+-storepass changeit</code></li>
+<li>Import the new one with the same alias: <code># keytool -import -alias your-instance-hostname_opendj --trustcacerts -file /etc/certs/opendj-exported-cert.der \
+-keystore /usr/java/latest/lib/security/cacerts -storepass changeit</code></li>
+<li>Restart Tomcat service: <code># /etc/init.d/tomcat restart</code></li>
+<li>Restart Apache service: <code># /etc/init.d/apache2 restart</code></li>
+</ol>
+<h3 id="how-to-test_2">How to test</h3>
+<p>You can verify that the certificate in cacerts file is the same as in the OpenDJ's keystore using the same “keytool -list” commands as before. Failure when establishing SSL/TLS connection with OpenDJ will result in errors appearing in <code>/opt/idp/logs/idp-process.log</code> and <code>/opt/tomcat/logs/wrapper.log</code> during Tomcat's startup.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../customize/design/" class="btn btn-neutral float-right" title="Design Customization"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../uma-demo/" class="btn btn-neutral" title="Configure UMA"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../uma-demo/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../customize/design/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

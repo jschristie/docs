@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpenID Connect Liferay Plugin - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">OpenID Connect Liferay Plugin</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#oxray">oxRay</a></li>
+                
+                    <li><a class="toctree-l4" href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#deployment">Deployment</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>SP / RP Integration Modules &raquo;</li>	 
+        
+      
+    
+    <li>OpenID Connect Liferay Plugin</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/integrate/oxray.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="oxray">oxRay</h1>
+<p><a href="https://en.wikipedia.org/wiki/Liferay" title="LifeRay, Wikipedia">LifeRay</a> OpenID Connect plugin to authenticate users using
+Gluu IdP.
+[TOC]</p>
+<h2 id="overview">Overview</h2>
+<p>The oxAuth LifeRay plugin is used to authenticate and auto-log users
+from Gluu Server into <a href="https://en.wikipedia.org/wiki/Liferay" title="LifeRay, Wikipedia">LifeRay</a> with the same credentials. It
+is built on top of oxAuth, the OpenID Connect provider by Gluu.</p>
+<p>The oxAuth plugin intercepts any attempt to login from anywhere in the
+LifeRay and redirects the request and the user to an oxAuth server where
+the identification takes place, actually. If the user has authorized the
+server to share some of his basic information with the oxAuth plugin,
+the user will be redirected back to the LifeRay CMS, and logged in,
+automatically.</p>
+<p>The goal of this project is to use the LifeRay CMS as the basis for an
+organizational personal data store service.</p>
+<p>Note: This plugin does not support auto-user creation from information
+supplied by the oxAuth Plugin. Instead, it can be implemented by
+extending the plugin.</p>
+<h2 id="deployment">Deployment</h2>
+<p>The plugin is provided in two variants--<a href="https://en.wikipedia.org/wiki/Apache_Maven" title="Apache Maven, Wikipedia">Maven</a> and <a href="https://en.wikipedia.org/wiki/Apache_Ant" title="Apache Ant, Wikipedia">Ant</a>.
+You can either use Maven or the LifeRay plugin SDK to build and deploy
+this plugin as a standard LifeRay hot deployable WAR file.</p>
+<h3 id="deploying-war-file-using-maven">Deploying WAR file using Maven</h3>
+<p>This requires a prerequisite: make sure that you have <a href="https://en.wikipedia.org/wiki/Apache_Maven" title="Apache Maven, Wikipedia">Maven</a>
+installed on your system to build this plugin from source.</p>
+<ol>
+<li>
+<p>Checkout the Maven source from the [oxRay Repository][https://github.com/GluuFederation/oxRay/tree/master/6.2.x/maven/gluu-openid-connect-hook].</p>
+</li>
+<li>
+<p>Open the file <code>pom.xml</code> in <code>gluu-openid-connect-hook</code>, and update
+your local LifeRay Tomcat bundle path. This is required for building the
+WAR file and deploying to the LifeRay Tomcat bundle.</p>
+</li>
+</ol>
+<p><img alt="configure_pom_xml" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/configure_pom_xml.jpg" /></p>
+<ol>
+<li>Run the following command in the <code>gluu/6.2.x/maven/gluu-openid-connect-hook</code> 
+directory:</li>
+</ol>
+<pre><code>mvn clean install package liferay:deploy
+</code></pre>
+
+<p>This will take a few seconds to download the dependency <code>jar</code> files, and
+generate the LifeRay-compiled deployable WAR file. It will be placed
+within your <code>&lt;liferay-bundle-folder&gt;/deploy</code> directory, and the hot
+deployable process will start.</p>
+<h3 id="using-liferay-plugin-sdk-with-ant">Using LifeRay Plugin SDK With Ant</h3>
+<p>This requires a prerequisite: we assume that you have the plugin SDK
+both installed and configured with LifeRay bundle.</p>
+<ol>
+<li>
+<p>Checkout the gluu-openid-connect-hook plugin source from the
+repository, and place these files in your local directory for the plugin
+SDK. Usually, this is <code>liferay-plugins-sdk-6.2.0-ce-ga1/hooks</code>.</p>
+</li>
+<li>
+<p>Run the following command in the folder <code>liferay-plugins-sdk-6.2.0-ce-ga1/hooks/gluu-openid-connect-hook</code>:</p>
+</li>
+</ol>
+<pre><code>ant clean deploy
+</code></pre>
+
+<h3 id="using-binary-from-repository">Using Binary From Repository</h3>
+<p>You can also download a compiled binary as a standard LifeRay deployable
+WAR file from the following location:</p>
+<p><a href="https://github.com/GluuFederation/oxRay/blob/master/6.2.x/binary/gluu-openid-connect-hook-6.2.0.1.war">oxRay LifeRay Deployable War File</a></p>
+<p>Copy this WAR file in your LifeRay bundle. Usually, this is located at
+<code>liferay-portal-6.2.0-ce-ga1/deploy</code>.</p>
+<p>Once the plugin is deployed as a WAR file either using Maven or Ant, you
+will see the following success message in your LifeRay Tomcat server:</p>
+<p><img alt="deploy_success" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/deploy_success.jpg" /></p>
+<h3 id="client-registration">Client Registration</h3>
+<p>A LifeRay application needs to be registered with the Authorization
+server before initiating an authentication request/response with OAuth
+IdP server.</p>
+<p>The following steps are necessary to obtain both a client id and a
+client secret. These data will be used within the LifeRay portal
+properties.</p>
+<ol>
+<li>Go to the location <code>https://seed.gluu.org/oxauth-rp/home.seam</code>.</li>
+<li>You will see the Dynamic Client Registration Section.</li>
+<li>Enter the Registration Endpoint uri, for example
+<code>https://idp.example.org/oxauth/seam/resource/restv1/oxauth/authorize</code>.<ul>
+<li>You can derive this uri from your IdP auto-discovery uri which is
+like that: <code>https://&lt;Your IDP Server Domain&gt;/.well-known/openid-configuration</code>.</li>
+<li>You can search for the registration endpoint, and copy that uri here.</li>
+</ul>
+</li>
+<li>Enter the redirect uris as <code>http://localhost:8080/openidconnect/callback</code>:<ul>
+<li>Replace your domain name with <code>localhost:8080</code></li>
+<li>This will be your LifeRay handler for logging a user into LifeRay,
+automatically, when a redirect comes back from the OAuth server.</li>
+</ul>
+</li>
+<li>Select the Response Types: CODE</li>
+<li>Select the Application Type: WEB</li>
+<li>For development purposes use: NATIVE (if you are testing on a local
+machine with <code>localhost:8080</code> domain)</li>
+<li>Enter Client Name: LifeRay App (you can choose any name here).</li>
+<li>All other options can be left as they are--please see the attached
+screenshot:</li>
+</ol>
+<p><img alt="client_registration" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/dynamic_client_registration_screen1.jpg" /></p>
+<ol>
+<li>Click <code>Submit</code>, and both the following <code>Registration Request</code> and
+<code>Registration Response</code> will be displayed:</li>
+</ol>
+<p><img alt="json-request-response" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/json-request-response.jpg" /></p>
+<ol>
+<li>Save the Registration Response to your local system. The parameters
+<code>client_id</code> and <code>client_secret</code> are used in LifeRay when configuring
+<code>portal-ext.properties</code>.</li>
+</ol>
+<h4 id="modifying-portalproperties">Modifying portal.properties</h4>
+<p>It is necessary to modify <code>portal-ext.properties</code> file to reflect oxAuth
+server client credentials and server's URL. It can be accomplished by
+navigating into the <code>liferay-portal-6.2.0-ce-ga1</code> folder, where the file
+<code>portal-ext.properties</code> is stored.</p>
+<p>Note: To either activate or deactivate the oxAuth plugin put the value
+<code>true</code> (to activate) or <code>false</code> (to deactivate), respectively.</p>
+<pre><code>gluu.openidconnect.auth.enabled=true
+</code></pre>
+
+<ul>
+<li>oxAuth client ID and client secret:</li>
+</ul>
+<pre><code>gluu.openidconnect.client.id=@!1111!0008!51CE.1E59
+gluu.openidconnect.client.secret=65777eb7-87a8-4d60-9dbc-d31d43971f2b
+</code></pre>
+
+<ul>
+<li>OAuth server domain</li>
+</ul>
+<pre><code>gluu.openidconnect.idp.domain=https://idp.gluu.org`
+</code></pre>
+
+<ul>
+<li>OAuth server auto discovery uri</li>
+</ul>
+<pre><code>gluu.openidconnect.url.discovery=https://idp.gluu.org/.well-known/openid-configuration
+</code></pre>
+
+<ul>
+<li>Your OAuth server logout uri (typically, this will be used to logout a
+user from OAuth when a user logs out from LifeRay)</li>
+</ul>
+<pre><code>gluu.openidconnect.idp.logout=https://idp.gluu.org/identity/logout
+</code></pre>
+
+<ul>
+<li>LifeRay server callback uri that will be used as a handling response
+by the OAuth server after authentication:</li>
+<li>replace the <code>localhost:8080</code> with your LifeRay domain name:</li>
+</ul>
+<pre><code>gluu.openidconnect.client.redirect.url=http://localhost:8080/openidconnect/callback
+</code></pre>
+
+<pre><code> This page will be invoked when the user does not exist in the
+ LifeRay database, but gets authenticated from the OAuth Server.
+</code></pre>
+<ul>
+<li>Typically, create a LifeRay page with the name <code>/no-such-user-found</code>,
+  or redirect to the LifeRay registration page uri like that:</li>
+</ul>
+<pre><code>gluu.openidconnect.no.such.user.redirect.url=http://localhost:8080/no-such-user-found
+</code></pre>
+
+<p>Restart the LifeRay server after editing the file
+<code>portal-ext.properties</code>.</p>
+<h3 id="login-using-the-liferay-front-end">Login Using the LifeRay Front End</h3>
+<ul>
+<li>
+<p>Server Bootup</p>
+<ul>
+<li>Once the LifeRay server is restarted, open your browser and
+  navigate to the uri <code>http://localhost:8080</code>.</li>
+</ul>
+</li>
+<li>
+<p>Login uri</p>
+<ul>
+<li>Once the LifeRay page successfully loaded navigate to the OpenID
+  connect page at <code>http://localhost:8080/openidconnect/login</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Note: you can edit the theme code, and link to the login uri as
+<code>http://localhost:8080/openidconnect/login</code>. In result the user will
+always redirect to the OAuth server for authentication.</p>
+<ul>
+<li>OAuth authentication<ul>
+<li>The LifeRay login uri will redirect users to the OAuth IdP server
+  for user authentication. Internally, passing the oAuth client id 
+  as the following screen:</li>
+</ul>
+</li>
+</ul>
+<p><img alt="oauth-login" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/oauth_login.jpg" /></p>
+<ul>
+<li>Request for permission<ul>
+<li>This screen can be configured depending upon your OAuth Server
+  implementation.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="oauth_info_confirm" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/oauth_info_confirm.jpg" /></p>
+<ul>
+<li>OAuth callback (user auto-login to LifeRay)<ul>
+<li>After a successful authentication with the OAuth server, IdP will
+send a callback to LifeRay with a specific code as a parameter:</li>
+</ul>
+</li>
+</ul>
+<pre><code>http://localhost:8080/openidconnect/callback?code=xxx`
+</code></pre>
+
+<p>This will be intercepted by our oxAuth LifeRay plugin. Upon validation
+of the token with the Gluu IdP, it will result in a login of the user to
+the LifeRay. The user will be redirected to his respective start page.</p>
+<p><img alt="liferay_success_login" src="https://raw.githubusercontent.com/GluuFederation/oxRay/master/img/liferay_success_login.jpg" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../apache-saml/" class="btn btn-neutral float-right" title="SAML SP in CentOS"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../centos-installation/" class="btn btn-neutral" title="OpenID Connect RP in CentOS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../centos-installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../apache-saml/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

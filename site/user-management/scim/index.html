@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCIM 2.0 Add/Delete User - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">SCIM 2.0 Add/Delete User</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#scim-20-user-adddelete">SCIM 2.0 User Add/Delete</a></li>
+                
+                    <li><a class="toctree-l4" href="#add-user">Add User</a></li>
+                
+                    <li><a class="toctree-l4" href="#delete-user">Delete User</a></li>
+                
+                    <li><a class="toctree-l4" href="#user-extensions">User Extensions</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>User Managment &raquo;</li>	 
+        
+      
+    
+    <li>SCIM 2.0 Add/Delete User</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/user-management/scim.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#scim-20-user-adddelete">SCIM 2.0 User Add/Delete</a><ul>
+<li><a href="#add-user">Add User</a><ul>
+<li><a href="#required-parameters">Required Parameters</a></li>
+<li><a href="#json-string">JSON String</a></li>
+<li><a href="#user-object">User Object</a></li>
+</ul>
+</li>
+<li><a href="#delete-user">Delete User</a><ul>
+<li><a href="#required-parameter">Required Parameter</a></li>
+</ul>
+</li>
+<li><a href="#user-extensions">User Extensions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="scim-20-user-adddelete">SCIM 2.0 User Add/Delete</h1>
+<p>This section outlines how to add/remove user from Gluu Server CE using <a href="https://github.com/GluuFederation/SCIM-Client">SCIM-Client</a>.</p>
+<h2 id="add-user">Add User</h2>
+<p>There are two methods to add users:</p>
+<ol>
+<li><a href="#json-string">JSON Sting</a></li>
+<li><a href="#user-object">User Object</a></li>
+</ol>
+<h3 id="required-parameters">Required Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userName</td>
+<td>The intended username for the end-user</td>
+</tr>
+<tr>
+<td>givenName</td>
+<td>The first name of the end-user</td>
+</tr>
+<tr>
+<td>familyName</td>
+<td>The last name of the end-user</td>
+</tr>
+<tr>
+<td>displayName</td>
+<td>The formatted first name followed by last name</td>
+</tr>
+<tr>
+<td><em>groups</em></td>
+<td>Optional parameter if the user is added to any specific group</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-string">JSON String</h3>
+<p>The user is added using a JSON object string using the required parameters; however it is possible to add more parameters. The following is an example of a JSON string used to add a user.</p>
+<pre><code>        Scim2Client client = Scim2Client.umaInstance(domain, umaMetaDataUrl, umaAatClientId, umaAatClientJksPath, umaAatClientJksPassword, umaAatClientKeyId);
+        String createJson = {&quot;schemas&quot;:[&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;],&quot;externalId&quot;:&quot;12345&quot;,&quot;userName&quot;:&quot;newUser&quot;,&quot;name&quot;:{&quot;givenName&quot;:&quot;json&quot;,&quot;familyName&quot;:&quot;json&quot;,&quot;middleName&quot;:&quot;N/A&quot;,&quot;honorificPrefix&quot;:&quot;&quot;,&quot;honorificSuffix&quot;:&quot;&quot;},&quot;displayName&quot;:&quot;json json&quot;,&quot;nickName&quot;:&quot;json&quot;,&quot;profileUrl&quot;:&quot;http://www.gluu.org/&quot;,&quot;emails&quot;:[{&quot;value&quot;:&quot;json@gluu.org&quot;,&quot;type&quot;:&quot;work&quot;,&quot;primary&quot;:&quot;true&quot;},{&quot;value&quot;:&quot;json2@gluu.org&quot;,&quot;type&quot;:&quot;home&quot;,&quot;primary&quot;:&quot;false&quot;}],&quot;addresses&quot;:[{&quot;type&quot;:&quot;work&quot;,&quot;streetAddress&quot;:&quot;621 East 6th Street Suite 200&quot;,&quot;locality&quot;:&quot;Austin&quot;,&quot;region&quot;:&quot;TX&quot;,&quot;postalCode&quot;:&quot;78701&quot;,&quot;country&quot;:&quot;US&quot;,&quot;formatted&quot;:&quot;621 East 6th Street Suite 200  Austin , TX 78701 US&quot;,&quot;primary&quot;:&quot;true&quot;}],&quot;phoneNumbers&quot;:[{&quot;value&quot;:&quot;646-345-2346&quot;,&quot;type&quot;:&quot;work&quot;}],&quot;ims&quot;:[{&quot;value&quot;:&quot;nynytest_user&quot;,&quot;type&quot;:&quot;Skype&quot;}],&quot;userType&quot;:&quot;CEO&quot;,&quot;title&quot;:&quot;CEO&quot;,&quot;preferredLanguage&quot;:&quot;en-us&quot;,&quot;locale&quot;:&quot;en_US&quot;,&quot;active&quot;:&quot;true&quot;,&quot;password&quot;:&quot;secret&quot;,&quot;groups&quot;:[{&quot;display&quot;:&quot;Gluu Test Group&quot;,&quot;value&quot;:&quot;@!9B22.5F33.7D8D.B890!0001!880B.F95A!0003!60B7&quot;}],&quot;roles&quot;:[{&quot;value&quot;:&quot;Owner&quot;}],&quot;entitlements&quot;:[{&quot;value&quot;:&quot;full access&quot;}],&quot;x509Certificates&quot;:[{&quot;value&quot;:&quot;cert-12345&quot;}]}
+        ScimResponse response = client.createPersonString(createJson, MediaType.APPLICATION_JSON);
+</code></pre>
+
+<h3 id="user-object">User Object</h3>
+<p>The following code snippet uses the User object.</p>
+<pre><code>        User user = new User();
+
+        Name name = new Name();
+        name.setGivenName(&quot;Given Name&quot;);
+        name.setMiddleName(&quot;Middle Name&quot;);
+        name.setFamilyName(&quot;Family Name&quot;);
+        user.setName(name);
+
+        user.setActive(true);
+
+        user.setUserName(&quot;newUser_&quot; +  + new Date().getTime());
+        user.setPassword(&quot;secret&quot;);
+        user.setDisplayName(&quot;Display Name&quot;);
+        user.setNickName(&quot;Nickname&quot;);
+        user.setProfileUrl(&quot;&quot;);
+        user.setLocale(&quot;en&quot;);
+        user.setPreferredLanguage(&quot;US_en&quot;);
+
+        List&lt;Email&gt; emails = new ArrayList&lt;Email&gt;();
+        Email email = new Email();
+        email.setPrimary(true);
+        email.setValue(&quot;a@b.com&quot;);
+        email.setDisplay(&quot;a@b.com&quot;);
+        email.setType(Email.Type.WORK);
+        email.setReference(&quot;&quot;);
+        emails.add(email);
+        user.setEmails(emails);
+
+        List&lt;PhoneNumber&gt; phoneNumbers = new ArrayList&lt;PhoneNumber&gt;();
+        PhoneNumber phoneNumber = new PhoneNumber();
+        phoneNumber.setPrimary(true);
+        phoneNumber.setValue(&quot;123-456-7890&quot;);
+        phoneNumber.setDisplay(&quot;123-456-7890&quot;);
+        phoneNumber.setType(PhoneNumber.Type.WORK);
+        phoneNumber.setReference(&quot;&quot;);
+        phoneNumbers.add(phoneNumber);
+        user.setPhoneNumbers(phoneNumbers);
+
+        List&lt;Address&gt; addresses = new ArrayList&lt;Address&gt;();
+        Address address = new Address();
+        address.setPrimary(true);
+        address.setValue(&quot;test&quot;);
+        address.setDisplay(&quot;My Address&quot;);
+        address.setType(Address.Type.WORK);
+        address.setReference(&quot;&quot;);
+        address.setStreetAddress(&quot;My Street&quot;);
+        address.setLocality(&quot;My Locality&quot;);
+        address.setPostalCode(&quot;12345&quot;);
+        address.setRegion(&quot;My Region&quot;);
+        address.setCountry(&quot;My Country&quot;);
+        address.setFormatted(&quot;My Formatted Address&quot;);
+        addresses.add(address);
+        user.setAddresses(addresses);
+
+        ScimResponse response = client.createUser(user, new String[]{});
+        System.out.println(&quot;response body = &quot; + response.getResponseBodyString());
+
+        assertEquals(response.getStatusCode(), 201, &quot;Could not add user, status != 201&quot;);
+
+        User userCreated = Util.toUser(response, client.getUserExtensionSchema());
+        String id = userCreated.getId();
+</code></pre>
+
+<h2 id="delete-user">Delete User</h2>
+<p>To delete a user only the id (the LDAP <code>inum</code>) is needed.</p>
+<pre><code>        ScimResponse response = client.deletePerson(id);
+        assertEquals(response.getStatusCode(), 200, &quot;User could not be deleted, status != 200&quot;);
+</code></pre>
+
+<h3 id="required-parameter">Required Parameter</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>The LDAP <code>inum</code> of the user to be deleted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-extensions">User Extensions</h2>
+<p>SCIM 2.0 User Extensions implementation in Gluu server is very simple. Just set the custom attribute's <code>SCIM Attribute</code> parameter to <code>true</code> in oxTrust GUI and it will be recognized as a User extension. It is a must to create new custom attributes to be used as User extensions for a cleaner implementation.</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-attribute.png" /></p>
+<p>You can verify the User extensions via the <code>Schema</code> endpoint:</p>
+<p><code>&lt;domain root&gt;/identity/seam/resource/restv1/scim/v2/Schemas/urn:ietf:params:scim:schemas:extension:gluu:2.0:User</code></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-custom-first.png" /></p>
+<p>Now for the actual code, you can refer to the unit tests in SCIM-Client:</p>
+<ul>
+<li><a href="https://github.com/GluuFederation/SCIM-Client/blob/master/src/test/java/gluu/scim2/client/UserExtensionsObjectTest.java">UserExtensionsObjectTest</a></li>
+<li><a href="https://github.com/GluuFederation/SCIM-Client/blob/master/src/test/java/gluu/scim2/client/UserExtensionsJsonTest.java">UserExtensionsJsonTest</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../multi-factor/intro/" class="btn btn-neutral float-right" title="Intro"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../cache-refresh/reset-password/" class="btn btn-neutral" title="Reset User Password"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../cache-refresh/reset-password/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../multi-factor/intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

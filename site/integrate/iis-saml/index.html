@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAML SP in IIS7 - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">SAML SP in IIS7</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#iis-saml-configuration">IIS SAML Configuration</a></li>
+                
+                    <li><a class="toctree-l4" href="#iis-configuration-in-windows-7">IIS Configuration in Windows 7</a></li>
+                
+                    <li><a class="toctree-l4" href="#isapi-filter-configuration">ISAPI Filter Configuration</a></li>
+                
+                    <li><a class="toctree-l4" href="#shibboleth-sp-setup-in-windows-2008-r2-with-iis7">Shibboleth SP Setup in Windows 2008 R2 with IIS7</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>SP / RP Integration Modules &raquo;</li>	 
+        
+      
+    
+    <li>SAML SP in IIS7</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/integrate/iis-saml.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="iis-saml-configuration">IIS SAML Configuration</h1>
+<h2 id="iis-configuration-in-windows-7">IIS Configuration in Windows 7</h2>
+<ol>
+<li>
+<p>Start --&gt; Control Panel --&gt; Programs --&gt; "Turn Windows features on or off"</p>
+</li>
+<li>
+<p>Select (i) IIS (ii) Web Management Tools (iii) II6 Management Compatibility (iv) IIS Management Console (v) IIS Management Scripts and Tools (vi) IIS Management Service</p>
+</li>
+<li>
+<p>Select (i) World Wide Web Services (ii) CGI (iii) ISAPI Filters (iv) ISAPI Extensions --&gt; Press OK.
+<img alt="IIS 7 Setup" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_iis7setup.png" /></p>
+</li>
+<li>
+<p>Test IIS to see if it is installed in your system with "127.0.0.1" in the web browser. For our test case, we used IIS7.
+<img alt="Test IIS" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_iis7test.png" /></p>
+</li>
+</ol>
+<h2 id="isapi-filter-configuration">ISAPI Filter Configuration</h2>
+<ol>
+<li>
+<p>Open IIS Manager (Start --&gt; Administrative Tools --&gt; Internet Information Service/IIS Manager)</p>
+</li>
+<li>
+<p>Double click on "ISAPI and CGI Restrictions"
+<img alt="ISAPI and CGI" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_isapicgi.png" /></p>
+</li>
+<li>
+<p>Add a new Filter</p>
+</li>
+</ol>
+<p>a. Click Actions --&gt; Add (upper right corner)</p>
+<p>b. Select "\opt\shibboleth-sp\lib\shibboleth\isapi_shib.dll"</p>
+<p>c. Description: "Shibboleth"</p>
+<p>d. Click "Allow" (from the right hand side)</p>
+<p><img alt="ISAPI Path" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/apache_sp_isapipath.png" /></p>
+<p>e. Back to IIS Manager --&gt; ISAPI Filters</p>
+<p><img alt="ISAPI Filters" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/apache_sp_isapifilter.png" /></p>
+<pre><code>    1. Click "Add" (upper right corner)
+
+    2. Filter Name: Shibboleth
+
+    3. Executable: "\opt\shibboleth-sp\lib\shibboleth\isapi_shib.dll"
+</code></pre>
+<p><img alt="ISAPI Edit" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/apache_sp_isapiedit.png" /></p>
+<p>f. SSO file extension mapping</p>
+<pre><code>    1. Click on "Handler Mapping" from main page
+</code></pre>
+<p><img alt="SP Handler" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_handlermapping.png" /></p>
+<pre><code>    2. Click "Add Script Map" from Action
+</code></pre>
+<p><img alt="Script Map" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_addscriptmap.png" /></p>
+<pre><code>    3. Request Path :".sso"
+
+    4. Executable should be pointed to "isapi_shib.dll"
+</code></pre>
+<p><img alt="Executable" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_executable.png" /></p>
+<p>g. Restart IIS</p>
+<p>h. Check Status</p>
+<p>Check Status by typing in "http://127.0.0.1/Shibboleth.sso/Status" in the web browser. If it displays an XML document, then the Shibboleth SP Installation in Windows IIS7 in complete.
+<img alt="Status Check" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/admin_sp_checkstatus.png" /></p>
+<h2 id="shibboleth-sp-setup-in-windows-2008-r2-with-iis7">Shibboleth SP Setup in Windows 2008 R2 with IIS7</h2>
+<ol>
+<li>Open up "Server Manager", scroll down and click on "Add Roles".</li>
+</ol>
+<p><img alt="Add Role" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_addrole.png" /></p>
+<ol>
+<li>Hit "Next"</li>
+</ol>
+<p><img alt="Next" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_next.png" /></p>
+<ol>
+<li>Select "Web Server (IIS)", hit "Next"</li>
+</ol>
+<p><img alt="Web Server" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_webserver.png" /></p>
+<ol>
+<li>Select (i) CGI</li>
+</ol>
+<p>(ii) ISAPI Extensions</p>
+<p>(iii) ISAPI Filters</p>
+<p>(iv) Management Tools</p>
+<p>(a) IIS Management Console</p>
+<p>(b) IIS Management Scripts and Tools</p>
+<p>(c) Management Service</p>
+<p>(v) All IIS6 Management Compatibility</p>
+<p><img alt="Selection" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_selection.png" /></p>
+<p><img alt="Selection" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_selection1.png" /></p>
+<ol>
+<li>Hit "Next", for the confirmation, check the list of plugins.</li>
+</ol>
+<p><img alt="Plugin" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_plugin.png" /></p>
+<p><img alt="Management Tools" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_managementtools.png" /></p>
+<ol>
+<li>Hit "Install" and Windows 2008 will complete the installation. A confirmation window shall appear which resembles the screenshot below.</li>
+</ol>
+<p><img alt="Confirmation" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_confirmation.png" /></p>
+<p>7.Test IIS7 setup from the Internet.</p>
+<p><img alt="Test" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_test.png" /></p>
+<h3 id="shibboleth-sp-25x-setup">Shibboleth SP 2.5.x Setup</h3>
+<ol>
+<li>
+<p>Down the <a href="http://www.shibboleth.net/downloads/service-provider/latest/">Shibboleth SP 2.5.x</a></p>
+</li>
+<li>
+<p>Start the installation, keep the default path, Select "Install ISAPI modules into IIS", IIS Script Extension must be ".sso" and Hit "Next".</p>
+</li>
+</ol>
+<p><img alt="Shib Setup" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_shibsetup.png" /></p>
+<ol>
+<li>After the completion of the installation, the system will ask to reboot the system; hit "Yes".</li>
+</ol>
+<p><img alt="Restart" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_restart.png" /></p>
+<ol>
+<li>Test the Shibboleth SP installation from the SP VM using the URL "localhost/Shibboleth.sso/Status" in the address bar of the Web Browser.</li>
+</ol>
+<p><img alt="Status" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_status.png" /></p>
+<h3 id="trust-relationship-in-idp">Trust Relationship in IdP</h3>
+<ol>
+<li>Create a Trust Relationship for the new SP in the IdP. It is necessary to upload the Public Certificate of the new SP in the IdP. Please note that the CN of the public certificate MUST BE the same as <em>Hostname</em> of the SP. Hit "Add".</li>
+</ol>
+<p><img alt="Add TR" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_addtr.png" /></p>
+<ol>
+<li>Download the IdP generated configuration files for Shib SP modification.</li>
+</ol>
+<p><img alt="Download" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_download.png" /></p>
+<h3 id="sp-configuration">SP Configuration</h3>
+<ol>
+<li>
+<p>The files from the IdP must be placed in the SP Configuration.</p>
+</li>
+<li>
+<p>Before placing them inside the SP Configuration please check</p>
+</li>
+</ol>
+<p>(a) The "spcert.crt" file has the CN same as the SP hostname.</p>
+<p>(b) The "spcert.crt" and "spkey.key" has the same <em>md5sum</em> value.</p>
+<p>(c) The IdP-metadata is perfectly placed inside the SP Configuration.</p>
+<p>(d) The downloaded "shibboleth2.xml" file has values resembling the file content below.</p>
+<ol>
+<li>For testing purpose, we are going to protect a directory named "secure" with the IdP.  Create a folder/directory in the IIS Root Directory and restart Shibd and IIS.</li>
+</ol>
+<p><img alt="Secure" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/sp_setup/iis_setup_secure.png" /></p>
+<h3 id="sso-testing">SSO Testing</h3>
+<ol>
+<li>
+<p>Place the following URL in the web browser: "https://SP_Name/secure"</p>
+</li>
+<li>
+<p>It will redirect the user to the IdP for authentication.</p>
+</li>
+<li>
+<p>After the authentication is complete, the user will be shown the protected page. For this case, the page is the IIS7 index page.</p>
+<p><SPConfig xmlns="urn:mace:shibboleth:2.0:native:sp:config"
+      xmlns:conf="urn:mace:shibboleth:2.0:native:sp:config"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"  <br />      xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+      logger="syslog.logger" clockSkew="180"></p>
+<p><!-- The OutOfProcess section contains properties affecting the shibd daemon. -->
+      <OutOfProcess logger="shibd.logger">
+      </OutOfProcess></p>
+<p><!-- The InProcess section conrains settings affecting web server modules/filters. -->
+      <InProcess logger="native.logger">
+        <ISAPI normalizeRequest="true" safeHeaderNames="true">
+              <Site id="1" name="SP_HOSTNAME_WITHOUT_HTTP_OR_HTTPS"/>
+        </ISAPI>
+      </InProcess></p>
+<p><!-- Only one listener can be defined, to connect in-process modules to shibd. -->
+      <TCPListener address="127.0.0.1" port="1600" acl="127.0.0.1"/>
+      <!-- <UnixListener address="shibd.sock"/> --></p>
+<p><!-- This set of components stores sessions and other persistent data in daemon memory. -->
+      <StorageService type="Memory" id="mem" cleanupInterval="900"/>
+      <SessionCache type="StorageService" StorageService="mem" cacheTimeout="3600" inprocTimeout="900" cleanupInterval="900"/>
+      <ReplayCache StorageService="mem"/>
+      <ArtifactMap artifactTTL="180"/></p>
+<p><!-- To customize behavior, map hostnames and path components to applicationId and other settings. -->
+      <RequestMapper type="Native">
+        <RequestMap applicationId="default">
+                <Host name="SP_HOSTNAME_WITHOUT_HTTP_OR_HTTPS">
+                <Path name="secure" authType="shibboleth" requireSession="true"/>
+                </Host>
+        </RequestMap>
+      </RequestMapper></p>
+<p><!--
+      The ApplicationDefaults element is where most of Shibboleths SAML bits are defined.
+      Resource requests are mapped by the RequestMapper to an applicationId that
+      points into to this section.
+      -->
+  <ApplicationDefaults id="default" policyId="default"
+        entityID="DAxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx867"
+        REMOTE_USER="eppn persistent-id targeted-id uid mail"
+        signing="false" encryption="false" attributePrefix="AJP_"></p>
+<pre><code>&lt;!--
+    Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
+    You MUST supply an effectively unique handlerURL value for each of your applications.
+    The value can be a relative path, a URL with no hostname (https:///path) or a full URL.
+    The system can compute a relative value based on the virtual host. Using handlerSSL="true"
+    will force the protocol to be https. You should also add a cookieProps setting of "; path=/; secure"
+    in that case. Note that while we default checkAddress to "false", this has a negative
+    impact on the security of the SP. Stealing cookies/sessions is much easier with this disabled.
+    --&gt;
+&lt;Sessions lifetime="28800" timeout="3600" checkAddress="false"
+            handlerURL="https://SP_HOSTNAME/Shibboleth.sso" handlerSSL="false"
+            exportLocation="http://localhost/Shibboleth.sso/GetAssertion" exportACL="127.0.0.1"
+            idpHistory="false" idpHistoryDays="7" cookieProps="; path=/; secure; httpOnly"&gt;
+
+    &lt;!--
+            SessionInitiators handle session requests and relay them to a Discovery page,
+            or to an IdP if possible. Automatic session setup will use the default or first
+            element (or requireSessionWith can specify a specific id to use).
+            --&gt;
+
+    &lt;!-- Default example directs to a specific IdPs SSO service (favoring SAML 2 over Shib 1). --&gt;
+            &lt;SessionInitiator type="Chaining" Location="/Login" isDefault="true" id="gluu"
+                    relayState="cookie" entityID="https://IDP_HOSTNAME/idp/shibboleth"&gt;
+               &lt;SessionInitiator type="SAML2" acsIndex="1" template="bindingTemplate.html"/&gt;
+               &lt;SessionInitiator type="Shib1" acsIndex="5"/&gt;
+            &lt;/SessionInitiator&gt;
+
+    &lt;!--
+            md:AssertionConsumerService locations handle specific SSO protocol bindings,
+            such as SAML 2.0 POST or SAML 1.1 Artifact. The isDefault and index attributes
+            are used when sessions are initiated to determine how to tell the IdP where and
+            how to return the response.
+            --&gt;
+    &lt;md:AssertionConsumerService Location="/SAML2/POST" index="1"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/POST-SimpleSign" index="2"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/Artifact" index="3"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/ECP" index="4"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML/POST" index="5"
+            Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML/Artifact" index="6"
+            Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01"/&gt;
+
+    &lt;!-- LogoutInitiators enable SP-initiated local or global/single logout of sessions. --&gt;
+            &lt;LogoutInitiator type="Chaining" Location="/Logout" relayState="cookie"&gt;
+            &lt;LogoutInitiator type="SAML2" template="bindingTemplate.html"/&gt;
+            &lt;LogoutInitiator type="Local"/&gt;
+            &lt;/LogoutInitiator&gt;
+
+    &lt;!-- md:SingleLogoutService locations handle single logout (SLO) protocol messages. --&gt;
+            &lt;md:SingleLogoutService Location="/SLO/SOAP"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/&gt;
+            &lt;md:SingleLogoutService Location="/SLO/Redirect" conf:template="bindingTemplate.html"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/&gt;
+            &lt;md:SingleLogoutService Location="/SLO/POST" conf:template="bindingTemplate.html"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/&gt;
+            &lt;md:SingleLogoutService Location="/SLO/Artifact" conf:template="bindingTemplate.html"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/&gt;
+
+    &lt;!-- md:ManageNameIDService locations handle NameID management (NIM) protocol messages. --&gt;
+            &lt;md:ManageNameIDService Location="/NIM/SOAP"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/Redirect" conf:template="bindingTemplate.html"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/POST" conf:template="bindingTemplate.html"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/Artifact" conf:template="bindingTemplate.html"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/&gt;
+
+    &lt;!--
+            md:ArtifactResolutionService locations resolve artifacts issued when using the
+            SAML 2.0 HTTP-Artifact binding on outgoing messages, generally uses SOAP.
+            --&gt;
+            &lt;md:ArtifactResolutionService Location="/Artifact/SOAP" index="1"
+            Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/&gt;
+
+    &lt;!-- Extension service that generates "approximate" metadata based on SP configuration. --&gt;
+            &lt;Handler type="MetadataGenerator" Location="/Metadata" signing="false"/&gt;
+
+            &lt;!-- Status reporting service. --&gt;
+            &lt;Handler type="Status" Location="/Status" acl="127.0.0.1"/&gt;
+
+            &lt;!-- Session diagnostic service. --&gt;
+            &lt;Handler type="Session" Location="/Session" showAttributeValues="false"/&gt;
+
+&lt;/Sessions&gt;
+
+&lt;!--
+    Allows overriding of error template filenames. You can also add attributes with values
+    that can be plugged into the templates.
+    --&gt;
+    &lt;Errors supportContact="support@gluu.org"
+            logoLocation="/shibboleth-sp/logo.jpg"
+            styleSheet="/shibboleth-sp/main.css"/&gt;
+
+&lt;!-- Uncomment and modify to tweak settings for specific IdPs or groups. --&gt;
+    &lt;RelyingParty Name="IDP_HOSTNAME_WITHOUT_HTTP_OR_HTTPS" keyName="IDP_HOSTNAME_WITHOUT_HTTP_OR_HTTPS"/&gt;
+
+&lt;!-- Chains together all your metadata sources. --&gt;
+    &lt;MetadataProvider type="Chaining"&gt;
+    &lt;MetadataProvider type="XML" file="C:\opt\shibboleth-sp\etc\shibboleth\idp-metadata.xml"/&gt;
+    &lt;/MetadataProvider&gt;
+
+&lt;!-- Chain the two built-in trust engines together. --&gt;
+    &lt;TrustEngine type="Chaining"&gt;
+            &lt;TrustEngine type="ExplicitKey"/&gt;
+            &lt;TrustEngine type="PKIX"/&gt;
+    &lt;/TrustEngine&gt;
+
+&lt;!-- Map to extract attributes from SAML assertions. --&gt;
+    &lt;AttributeExtractor type="XML" validate="true" path="attribute-map.xml"/&gt;
+
+    &lt;!-- Use a SAML query if no attributes are supplied during SSO. --&gt;
+    &lt;AttributeResolver type="Query" subjectMatch="true"/&gt;
+
+    &lt;!-- Default filtering policy for recognized attributes, lets other data pass. --&gt;
+    &lt;AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/&gt;
+
+&lt;!-- Simple file-based resolver for using a single keypair. --&gt;
+    &lt;!-- &lt;CredentialResolver type="File" key="sp-key.pem" certificate="sp-cert.pem"/&gt; --&gt;
+
+    &lt;!-- TODO is password needed? --&gt;
+    &lt;CredentialResolver type="File" key="C:\opt\shibboleth-sp\etc\shibboleth\spkey.key"
+                    certificate="C:\opt\shibboleth-sp\etc\shibboleth\spcert.crt" /&gt;
+
+&lt;/ApplicationDefaults&gt;
+
+&lt;!-- Each policy defines a set of rules to use to secure messages. --&gt;
+    &lt;SecurityPolicies&gt;
+    &lt;!--
+    The predefined policy enforces replay/freshness, standard
+    condition processing, and permits signing and client TLS.
+    --&gt;
+&lt;Policy id="default" validate="false"&gt;
+            &lt;PolicyRule type="MessageFlow" checkReplay="true" expires="60"/&gt;
+            &lt;PolicyRule type="Conditions"&gt;
+                &lt;PolicyRule type="Audience"/&gt;
+                &lt;!-- Enable Delegation rule to permit delegated access. --&gt;
+                &lt;!-- &lt;PolicyRule type="Delegation"/&gt; --&gt;
+            &lt;/PolicyRule&gt;
+            &lt;PolicyRule type="ClientCertAuth" errorFatal="true"/&gt;
+            &lt;PolicyRule type="XMLSigning" errorFatal="true"/&gt;
+            &lt;PolicyRule type="SimpleSigning" errorFatal="true"/&gt;
+    &lt;/Policy&gt;
+    &lt;/SecurityPolicies&gt;
+</code></pre>
+<p></SPConfig></p>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../saml-windows/" class="btn btn-neutral float-right" title="SAML SP in Windows"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ubuntu-shib-apache/" class="btn btn-neutral" title="SAML SP in Ubuntu"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../ubuntu-shib-apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../saml-windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

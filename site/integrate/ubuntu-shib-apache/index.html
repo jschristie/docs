@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAML SP in Ubuntu - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">SAML SP in Ubuntu</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#super-quick-ubuntu-shib-apache-install">Super Quick Ubuntu Shib Apache Install</a></li>
+                
+                    <li><a class="toctree-l4" href="#configure-apache">Configure Apache</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#configure-the-shibboleth-sp">Configure the Shibboleth SP</a></li>
+                
+                    <li><a class="toctree-l4" href="#test">Test</a></li>
+                
+                    <li><a class="toctree-l4" href="#troubleshooting">Troubleshooting</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>SP / RP Integration Modules &raquo;</li>	 
+        
+      
+    
+    <li>SAML SP in Ubuntu</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/integrate/ubuntu-shib-apache.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="super-quick-ubuntu-shib-apache-install">Super Quick Ubuntu Shib Apache Install</h1>
+<p>Need to protect a test Apache folder using SAML on an Ubuntu server?
+Hate to read? This article is for you. Replace both <code>minnow</code> and
+<code>minnow.gluu.info</code> with your desired website hostname.</p>
+<h2 id="configure-apache">Configure Apache</h2>
+<p>These are the steps to configure your Apache webserver properly:</p>
+<pre><code># apt-get install apache2 libshibsp6 libapache2-mod-shib2
+# a2enmod cgi
+# a2enmod ssl
+# a2enmod shib2
+# a2ensite default-ssl
+# mkdir /etc/certs
+# cd /etc/certs
+# openssl genrsa -des3 -out minnow.key 2048
+# openssl rsa -in minnow.key -out minnow.key.insecure
+# mv minnow.key.insecure minnow.key
+# openssl req -new -key minnow.key -out minnow.csr
+# openssl x509 -req -days 365 -in minnow.csr -signkey minnow.key -out minnow.crt
+# shib-metagen -c /etc/certs/minnow.crt -h minnow.gluu.info &gt; /etc/shibboleth/minnow-metadata.xml
+# service apache2 start
+# service shibd start
+</code></pre>
+
+<p>Download <code>minnow-metadata.xml</code> to your machine. You will need this file
+later when you create the Trust Relationship in the Gluu Server.</p>
+<pre><code># mkdir protected
+# touch /var/www/protected/printHeaders.py
+# chmod ugo+x /var/www/protected/printHeaders.py
+</code></pre>
+
+<p>Edit the default site at <code>/etc/apache2/sites-available/default-ssl.conf</code>, 
+and add this part:</p>
+<pre><code>ScriptAlias /protected/ /var/www/protected/
+&lt;Directory /var/www/protected&gt;
+    AddHandler cgi-script .py
+    Options +ExecCGI
+    SSLOptions +StdEnvVars
+    AuthType shibboleth
+    ShibRequestSetting requireSession 1
+    Require valid-user
+&lt;/Directory&gt;
+</code></pre>
+
+<p>Edit <code>printHeaders.py</code>, and add this simple script. It will show you the
+HTTP headers:</p>
+<pre><code>#!/usr/bin/python
+
+import os
+
+d = os.environ
+k = d.keys()
+k.sort()
+
+print &quot;Content-type: text/html\n\n&quot;
+
+print &quot;&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Print Env Variables&lt;/TITLE&gt;&lt;/Head&gt;&lt;BODY&gt;&quot;
+print &quot;&lt;h1&gt;Environment Variables&lt;/H1&gt;&quot;
+for item in k:
+    print &quot;&lt;p&gt;&lt;B&gt;%s&lt;/B&gt;: %s &lt;/p&gt;&quot; % (item, d[item])
+print &quot;&lt;/BODY&gt;&lt;/HTML&gt;&quot;
+</code></pre>
+
+<h1 id="configure-the-shibboleth-sp">Configure the Shibboleth SP</h1>
+<p>Use this for <code>shibboleth2.xml</code> and replace <code>minnow.gluu.info</code> with the
+hostname of your SP, and <code>brookie.gluu.info</code> with the hostname of your
+IDP.</p>
+<pre><code>&lt;SPConfig xmlns="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:conf="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+    xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+    logger="syslog.logger" clockSkew="180"&gt;
+    &lt;OutOfProcess logger="shibd.logger"&gt; &lt;/OutOfProcess&gt;
+    &lt;UnixListener address="shibd.sock"/&gt;
+    &lt;StorageService type="Memory" id="mem" cleanupInterval="900"/&gt;
+    &lt;SessionCache type="StorageService" StorageService="mem" cacheTimeout="3600" inprocTimeout="900" cleanupInterval="900"/&gt;
+    &lt;ReplayCache StorageService="mem"/&gt;
+    &lt;ArtifactMap artifactTTL="180"/&gt;
+    &lt;RequestMapper type="Native"&gt;
+        &lt;RequestMap applicationId="default"&gt;
+            &lt;Host name="minnow.gluu.info"&gt;
+                &lt;Path name="secure" authType="shibboleth" requireSession="true"/&gt;
+            &lt;/Host&gt;
+        &lt;/RequestMap&gt;
+    &lt;/RequestMapper&gt;
+    &lt;ApplicationDefaults id="default" policyId="default"
+        entityID="https://minnow.gluu.info/shibboleth"
+        REMOTE_USER="eppn persistent-id targeted-id uid mail"
+        signing="false" encryption="false" attributePrefix="SHIB_"&gt;
+        &lt;Sessions lifetime="28800" timeout="3600" checkAddress="false"
+            handlerURL="https://minnow.gluu.info/Shibboleth.sso" handlerSSL="true"
+            exportLocation="http://localhost/Shibboleth.sso/GetAssertion" exportACL="127.0.0.1"
+            idpHistory="false" idpHistoryDays="7" cookieProps="; path=/; secure; httpOnly"&gt;
+            &lt;SessionInitiator type="Chaining" Location="/Login" isDefault="true" id="gluu"
+                    relayState="cookie" entityID="https://brookie.gluu.info/idp/shibboleth"&gt;
+                &lt;SessionInitiator type="SAML2" acsIndex="1" template="bindingTemplate.html"/&gt;
+            &lt;/SessionInitiator&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/POST" index="1"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/POST-SimpleSign" index="2"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/Artifact" index="3"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML2/ECP" index="4"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML/POST" index="5"
+                Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post"/&gt;
+            &lt;md:AssertionConsumerService Location="/SAML/Artifact" index="6"
+                Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01"/&gt;
+            &lt;LogoutInitiator type="Chaining" Location="/Logout" relayState="cookie"&gt;
+                &lt;LogoutInitiator type="SAML2" template="bindingTemplate.html"/&gt;
+                &lt;LogoutInitiator type="Local"/&gt;
+            &lt;/LogoutInitiator&gt;
+            &lt;md:SingleLogoutService Location="/SLO/SOAP"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/&gt;
+            &lt;md:SingleLogoutService Location="/SLO/Redirect" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/&gt;
+            &lt;md:SingleLogoutService Location="/SLO/POST" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/&gt;
+            &lt;md:SingleLogoutService Location="/SLO/Artifact" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/SOAP"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/Redirect" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/POST" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/&gt;
+            &lt;md:ManageNameIDService Location="/NIM/Artifact" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/&gt;
+            &lt;md:ArtifactResolutionService Location="/Artifact/SOAP" index="1"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/&gt;
+            &lt;Handler type="MetadataGenerator" Location="/Metadata" signing="false"/&gt;
+            &lt;Handler type="Status" Location="/Status" acl="127.0.0.1"/&gt;
+            &lt;Handler type="Session" Location="/Session" showAttributeValues="false"/&gt;
+        &lt;/Sessions&gt;
+        &lt;Errors supportContact="you@example.com"
+            logoLocation="/shibboleth-sp/logo.jpg"
+            styleSheet="/shibboleth-sp/main.css"/&gt;
+        &lt;RelyingParty Name="https://minnow.gluu.info" keyName="https://minnow.gluu.info"/&gt;
+        &lt;MetadataProvider type="Chaining"&gt;
+                &lt;MetadataProvider type="XML" url="https://brookie.gluu.info/idp/shibboleth" /&gt;
+        &lt;/MetadataProvider&gt;
+        &lt;TrustEngine type="Chaining"&gt;
+            &lt;TrustEngine type="ExplicitKey"/&gt;
+            &lt;TrustEngine type="PKIX"/&gt;
+        &lt;/TrustEngine&gt;
+        &lt;AttributeExtractor type="XML" validate="true" path="attribute-map.xml"/&gt;
+        &lt;AttributeResolver type="Query" subjectMatch="true"/&gt;
+        &lt;AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/&gt;
+                &lt;CredentialResolver type="File" key="/etc/certs/minnow.key"
+                        certificate="/etc/certs/minnow.crt" /&gt;
+    &lt;/ApplicationDefaults&gt;
+
+    &lt;SecurityPolicies&gt;
+        &lt;Policy id="default" validate="false"&gt;
+            &lt;PolicyRule type="MessageFlow" checkReplay="true" expires="60"/&gt;
+            &lt;PolicyRule type="Conditions"&gt;
+                &lt;PolicyRule type="Audience"/&gt;
+                &lt;!-- Enable Delegation rule to permit delegated access. --&gt;
+                &lt;!-- &lt;PolicyRule type="Delegation"/&gt; --&gt;
+            &lt;/PolicyRule&gt;
+            &lt;PolicyRule type="ClientCertAuth" errorFatal="true"/&gt;
+            &lt;PolicyRule type="XMLSigning" errorFatal="true"/&gt;
+            &lt;PolicyRule type="SimpleSigning" errorFatal="true"/&gt;
+        &lt;/Policy&gt;
+    &lt;/SecurityPolicies&gt;
+&lt;/SPConfig&gt;
+</code></pre>
+<p>Copy this file into <code>/etc/shibboleth/attribute-map.xml</code>:</p>
+<pre><code>
+&lt;Attributes xmlns=&quot;urn:mace:shibboleth:2.0:attribute-map&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+    &lt;Attribute name=&quot;urn:oid:2.5.4.42&quot; id=&quot;givenName&quot;/&gt;
+    &lt;Attribute name=&quot;urn:oid:2.5.4.4&quot; id=&quot;sn&quot;/&gt;
+    &lt;Attribute name=&quot;urn:oid:2.16.840.1.113730.3.1.241&quot; id=&quot;displayName&quot;/&gt;
+    &lt;Attribute name=&quot;urn:oid:0.9.2342.19200300.100.1.1&quot; id=&quot;uid&quot;/&gt;
+&lt;/Attributes&gt;
+</code></pre>
+
+<p>Now you need to create a Trust Relationship in your Gluu Server. Login,
+go to SAML / Trust Relationships, and "Add Relationship":</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/ubuntu-shib-apache/minnow-saml-trust-relationship-shibboleth-sp.png" /></p>
+<p>Then, configure for SAML2SSO profile. Click on the checkbox to
+"Configure specific RelyingParty":</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/ubuntu-shib-apache/configure_rp.png" /></p>
+<p>Then, click to add the SAML2SSO profile:</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/ubuntu-shib-apache/saml_sso-profile.png" /></p>
+<p>Then "Save" and "Update." Wait 5 minutes for the Shibboleth IDP to detect reload the metadata or
+stop and start tomcat.</p>
+<h2 id="test">Test</h2>
+<p>Test the CGI script at <code>https://minnow.gluu.info/protected/printHeaders.py</code>.
+Enter both the valid username and password (like <code>admin</code> and your
+initial admin password). The output will contain something like this:</p>
+<pre><code>**Environment Variables**
+
+AUTH_TYPE: shibboleth
+CONTEXT_DOCUMENT_ROOT: /var/www/protected/
+CONTEXT_PREFIX: /protected/
+DOCUMENT_ROOT: /var/www/html
+GATEWAY_INTERFACE: CGI/1.1
+HTTPS: on
+HTTP_ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+HTTP_ACCEPT_ENCODING: gzip, deflate, sdch
+HTTP_ACCEPT_LANGUAGE: en-US,en;q=0.8
+HTTP_CONNECTION: keep-alive
+HTTP_COOKIE: _shibsession_64656661756c7468747470733a2f2f6d696e6e6f772e676c75752e696e666f2f73686962626f6c657468=_6aab7e287072bcc123989d8bf5f0ed5e
+HTTP_DNT: 1
+HTTP_HOST: minnow.gluu.info
+HTTP_UPGRADE_INSECURE_REQUESTS: 1
+HTTP_USER_AGENT: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36
+PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+QUERY_STRING:
+REMOTE_ADDR: 192.168.88.1
+REMOTE_PORT: 52140
+REMOTE_USER: mike
+REQUEST_METHOD: GET
+REQUEST_SCHEME: https
+REQUEST_URI: /protected/printHeaders.py
+SCRIPT_FILENAME: /var/www/protected/printHeaders.py
+SCRIPT_NAME: /protected/printHeaders.py
+SERVER_ADDR: 192.168.88.133
+SERVER_ADMIN: webmaster@localhost
+SERVER_NAME: minnow.gluu.info
+SERVER_PORT: 443
+SERVER_PROTOCOL: HTTP/1.1
+SERVER_SIGNATURE:
+Apache/2.4.7 (Ubuntu) Server at minnow.gluu.info Port 443
+SERVER_SOFTWARE: Apache/2.4.7 (Ubuntu)
+SHIB_Shib_Application_ID: default
+SHIB_Shib_Authentication_Instant: 2015-09-17T01:13:23.278Z
+SHIB_Shib_Authentication_Method: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+SHIB_Shib_AuthnContext_Class: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+SHIB_Shib_Identity_Provider: https://brookie.gluu.info/idp/shibboleth
+SHIB_Shib_Session_ID: _6aab7e287072bcc123989d8bf5f0ed5e
+SHIB_Shib_Session_Index: _40e4b17668a13e0d406e41cc9f6bf116
+SHIB_displayName: Mike Schwartz
+SHIB_givenName: Michael
+SHIB_mail: mike@gmail.com
+SHIB_sn: Schwartz
+SHIB_uid: mike
+SSL_CIPHER: ECDHE-RSA-AES128-GCM-SHA256
+SSL_CIPHER_ALGKEYSIZE: 128
+SSL_CIPHER_EXPORT: false
+SSL_CIPHER_USEKEYSIZE: 128
+SSL_CLIENT_VERIFY: NONE
+SSL_COMPRESS_METHOD: NULL
+SSL_PROTOCOL: TLSv1.2
+SSL_SECURE_RENEG: true
+SSL_SERVER_A_KEY: rsaEncryption
+SSL_SERVER_A_SIG: sha256WithRSAEncryption
+SSL_SERVER_I_DN: emailAddress=mike@gluu.org,CN=minnow.gluu.info,O=Gluu,L=Austin,ST=TX,C=US
+SSL_SERVER_I_DN_C: US
+SSL_SERVER_I_DN_CN: minnow.gluu.info
+SSL_SERVER_I_DN_Email: mike@gmail.com
+SSL_SERVER_I_DN_L: Austin
+SSL_SERVER_I_DN_O: Gluu
+SSL_SERVER_I_DN_ST: TX
+SSL_SERVER_M_SERIAL: 9F5E4F891590BB53
+SSL_SERVER_M_VERSION: 1
+SSL_SERVER_S_DN: emailAddress=mike@gluu.org,CN=minnow.gluu.info,O=Gluu,L=Austin,ST=TX,C=US
+SSL_SERVER_S_DN_C: US
+SSL_SERVER_S_DN_CN: minnow.gluu.info
+SSL_SERVER_S_DN_Email: mike@gmail.com
+SSL_SERVER_S_DN_L: Austin
+SSL_SERVER_S_DN_O: Gluu
+SSL_SERVER_S_DN_ST: TX
+SSL_SERVER_V_END: Sep 10 18:46:32 2016 GMT
+SSL_SERVER_V_START: Sep 11 18:46:32 2015 GMT
+SSL_SESSION_RESUMED: Initial
+SSL_TLS_SNI: minnow.gluu.info
+SSL_VERSION_INTERFACE: mod_ssl/2.4.7
+SSL_VERSION_LIBRARY: OpenSSL/1.0.1f
+</code></pre>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>
+<p>Make sure you update your hosts file on the Gluu Server, Apache
+   server, and your workstation--this won't work with IP addresses,
+   only.</p>
+</li>
+<li>
+<p>Check the Shibboleth log file <code>/opt/idp/logs/idp-process.log</code> if you
+   don't see the headers or REMOTE_USER environment variables. Also,
+   restart the Apache Tomcat service by <code>service tomcat restart</code> to 
+   make sure the new Shibboleth IDP xml files were loaded.</p>
+</li>
+<li>
+<p>Clear the cookies in your web browser for both the Apache site, and 
+   the Gluu Server if you are logging in and logging out a lot with 
+   lots of server restarts.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../iis-saml/" class="btn btn-neutral float-right" title="SAML SP in IIS7"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../apache-saml/" class="btn btn-neutral" title="SAML SP in CentOS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../apache-saml/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../iis-saml/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

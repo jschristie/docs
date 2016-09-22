@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SCIM 1.1 - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../customize/attributes/">Custom Attributes</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="./">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">SCIM 1.1</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#scim-11">SCIM 1.1</a></li>
+                
+                    <li><a class="toctree-l4" href="#scim-11-specifications">SCIM 1.1 Specifications</a></li>
+                
+                    <li><a class="toctree-l4" href="#scim-11-endpoints">SCIM 1.1 Endpoints</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#user-endpoint">User Endpoint</a></li>
+                
+                    <li><a class="toctree-l4" href="#seamresourcerestv1users">/seam/resource/restv1/Users</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#group-endpoint">Group Endpoint</a></li>
+                
+                    <li><a class="toctree-l4" href="#seamresourcerestv1groups">/seam/resource/restv1/Groups</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bulk-operation-endpoint">Bulk Operation Endpoint</a></li>
+                
+                    <li><a class="toctree-l4" href="#seamresourcerestv1scimv1bulk">/seam/resource/restv1/scim/v1/Bulk</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#definitions">Definitions</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bulkoperation">BulkOperation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bulkrequest">BulkRequest</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#bulkresponse">BulkResponse</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Gluu Server API &raquo;</li>	 
+        
+      
+    
+    <li>SCIM 1.1</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/api/scim-1.1.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="scim-11">SCIM 1.1</h2>
+<h3 id="scim-11-specifications">SCIM 1.1 Specifications</h3>
+<p>You can see the detailed SCIM 1.1 specification documents
+<a href="http://www.simplecloud.info/specs/draft-scim-api-01.html">here</a>.</p>
+<h3 id="scim-11-endpoints">SCIM 1.1 Endpoints</h3>
+<ul>
+<li><a href="#user-endpoint">User Endpoint</a></li>
+<li><a href="#group-endpoint">Group Endpoint</a></li>
+<li><a href="#bulk-operation-endpoint">Bulk Operation Endpoint</a></li>
+</ul>
+<h2 id="user-endpoint">User Endpoint</h2>
+<h3 id="seamresourcerestv1users">/seam/resource/restv1/Users</h3>
+<hr />
+<h5 id="getuser">getUser</h5>
+<p><strong>GET</strong> <code>/host/seam/resource/restv1/scim/v1/Users{rsid}</code></p>
+<p>Returns a user on the basis of provided id as path parameter. The
+resource MUST be already registered with the mentioned id.</p>
+<h6 id="url">URL</h6>
+<pre><code>http://gluu.org/host/seam/resource/restv1/scim/v1/Users{rsid}
+</code></pre>
+<h5 id="request">Request</h5>
+<h6 id="parameters">Parameters</h6>
+<ul>
+<li>Following are the details about parameters:
+    <table border="1">
+        <tr>
+            <th>Parameter</th>
+            <th>Location</th>
+        <th>Required</th>
+            <th>Description</th>
+            <th>Data Type</th>
+        </tr>
+        <tr>
+            <th>rsid</th>
+        <td>path</td>
+        <td>TRUE</td>
+            <td>Resource set description ID</td>
+            <td>string</td>
+        </tr>
+    <tr>
+            <th>Authorization</th>
+        <td>header</td>
+        <td>FALSE</td>
+            <td></td>
+            <td>string</td>
+        </tr>
+    </table></li>
+</ul>
+<h5 id="response">Response</h5>
+<p><strong>Content Type:</strong>  application/json, application/xml</p>
+<h6 id="success">Success</h6>
+<ul>
+<li><table border="1">
+        <tr>
+            <th>Status Code</th>
+            <th>Reason</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <th>200</th>
+            <th>Successful Operation</th>
+            <th>Resource returned successfully</th>
+        </tr>
+    </table></li>
+</ul>
+<h6 id="errors">Errors</h6>
+<ul>
+<li><table border="1">
+        <tr>
+            <th>Status Code</th>
+            <th>Reason</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <th>400</th>
+            <td>BAD REQUEST</td>
+            <td>Request cannot be parsed, is syntactically incorrect, or violates schema.</td>
+        </tr>
+        <tr>
+            <th>401</th>
+            <td>UNAUTHORIZED</td>
+            <td>Authorization header is invalid or missing.</td>
+        </tr>
+        <tr>
+            <th>403</th>
+            <td>FORBIDDEN</td>
+            <td>Operation is not permitted based on the supplied
+authorization.</td>
+        </tr>
+        <tr>
+            <th>404</th>
+            <td>NOT FOUND</td>
+            <td>Specified user does not exist.</td>
+        </tr>
+    </table></li>
+</ul>
+<hr />
+<h2 id="group-endpoint">Group Endpoint</h2>
+<h3 id="seamresourcerestv1groups">/seam/resource/restv1/Groups</h3>
+<hr />
+<h5 id="getgroup">getGroup</h5>
+<p><strong>GET</strong> <code>/host/seam/resource/restv1/scim/v1/Groups{rsid}</code></p>
+<p>Returns a group on the basis of the provided id as a path parameter. The
+group MUST be already registered with the mentioned id.</p>
+<h6 id="url_1">URL</h6>
+<pre><code>http://gluu.org/host/seam/resource/restv1/scim/v1/Groups{rsid}
+</code></pre>
+<h5 id="request_1">Request</h5>
+<h6 id="parameters_1">Parameters</h6>
+<ul>
+<li>Following are the details about parameters:
+    <table border="1">
+        <tr>
+            <th>Parameter</th>
+            <th>Location</th>
+        <th>Required</th>
+            <th>Description</th>
+            <th>Data Type</th>
+        </tr>
+        <tr>
+            <th>rsid</th>
+        <td>path</td>
+        <td>TRUE</td>
+            <td>Resource set description ID.</td>
+            <td>string</td>
+        </tr>
+    <tr>
+            <th>Authorization</th>
+        <td>header</td>
+        <td>FALSE</td>
+            <td></td>
+            <td>string</td>
+        </tr>
+    </table></li>
+</ul>
+<h5 id="response_1">Response</h5>
+<p><strong>Content Type:</strong>  application/json, application/xml</p>
+<h6 id="success_1">Success</h6>
+<ul>
+<li><table border="1">
+        <tr>
+            <th>Status Code</th>
+            <th>Reason</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <th>200</th>
+            <th>Successful Operation</th>
+            <th>Group returned successfully.</th>
+        </tr>
+    </table></li>
+</ul>
+<h6 id="errors_1">Errors</h6>
+<ul>
+<li><table border="1">
+        <tr>
+            <th>Status Code</th>
+            <th>Reason</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <th>400</th>
+            <td>Bad Request</td>
+            <td>Request cannot be parsed, is syntactically incorrect, or violates schema.</td>
+        </tr>
+        <tr>
+            <th>401</th>
+            <td>Unauthorized</td>
+            <td>Authorization header is invalid or missing.</td>
+        </tr>
+        <tr>
+            <th>403</th>
+            <td>Forbidden</td>
+            <td>Operation is not permitted based on the supplied authorization.</td>
+        </tr>
+        <tr>
+            <th>404</th>
+            <td>Not Found</td>
+            <td>Specified user does not exist.</td>
+        </tr>
+    </table></li>
+</ul>
+<hr />
+<h2 id="bulk-operation-endpoint">Bulk Operation Endpoint</h2>
+<h3 id="seamresourcerestv1scimv1bulk">/seam/resource/restv1/scim/v1/Bulk</h3>
+<hr />
+<p><a id="bulkOperation">Bulk Operation</a></p>
+<p>SCIM Bulk Operation enables consumers to work with a potentially large
+collection (bulk) of Resource operations in a single request. A body of
+a bulk operation may contain a set of HTTP Resource operations using one
+of the API supported HTTP methods; i.e., POST, PUT, PATCH or DELETE.
+(see http://www.simplecloud.info/specs/draft-scim-api-01.html#bulk-resources
+for more details.)</p>
+<h4 id="security">Security</h4>
+<ul>
+<li>Authorization</li>
+</ul>
+<h4 id="request_2">Request</h4>
+<p><strong>Content-Type:</strong> application/json, application/xml</p>
+<h5 id="parameters_2">Parameters</h5>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Located in</th>
+        <th>Required</th>
+        <th>Description</th>
+        <th>Default</th>
+        <th>Schema</th>
+    </tr>
+    <tr>
+        <th>Authorization</th>
+        <td>header</td>
+        <td>no</td>
+        <td></td>
+        <td> - </td>
+        <td>string </td>
+    </tr>
+    <tr>
+        <th>body</th>
+        <td>body</td>
+        <td>no</td>
+        <td>BulkRequest</td>
+        <td> - </td>
+        <td><a href="#/definitions/BulkRequest">BulkRequest</a></td>
+    </tr>
+</table>
+
+<h4 id="response_2">Response</h4>
+<p><strong>Content-Type: </strong> application/json, application/xml</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Reason</th>
+<th>Response Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>successful operation</td>
+<td><a href="#/definitions/BulkResponse">BulkResponse</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="definitions">Definitions</h2>
+<h2 id="bulkoperation"><a name="/definitions/BulkOperation">BulkOperation</a></h2>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>required</th>
+        <th>description</th>
+        <th>example</th>
+    </tr>
+
+        <tr>
+            <td>bulkId</td>
+            <td>string</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>version</td>
+            <td>string</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>method</td>
+            <td>string</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>path</td>
+            <td>string</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>location</td>
+            <td>string</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>data</td>
+            <td>object</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>status</td>
+            <td>string</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>response</td>
+            <td>object</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+</table>
+
+<h2 id="bulkrequest"><a name="/definitions/BulkRequest">BulkRequest</a></h2>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>required</th>
+        <th>description</th>
+        <th>example</th>
+    </tr>
+
+        <tr>
+            <td>schemes</td>
+            <td>array[string]</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>failOnErrors</td>
+            <td>integer (int32)</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>operations</td>
+            <td>array[<a href="#/definitions/BulkOperation">BulkOperation</a>]</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+</table>
+
+<h2 id="bulkresponse"><a name="/definitions/BulkResponse">BulkResponse</a></h2>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>required</th>
+        <th>description</th>
+        <th>example</th>
+    </tr>
+
+        <tr>
+            <td>schemes</td>
+            <td>array[string]</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>operations</td>
+            <td>array[<a href="#/definitions/BulkOperation">BulkOperation</a>]</td>
+            <td>optional</td>
+            <td>-</td>
+            <td></td>
+        </tr>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../scim-2.0/" class="btn btn-neutral float-right" title="SCIM 2.0"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../id-generation/" class="btn btn-neutral" title="Custom ID Generation API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../id-generation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../scim-2.0/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

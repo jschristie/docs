@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom Attributes - Gluu Docs</title>
+  
+
+  <link rel="shortcut icon" href="../../img/gluu_favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Gluu Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+			
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Introduction</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/">Summary</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/history/">History</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/design/">Design Goals</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../introduction/architecture/">Gluu Server Architecture</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Install Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/">Preparing VM</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu/">Ubuntu 14.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/ubuntu-xenial/">Ubuntu 16.04</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos/">CentOS 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/centos7/">CentOS 7.2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel/">RHEL 6.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/rhel7/">RHEL 7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/debian/">Debian</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/setup_py/">Setup Script Options</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/azure/">Microsoft Azure Guide</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/linode/">Linode VM Guide</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Upgrade/Update Gluu CE</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/upgrading/">Upgrade from 2.4.x</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../deployment/updating/">Update Gluu CE 2.4.4</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Cluster Configuration</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/csync-installation/">Requirements: csync2 Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cluster/">Clustering with CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server GUI</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/configuration/">Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">OxTrust JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">OxAuth JSON Configuration</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/users/">Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../oxtrust/personal/">Personal</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>User Managment</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/">Sync LDAP/AD</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/xlsfile/">Import XLS File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/register/">Register Users</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../cache-refresh/reset-password/">Reset User Password</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/scim/">SCIM 2.0 Add/Delete User</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Authentication</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/intro/">Intro</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/duo/">DUO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/u2f/">U2F</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/oxpush2/">oxPush2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/wikid/">Wikid</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../multi-factor/cert/">Certificate</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../social-login-google/">Google Authentication</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>FAQ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/general/">General</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/troubleshooting/">Troubleshooting</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>How To</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/automate-schema/">Automate Custom Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/scimuma-howto/">Protect SCIM endpoints with UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../user-management/lock-user/">Lock User on Failed Attempt</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/uma-demo/">Configure UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Customize Gluu Server</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../design/">Design Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../script/">Behaviour Customization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../auth-script/">Custom Script How-To</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Custom Attributes</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#custom-attributes">Custom Attributes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#using-oxtust">Using oxTust</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#openid-scopes">OpenID Scopes</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#custom-nameid">Custom NameID</a></li>
+                
+                    <li><a class="toctree-l4" href="#defining-nameid">Defining NameID</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#manual-schema-management-command">Manual Schema Management Command</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Supported Protocols</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/outbound-saml/">Outbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/inbound-saml/">Inbound SAML</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/openid-connect/">OpenID Connect</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/uma/">UMA</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oauth2grants/">OAuth2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>SP / RP Integration Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxd/">oxd OAuth2 Client Software </a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-installation/">OpenID Connect RP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/centos-installation/">OpenID Connect RP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/oxray/">OpenID Connect Liferay Plugin</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/apache-saml/">SAML SP in CentOS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/ubuntu-shib-apache/">SAML SP in Ubuntu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/iis-saml/">SAML SP in IIS7</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/saml-windows/">SAML SP in Windows</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Integration Guides</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/google-saml/">Google SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/office365/">Office 365 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/hobsons-saml/">Hobsons Education Solution SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/salesforce-sso/">Salesforce SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/dropbox/">Dropbox SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/test-shib2/">TestShib2 SSO</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../integrate/asimba/">Asimba & Gluu CE</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Fine Tuning and Benchmarking</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../fine-tuning/">Tuning LDAP, Tomcat</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Defaults</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/policy/">Gluu Policy</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/config/">Configurations</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/certificates/">Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/ldap/">LDAP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logout/">Logout</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/schema/">Schema</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxtrust-properties/">oxTrust Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/oxauth-properties/">oxAuth Properties File</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../gluu-defaults/logs/">Logs</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+			
+            <li>
+    <ul class="subnav">
+    <li><span>Gluu Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-authorization/">OpenID Connect Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-token/">OpenID Connect Token Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-userinfo/">OpenID Connect UserInfo Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-register-client/">OpenID Connect Client Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-end-session/">OpenID Connect End Session Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/oic-clientinfo/">OpenID Connect Client Info Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-discovery/">UMA Discovery Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-authorization-endpoint/">UMA Authorization Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-resource-registration/">UMA Resource Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-permission-registration/">UMA Permission Registration Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-create-rpt/">UMA CreateRPT Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/uma-rpt-status/">UMA RPT Introspection Endpoint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/id-generation/">Custom ID Generation API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-1.1/">SCIM 1.1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/scim-2.0/">SCIM 2.0</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+		
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Gluu Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Customize Gluu Server &raquo;</li>	 
+        
+      
+    
+    <li>Custom Attributes</li>
+    <li class="wy-breadcrumbs-aside">
+           
+      
+        
+          <a href="https://github.com/GluuFederation/docs/blob/master/sources/customize/attributes.md" class="icon icon-github"> Edit on GitHub</a>
+      
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="toc">
+<ul>
+<li><a href="#custom-attributes">Custom Attributes</a></li>
+<li><a href="#using-oxtust">Using oxTust</a></li>
+<li><a href="#openid-scopes">OpenID Scopes</a></li>
+<li><a href="#custom-nameid">Custom NameID</a><ul>
+<li><a href="#defining-nameid">Defining NameID</a></li>
+</ul>
+</li>
+<li><a href="#manual-schema-management-command">Manual Schema Management Command</a></li>
+</ul>
+</div>
+<h1 id="custom-attributes">Custom Attributes</h1>
+<p>LDAP attributes, SAML attributes, OpenID Connect user claims--whatever you call them--many organizations have business-specific information about people that needs to be shared with applications. For simplicity, this article will refer to them as "attributes." Existing standard schemas like the LDAP <a href="https://www.ietf.org/rfc/rfc2798.txt">inetOrgPerson</a> standard, or the <a href="http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">OpenID Connect user claims</a> define attributes like first name, last name and email address. Where possible, we recommend you use standard attributes that are already defined in the Gluu Server. But what if there is an attribute that is just not in any standard schema? This article will explain what you need to do to configure the Gluu Server to
+support your new attributes, and give you some advice along the way with regard to best practices. We will use fictional Company Acme Inc., which has requirements for "acmeCustNumber" and "acmeStateLicenseNumber".</p>
+<h1 id="using-oxtust">Using oxTust</h1>
+<p>Additional attributes can be added from the Gluu Server GUI, oxTrust, by
+clicking the <strong>Add Attribute</strong> button. Then, the following screen will
+appear:</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_menu_attribute.png" />
+<img alt="Add Attribute Screen" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/admin_attribute_add.png" /></p>
+<ul>
+<li>
+<p><em>Name:</em> This field defines the name of the custom attribute which must
+  be unique in the Gluu Server LDAP tree.</p>
+</li>
+<li>
+<p><em>SAML1 URI:</em> This field contains the SAML1 uri for the custom attribute.</p>
+</li>
+<li>
+<p><em>SAML2 URI:</em> This field contains the SAML2 uri for the custom attribute.</p>
+</li>
+<li>
+<p><em>Display Name:</em> This display name can be anything that is human readable.</p>
+</li>
+<li>
+<p><em>Type:</em> The attribute type should be selected from the drop-down menu.
+  There are four attribute types supported by Gluu:</p>
+</li>
+<li>Text</li>
+<li>Numeric</li>
+<li>Photo</li>
+<li>
+<p>Date</p>
+</li>
+<li>
+<p><em>Edit Type:</em> This field controls which type of an user is allowed to edit
+  corresponding attribute at his/her "Profile" page of the web UI (when feature
+"User can edit own profile" is enabled).</p>
+</li>
+<li>
+<p><em>View Type:</em> This field controls which type of an user is allowed to view
+  corresponding attribute at his/her "Profile" page of the web UI.</p>
+</li>
+<li>
+<p><em>Privacy Level:</em> Please select the desired privacy level from the
+  drop-down menu. The privacy level has a specific range of 1 to 5.</p>
+</li>
+<li>
+<p><em>Multivalued:</em> Please select multivalue in this field if the attribute
+  contains more than one value.</p>
+</li>
+<li>
+<p><em>SCIM Attributes:</em> If the attribute is a part of SCIM architecture select true.</p>
+</li>
+<li>
+<p><em>Description:</em> This contains a few words to describe the attribute.</p>
+</li>
+<li>
+<p><em>Status:</em> The status, when selected active, will release and publish
+  the attribute in IdP.</p>
+</li>
+</ul>
+<p>Where are these attributes stored? During installation, the Gluu Server creates
+a default objectclass specific for your organization. If you view
+<code>/opt/opendj/config/schema/100-user.ldif</code>, you'll see an objectclass called
+something like <code>ox-43A94B45403D3B0A00010D87EAF2</code> (where this number is your 
+organization identifier.) Any objects you add through the UI will be added to this
+objectclass. In the JSON configuration for oxTrust, you'll see two properties: 
+<code>personObjectClassTypes</code> and <code>personCustomObjectClass</code> where this objectclass is
+referenced. Also, you'll see the display name for this objectclass referenced in 
+the <code>personObjectClassDisplayNames</code> property (default value is "custom"). </p>
+<h1 id="openid-scopes">OpenID Scopes</h1>
+<p>In OpenID Connect, scopes are used to group attributes, and to provide a human 
+understandable description of the attributes. This improves usability when you need 
+to prompt a person to approve the disclosure of attributes to a third party. For
+example, instead of asking the user if its ok to release her address,
+city, state, and country, and providing a description of each attribute,
+it may be easier to ask the person if its ok to release "mailing address
+information." In situations where the attributes may confuse the person,
+OpenID Scopes are a really good thing. Although the OpenID Connect spec says an OP<br />
+may release individual scopes, the Gluu Server only releases scopes. </p>
+<p>An example of the default Gluu Server authorization request can be seen
+here:</p>
+<p><img alt="OpenID Connect Scope Authorization Screenshot" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/openid_connect/authz_screenshot.png" /></p>
+<p>So if you have custom attributes, you may need to define a custom OpenID Scope.
+This is pretty easy to do using the oxTrust user interface, and you can just
+select the attributes that you previously registered.</p>
+<p>What attributes to put in what scopes depends on your privacy requirements.
+If there is an attribute that is particularly sensitive, it may need its own
+scope (i.e. a scope with just one attribute). A good example of this is
+'dateOfBirth.' For minors, this can be sensitive information, and your
+organization may need more control about which OpenID Connect clients with
+which to share this scope.</p>
+<p>In oxTrust configuration, be careful about making a scope available by
+default. This would mean that any client that registers via Dynamic Client
+Registration could request this scope. The OpenID Connect specification only
+requires the release of the <code>openid</code> scope, which should just contain the
+person identifier in the domain (i.e. for Google, this would be your Google id).
+However, rules were meant to be broken, so if you have a reason to release
+a scope by default, go for it!</p>
+<h1 id="custom-nameid">Custom NameID</h1>
+<p>Gluu Server comes with the <code>transientID</code> attribute which is the default <code>NameID</code>.
+If there are other <code>NameID</code> requirements, it is possible to create them as well.
+The custom attribute must be created in oxTrust first before defining it as the <code>NameID</code>.
+Please see the <a href="#using-oxtrust">oxTrust custom attribute guide</a> to create the custom attribute in oxTrust.</p>
+<h2 id="defining-nameid">Defining NameID</h2>
+<p>The template file for <code>NameID</code> definitions are located in the <code>attribute-resolver.xml.vm</code> file under <code>/opt/tomcat/conf/shibboleth2/</code>.
+The example below adds <code>testcustomattribute</code> as <code>NameID</code> based on UID attribute. The following are put into the <code>attribute-resolver.xml.vm</code> file.</p>
+<ul>
+<li>Add declaration for the new attribute</li>
+</ul>
+<pre><code>if( ! ($attribute.name.equals('transientId') or $attribute.name.equals('testcustomattribute') ) )
+</code></pre>
+
+<ul>
+<li>Add definition for the new attribute</li>
+</ul>
+<pre><code> &lt;resolver:AttributeDefinition id=&quot;testcustomattribute&quot; xsi:type=&quot;Simple&quot;
+                              xmlns=&quot;urn:mace:shibboleth:2.0:resolver:ad&quot;
+                              sourceAttributeID=&quot;uid&quot;&gt;
+
+        &lt;resolver:Dependency ref=&quot;siteLDAP&quot;/&gt;
+        &lt;resolver:AttributeEncoder xsi:type=&quot;SAML2StringNameID&quot;
+                                xmlns=&quot;urn:mace:shibboleth:2.0:attribute:encoder&quot;
+                                nameFormat=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&quot; /&gt;
+&lt;/resolver:AttributeDefinition&gt; 
+</code></pre>
+
+<ul>
+<li>Restart tomcat service</li>
+</ul>
+<h1 id="manual-schema-management-command">Manual Schema Management Command</h1>
+<p>Let's say you have a lot of attributes to register. Or you want a more
+repeatable process for adding schema to the Gluu Server. This next section
+will document a slightly more geeky way to do automate the process.</p>
+<p>First of all, you should create a custom schema file, which you will copy 
+to <code>/opt/opendj/config/schema</code> each time you configure a new Gluu Server.
+Use your organization name, for example something like 102-acme.ldif. 
+For more information about creating custom schema in OpenDJ, see the 
+[ForgeRock OpenDJ Admin Guide]
+(https://backstage.forgerock.com/#!/docs/opendj/2.6/admin-guide/chap-schema). 
+You should consider prefixing the name of your attributes and objectclasses
+with your organization. For example, instead of using <code>spamId</code> use <code>acmeSpamId</code>.
+Restart your LDAP server to make sure the schema is correct. If it's not, the
+OpenDJ server will not start.</p>
+<p>Now you have the objectclass and attributes in OpenDJ, but the Gluu Server
+still does not know about them. You're going to have to "register" these 
+attributes. Each attribute that you want to make available must have a 
+corresponding LDAP entry under <code>ou=attributes,o=&lt;org-inum&gt;,o=gluu</code>. If 
+you browse your LDAP server after performing a Gluu Server base installation, 
+you will see that many commonly used attributes are already there. When an 
+LDAP entry exists for your attribute, it is considered to be "registered". 
+Note in this example, we are using @!1111 as the organization id, which will
+be much longer in a real installation.</p>
+<p>There are two ways you can register an attribute. If you are an LDAP
+geek, you can just create an LDIF file with the correct information, and
+load it in the LDAP server that is storing your configuration. If you
+want to quickly spool up new Gluu Servers, this is probably the quickest
+way to handle it.</p>
+<pre><code>dn: inum=@!1111!0005!2B29,ou=attributes,o=@!1111,o=gluu
+objectClass: top
+objectClass: gluuAttribute
+inum: @!1111!0005!2B29
+description: How a person would want their name to be presented in writing.
+displayName: Display Name
+urn: urn:mace:dir:attribute-def:displayName
+gluuAttributeName: displayName
+gluuAttributeOrigin: gluuPerson
+gluuAttributeType: string
+gluuAttributeEditType: user
+gluuAttributeEditType: admin
+gluuAttributeViewType: user
+gluuAttributeViewType: admin
+gluuStatus: active
+</code></pre>
+<p>A few things to note: </p>
+<ol>
+<li>For the <code>inum</code>, after <code>0005!</code> use a unique identifier--normally a four digit hex number.</li>
+<li>If you are using SAML, you will need to make sure that each attribute has a unique <code>urn</code>.
+  If you don't like <code>urn</code> format, you can use a dns style name here. It supposed to be globally unique. </li>
+<li>Make sure <code>gluuStatus</code> is active</li>
+<li>Set the appropriate description and displayName if possible.</li>
+</ol>
+<p>Once you have this ldif file, you should make sure you use <code>ldapmodify</code> to load it after the during
+your Gluu Server installation process. </p>
+<p>If you also want to automate loading your custom OpenID scopes, just remember that these
+scopes reference the DN of the attributes. For example: </p>
+<pre><code>dn: inum=@!1111!0009!341A,ou=scopes,o=@!1111,o=gluu
+objectClass: oxAuthCustomScope
+objectClass: top
+defaultScope: false
+description: myScope
+displayName: myScope
+inum: @!43A9.4B45.403D.3B0A!0001!0D87.EAF2!0009!341A
+oxAuthClaim: inum=@!1111!0005!2B29,ou=attributes,o=@!1111,o=gluu
+oxAuthClaim: inum=@!1111!0005!29DA,ou=attributes,o=@!1111,o=gluu
+</code></pre>
+<p>So you may want to also create an ldif file for each scope, and also load this at installation time.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../integrate/outbound-saml/" class="btn btn-neutral float-right" title="Outbound SAML"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../auth-script/" class="btn btn-neutral" title="Custom Script How-To"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../auth-script/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../integrate/outbound-saml/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
