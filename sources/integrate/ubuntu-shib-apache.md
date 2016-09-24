@@ -73,111 +73,83 @@ print "</BODY></HTML>"
 
 # Configure the Shibboleth SP
 
-Use this for `shibboleth2.xml` and replace `minnow.gluu.info` with the
-hostname of your SP, and `brookie.gluu.info` with the hostname of your
+Use this for `shibboleth2.xml` and replace `squid.gluu.info` with the
+hostname of your SP, and `albacore.gluu.info` with the hostname of your
 IDP.
 
-    <SPConfig xmlns="urn:mace:shibboleth:2.0:native:sp:config"
-        xmlns:conf="urn:mace:shibboleth:2.0:native:sp:config"
-        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
-        xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
-        xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
-        logger="syslog.logger" clockSkew="180">
-        <OutOfProcess logger="shibd.logger"> </OutOfProcess>
-        <UnixListener address="shibd.sock"/>
-        <StorageService type="Memory" id="mem" cleanupInterval="900"/>
-        <SessionCache type="StorageService" StorageService="mem" cacheTimeout="3600" inprocTimeout="900" cleanupInterval="900"/>
-        <ReplayCache StorageService="mem"/>
-        <ArtifactMap artifactTTL="180"/>
-        <RequestMapper type="Native">
-            <RequestMap applicationId="default">
-                <Host name="minnow.gluu.info">
-                    <Path name="secure" authType="shibboleth" requireSession="true"/>
-                </Host>
-            </RequestMap>
-        </RequestMapper>
-        <ApplicationDefaults id="default" policyId="default"
-            entityID="https://minnow.gluu.info/shibboleth"
-            REMOTE_USER="eppn persistent-id targeted-id uid mail"
-            signing="false" encryption="false" attributePrefix="SHIB_">
-            <Sessions lifetime="28800" timeout="3600" checkAddress="false"
-                handlerURL="https://minnow.gluu.info/Shibboleth.sso" handlerSSL="true"
-                exportLocation="http://localhost/Shibboleth.sso/GetAssertion" exportACL="127.0.0.1"
-                idpHistory="false" idpHistoryDays="7" cookieProps="; path=/; secure; httpOnly">
-                <SessionInitiator type="Chaining" Location="/Login" isDefault="true" id="gluu"
-                        relayState="cookie" entityID="https://brookie.gluu.info/idp/shibboleth">
-                    <SessionInitiator type="SAML2" acsIndex="1" template="bindingTemplate.html"/>
-                </SessionInitiator>
-                <md:AssertionConsumerService Location="/SAML2/POST" index="1"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
-                <md:AssertionConsumerService Location="/SAML2/POST-SimpleSign" index="2"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"/>
-                <md:AssertionConsumerService Location="/SAML2/Artifact" index="3"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/>
-                <md:AssertionConsumerService Location="/SAML2/ECP" index="4"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS"/>
-                <md:AssertionConsumerService Location="/SAML/POST" index="5"
-                    Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post"/>
-                <md:AssertionConsumerService Location="/SAML/Artifact" index="6"
-                    Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01"/>
-                <LogoutInitiator type="Chaining" Location="/Logout" relayState="cookie">
-                    <LogoutInitiator type="SAML2" template="bindingTemplate.html"/>
-                    <LogoutInitiator type="Local"/>
-                </LogoutInitiator>
-                <md:SingleLogoutService Location="/SLO/SOAP"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/>
-                <md:SingleLogoutService Location="/SLO/Redirect" conf:template="bindingTemplate.html"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/>
-                <md:SingleLogoutService Location="/SLO/POST" conf:template="bindingTemplate.html"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
-                <md:SingleLogoutService Location="/SLO/Artifact" conf:template="bindingTemplate.html"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/>
-                <md:ManageNameIDService Location="/NIM/SOAP"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/>
-                <md:ManageNameIDService Location="/NIM/Redirect" conf:template="bindingTemplate.html"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/>
-                <md:ManageNameIDService Location="/NIM/POST" conf:template="bindingTemplate.html"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
-                <md:ManageNameIDService Location="/NIM/Artifact" conf:template="bindingTemplate.html"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact"/>
-                <md:ArtifactResolutionService Location="/Artifact/SOAP" index="1"
-                    Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP"/>
-                <Handler type="MetadataGenerator" Location="/Metadata" signing="false"/>
-                <Handler type="Status" Location="/Status" acl="127.0.0.1"/>
-                <Handler type="Session" Location="/Session" showAttributeValues="false"/>
-            </Sessions>
-            <Errors supportContact="you@example.com"
-                logoLocation="/shibboleth-sp/logo.jpg"
-                styleSheet="/shibboleth-sp/main.css"/>
-            <RelyingParty Name="https://minnow.gluu.info" keyName="https://minnow.gluu.info"/>
-            <MetadataProvider type="Chaining">
-                    <MetadataProvider type="XML" url="https://brookie.gluu.info/idp/shibboleth" />
-            </MetadataProvider>
-            <TrustEngine type="Chaining">
-                <TrustEngine type="ExplicitKey"/>
-                <TrustEngine type="PKIX"/>
-            </TrustEngine>
-            <AttributeExtractor type="XML" validate="true" path="attribute-map.xml"/>
-            <AttributeResolver type="Query" subjectMatch="true"/>
-            <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
-                    <CredentialResolver type="File" key="/etc/certs/minnow.key"
-                            certificate="/etc/certs/minnow.crt" />
-        </ApplicationDefaults>
-    
-        <SecurityPolicies>
-            <Policy id="default" validate="false">
-                <PolicyRule type="MessageFlow" checkReplay="true" expires="60"/>
-                <PolicyRule type="Conditions">
-                    <PolicyRule type="Audience"/>
-                    <!-- Enable Delegation rule to permit delegated access. -->
-                    <!-- <PolicyRule type="Delegation"/> -->
-                </PolicyRule>
-                <PolicyRule type="ClientCertAuth" errorFatal="true"/>
-                <PolicyRule type="XMLSigning" errorFatal="true"/>
-                <PolicyRule type="SimpleSigning" errorFatal="true"/>
-            </Policy>
-        </SecurityPolicies>
-    </SPConfig>
+```
+<SPConfig xmlns="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:conf="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"    
+    xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+    logger="syslog.logger" clockSkew="180">
+    <OutOfProcess logger="shibd.logger"></OutOfProcess>
+    <UnixListener address="shibd.sock"/>
+    <StorageService type="Memory" id="mem" cleanupInterval="900"/>
+    <SessionCache type="StorageService" StorageService="mem" cacheAssertions="false"
+                  cacheAllowance="900" inprocTimeout="900" cleanupInterval="900"/>
+    <ReplayCache StorageService="mem"/>
+    <RequestMapper type="Native">
+        <RequestMap>
+            <Host name="squid.gluu.info">
+                <Path name="protected" authType="shibboleth" requireSession="true"/>
+            </Host>
+        </RequestMap>
+    </RequestMapper>
+    <ApplicationDefaults entityID="https://squid.gluu.info/shibboleth"
+                         REMOTE_USER="uid"
+                         metadataAttributePrefix="Meta-"
+                         sessionHook="/Shibboleth.sso/AttrChecker"
+                         signing="false" encryption="false">
+
+        <Sessions lifetime="28800" timeout="3600" checkAddress="true"
+            handlerURL="/Shibboleth.sso" handlerSSL="true" cookieProps="https" relayState="ss:mem">
+          
+            <SessionInitiator type="Chaining" Location="/Login" isDefault="true" id="Login"
+                              entityID="https://albacore.gluu.info/idp/shibboleth">
+                <SessionInitiator type="SAML2" template="bindingTemplate.html"/>
+            </SessionInitiator>
+            
+            <md:AssertionConsumerService Location="/SAML2/POST-SimpleSign" index="2"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign"/>
+            <md:AssertionConsumerService Location="/SAML2/POST" index="1"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+
+            <LogoutInitiator type="Chaining" Location="/Logout">
+                <LogoutInitiator type="SAML2" template="bindingTemplate.html"/>
+                <LogoutInitiator type="Local"/>
+            </LogoutInitiator>
+
+            <md:SingleLogoutService Location="/SLO/Redirect" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/>
+            <md:SingleLogoutService Location="/SLO/POST" conf:template="bindingTemplate.html"
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+
+            <Handler type="Status" Location="/Status"/>
+            <Handler type="Session" Location="/Session" showAttributeValues="false"/>
+            <Handler type="AttributeChecker" Location="/AttrChecker" template="attrChecker.html"
+                attributes="uid" flushSession="true"/>
+        </Sessions>
+
+        <Errors supportContact="root@localhost"
+            helpLocation="/about.html"
+            styleSheet="/shibboleth-sp/main.css"/>
+        
+        <MetadataProvider type="XML" file="albacore.xml"/>
+        <TrustEngine type="ExplicitKey"/>
+        <TrustEngine type="PKIX"/>
+        <AttributeExtractor type="XML" validate="true" reloadChanges="false" path="attribute-map.xml"/>
+        <AttributeExtractor type="Metadata" errorURL="errorURL" DisplayName="displayName"/>
+        <AttributeResolver type="Query" subjectMatch="true"/>
+        <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
+        <CredentialResolver type="File" key="/etc/certs/squid.key" certificate="/etc/certs/squid.crt"/>
+    </ApplicationDefaults>
+    <SecurityPolicyProvider type="XML" validate="true" path="security-policy.xml"/>
+    <ProtocolProvider type="XML" validate="true" reloadChanges="false" path="protocols.xml"/>
+
+</SPConfig>
+```
 
 Copy this file into `/etc/shibboleth/attribute-map.xml`:
 ```
