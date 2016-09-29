@@ -38,11 +38,24 @@ Set `file descriptors`
 to 65k. The following steps will help set the `file descriptor` limit.
 
 * Edit the `/etc/security/limits.conf` file.
-* Add the following lines in the `limits.conf` file. Please replace the `username` with the user that will install Gluu Server.
+* By adding following lines to the file you can set default limits which will apply to any user for whom they weren't specified explicitly:
 	
 ```
 * soft nofile 65536
 * hard nofile 262144
+```
+
+If you would like to set limits on per-user basis for "tomcat", "ldap" and "apache" users, you can use next directives in there (please note, that users under which different Gluu services run within container may be named differently in different linux distros; you'll need to edit provided examples accordingly):
+
+```
+    ldap soft nofile 131072
+    ldap hard nofile 262144
+
+    apache soft nofile 131072
+    apache hard nofile 262144
+
+    tomcat soft nofile 131072
+    tomcat hard nofile 262144
 ```
 
 * Edit the `/etc/pam.d/login` by adding the line:
@@ -69,7 +82,7 @@ The following ports need to stay open for the Gluu Server to run. Please keep th
 |	443		|	tcp		|
 
 ## Disable SELinux
-* Configure SELINUX=disabled in the /etc/selinux/config file.
+* Make sure there is "SELINUX=disabled" directive in the /etc/selinux/config file.
 * Reboot your system. After reboot, confirm that the __getenforce__ command returns __Disabled__.
 # Cloud Specific Requirements
 ## Amazon AWS
