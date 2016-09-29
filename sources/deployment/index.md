@@ -62,9 +62,9 @@ If you would like to set limits on per-user basis for "tomcat", "ldap" and "apac
 ```
 session required /lib/security/pam_limits.so
 ```
-* Use the system file limit to increase the file descriptor limit to 65535. The system file limit is set in `/proc/sys/fs/file-max`.
+* Use the system file limit to increase the file descriptor limit to 262144. The system file limit is set in `/proc/sys/fs/file-max`.
 ```
-echo 65535 > /proc/sys/fs/file-max
+echo 262144 > /proc/sys/fs/file-max
 ```
 
 * Use the `ulimit` command to set the file descriptor limit to the hard limit specified in `/etc/security/limits.conf`.
