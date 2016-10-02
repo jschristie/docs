@@ -44,7 +44,26 @@ To configure this custom script,
     - SAML -> IDPs
       - Add IDP
       - ID: The entityID of remote authentication server
-        - example: 
+        - example: ```https://nest.gluu.org/idp/shibboleth```
+      - Friendly Name: Anything peferrable 
+      - Metadata URL: Not required
+      - Metadata Timeout: -1
+      - Metadata File: Upload rermote IDP's xml metadata
+      - Trust Certificate File: Uploade remote IDP's SAML certification. The format should be x509, crt; non password protected. 
+      - NameIDFormat: Not required
+      - Enabled: Yes
+      - Send Scoping: Yes
+      - AllowCreate: Yes
+      - Disable SSO for IDP: No
+      - ACS index: Yes
+      - Send NameIDPolicy: Yes
+      - Avoid Subject Confirmations: No
+      
+### SP Requestors: 
+
+  - Log into oxTrust as admin user
+  - 
+
  
 ## Preparation in Remote Authentication Server (IDP)
 
