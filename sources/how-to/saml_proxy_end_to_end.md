@@ -35,6 +35,16 @@ To configure this custom script,
          - example: ```memberOf, l```
     - Script: Grab script from github and paste it here. 
     - Enabled: True
+    
+### Asimba Configuration: 
+
+#### Enroll Remote Authentication servers: 
+ 
+    - Log into oxTrust as admin user
+    - SAML -> IDPs
+      - Add IDP
+      - ID: The entityID of remote authentication server
+        - example: 
  
 ## Preparation in Remote Authentication Server (IDP)
 
