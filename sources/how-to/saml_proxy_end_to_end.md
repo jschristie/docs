@@ -71,7 +71,11 @@ To configure this custom script,
      - Metadata URL: Not required
      - Metadata Timeout: -1
      - Metadata File: Create a SAML metadata like below and save it as 'saml_oxauth_metadata.xml'. Upload this metadata. 
-        - metadata snippet: 
+     - Trust Certificate File: Not required
+     - Properties: Not required
+     - Enabled: Yes
+     - Signing: No
+     - metadata snippet: 
 ``` 
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://hostname_of_gluu_server/saml">
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -88,10 +92,7 @@ To configure this custom script,
   </md:ContactPerson>
 </md:EntityDescriptor> 
 ```
-     - Trust Certificate File: Not required
-     - Properties: Not required
-     - Enabled: Yes
-     - Signing: No
+
 
  
 ## Preparation in Remote Authentication Server (IDP)
