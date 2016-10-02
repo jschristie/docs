@@ -101,4 +101,27 @@ Create Trust relationships for all service provides which are included in SAML P
  
 ## Preparation in Remote Authentication Server (IDP)
 
+Create a SAML Trust Relationship with Gluu Server's Asimba bit. 
+Requirements: 
+  - Gluu Server's Asimba metadata can be achieved from 'https://hostname_of_gluu_server/asimba/profiles/saml2'
+    - Download the metadata and use 'File' method to create Trust relationship
+  - Relying Party Configuration: 'SAML2SSO' Profile 
+    - example: 
+        - includeAttributeStatement: Yes
+        - assertionLifeTime: 300000
+        - assertionProxyCount: 0
+        - signResponses: conditional
+        - signAssertions: never
+        - signRequests: conditional
+        - encryptAssertions: never
+        - encryptNameIds: never
+  - Attribute: Any attribute according to Service Providers own need. Any kind of nameID from below list is mandatory. 
+     - nameID: 
+        - `nameIDFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`
+        - `nameIDFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"`
+        - `nameIDFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"`
+     - How to create nameID in Gluu Server is available ![here](https://gluu.org/docs/customize/attributes/#custom-nameid)
+
 ## Preparation in Service Provider (SP)
+
+Preparing Service Provider for SAML Proxy worflow follows standard procedure. Service Provider need to connect with Gluu Server's Shibboleth part ( for our case, the entityID would be: https://test.gluu.org/idp/shibboleth ). How to configure any site with Shibboelth SP piece is available ![here](https://gluu.org/docs/integrate/ubuntu-shib-apache/). 
