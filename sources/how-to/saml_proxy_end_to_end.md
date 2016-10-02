@@ -9,7 +9,7 @@ For this testing environment we have below pieces:
 The whole workflow is:
 
 ```
-SP1 (sp1.gluu.org) → IDP (test.gluu.org) → oxAuth Saml script (test.gluu.org) → Asimba (test.gluu.org) → Remote IDP (nest.gluu.org) → oxAuth (any acr_values) → back_in reverser_order 
+SP1 (sp1.gluu.org) → IDP (test.gluu.org) → oxAuth Saml script (test.gluu.org) → Asimba (test.gluu.org) → Remote IDP (nest.gluu.org) → oxAuth (test.gluu.org / any acr_values) → back_in reverser_order 
 
 ```
 
