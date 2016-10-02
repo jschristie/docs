@@ -88,7 +88,10 @@ To configure this custom script,
   </md:ContactPerson>
 </md:EntityDescriptor> 
 ```
-     - 
+    - Trust Certificate File: Not required
+    - Properties: Not required
+    - Enabled: Yes
+    - Signing: No
 
  
 ## Preparation in Remote Authentication Server (IDP)
