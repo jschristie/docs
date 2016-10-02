@@ -59,7 +59,7 @@ To configure this custom script,
       - Send NameIDPolicy: Yes
       - Avoid Subject Confirmations: No
       
-### SP Requestors: 
+#### SP Requestors: 
 
   - Log into oxTrust as admin user
   - SAML -> SP Requestors
@@ -93,6 +93,13 @@ To configure this custom script,
 </md:EntityDescriptor> 
 ```
 
+### SAML Trust Relationship
+
+Create Trust relationships for all service provides which are included in SAML Proxy SSO workflow. 
+
+ 
+  - Log into oxTrust
+ 
 
  
 ## Preparation in Remote Authentication Server (IDP)
