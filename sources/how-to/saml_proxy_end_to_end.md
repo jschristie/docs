@@ -62,7 +62,31 @@ To configure this custom script,
 ### SP Requestors: 
 
   - Log into oxTrust as admin user
-  - 
+  - SAML -> SP Requestors
+     - Add SP Requestor
+     - Select parent SP Pool: requestorpool.1
+     - ID: https://hostname_of_gluu_server/saml
+        - example: ```https://test.gluu.org/saml```
+     - Friendly Name: oxAuth SAML
+     - Metadata URL: Not required
+     - Metadata Timeout: -1
+     - Metadata File: Create a SAML metadata like below and save it as 'saml_oxauth_metadata.xml'. Upload this metadata. 
+        - metadata snippet: ``` 
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://hostname_of_gluu_server/saml">
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hostname_of_gluu_server/oxauth/postlogin" index="0"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Gluu</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Gluu - Open Source Access Management</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.gluu.org</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Administrator</md:GivenName>
+    <md:EmailAddress>support@gluu.org</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor> ```
+     - 
 
  
 ## Preparation in Remote Authentication Server (IDP)
