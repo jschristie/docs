@@ -71,7 +71,8 @@ To configure this custom script,
      - Metadata URL: Not required
      - Metadata Timeout: -1
      - Metadata File: Create a SAML metadata like below and save it as 'saml_oxauth_metadata.xml'. Upload this metadata. 
-        - metadata snippet: ``` 
+        - metadata snippet: 
+``` 
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://hostname_of_gluu_server/saml">
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hostname_of_gluu_server/oxauth/postlogin" index="0"/>
@@ -85,7 +86,8 @@ To configure this custom script,
     <md:GivenName>Administrator</md:GivenName>
     <md:EmailAddress>support@gluu.org</md:EmailAddress>
   </md:ContactPerson>
-</md:EntityDescriptor> ```
+</md:EntityDescriptor> 
+```
      - 
 
  
