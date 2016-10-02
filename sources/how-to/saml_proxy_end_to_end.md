@@ -25,12 +25,16 @@ To configure this custom script,
        - asimba_saml_certificate_file: /etc/certs/saml.pem 
          - note: Deployer need to copy 'asimba.crt' in 'saml.pem' without any 'BEGIN CERTIFICATE' and 'END CERTIFICATE' tag. 
        - user_object_classes: eduPerson
-       - saml_idp_attributes_mapping: {"uid": ["uid", "urn:oid:0.9.2342.19200300.100.1.1"], "mail": ["mail", "urn:oid:0.9.2342.19200300.100.1.3"],"givenName": ["givenName", "urn:oid:2.5.4.42"], "sn": ["sn", "urn:oid:2.5.4.4"], "eduPersonPrincipalName": ["eduPersonPrincipalName", "urn:oid:1.3.6.1.4.1.5923.1.1.1.6"] }
-       - enforce_uniqueness_attr_list: edupersonprincipalname, uid, mail, givenName
+       - saml_idp_attributes_mapping: { "attribute_name": ["attribute_name", "SAML2 URI"] } 
+         - example: ```{"uid": ["uid", "urn:oid:0.9.2342.19200300.100.1.1"], "mail": ["mail", "urn:oid:0.9.2342.19200300.100.1.3"], "givenName": ["givenName", "urn:oid:2.5.4.42"], "sn": ["sn", "urn:oid:2.5.4.4"], "eduPersonPrincipalName": ["eduPersonPrincipalName", "urn:oid:1.3.6.1.4.1.5923.1.1.1.6"] } ```
+       - enforce_uniqueness_attr_list: attribute1, attribute2
+         - example: ```edupersonprincipalname, uid, mail, givenName```
        - saml_use_authn_context: false
        - saml_generate_name_id: true
-       - enroll_all_attr: mermberOf, l
-    - 
+       - enroll_all_attr: attribute3, attribute4 
+         - example: ```memberOf, l```
+    - Script: Grab script from github and paste it here. 
+    - Enabled: True
  
 ## Preparation in Remote Authentication Server (IDP)
 
