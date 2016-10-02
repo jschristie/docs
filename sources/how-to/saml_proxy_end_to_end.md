@@ -2,7 +2,7 @@
 
 ## Preparation in Gluu Server
  
- During installation of Gluu Server, deployer need to select 'Asimba' for installation. After the completion of installation, we can move forward for rest of the work. 
+ During installation of Gluu Server, deployer need to select 'Asimba' and 'Shibboleth IDP' along with other core components (oxTrust,oxAuth,Web Server and LDAP). After the completion of installation, we can move forward for rest of the work. 
 
 ### SAML custom script configuration
 
@@ -95,10 +95,7 @@ To configure this custom script,
 
 ### SAML Trust Relationship
 
-Create Trust relationships for all service provides which are included in SAML Proxy SSO workflow. 
-
- 
-  - Log into oxTrust
+Create Trust relationships for all service provides which are included in SAML Proxy SSO workflow. In our test setup we created Trust relationship for remote SP which has entityID 'https://sp.gluu.org/shibboleth'. How to create Trust Relationship is available ![here](https://gluu.org/docs/integrate/outbound-saml/)
  
 
  
