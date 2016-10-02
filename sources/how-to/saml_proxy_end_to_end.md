@@ -1,10 +1,25 @@
 # SAML Proxy End to End Configuration and Testing
 
+For this testing environment we have below pieces:
+
+   - https://sp.gluu.org/protected/print.py –> SP1
+   - https://test.gluu.org –> Gluu Server with Asimba
+   - https://nest.gluu.org –> Gluu Server acting as remote authentication server
+
+The whole is:
+
+```
+SP1 (sp1.gluu.org) → IDP (test.gluu.org) → oxAuth Saml script (test.gluu.org) → Asimba (test.gluu.org) → Remote IDP (nest.gluu.org) → oxAuth (any acr_values) → back_in reverser_order 
+
+```
+
 ## Preparation in Gluu Server
  
- During installation of Gluu Server, deployer need to select 'Asimba' and 'Shibboleth IDP' along with other core components (oxTrust,oxAuth,Web Server and LDAP). After the completion of installation, we can move forward for rest of the work. 
+During installation of Gluu Server (https://test.gluu.org), deployer need to select 'Asimba' and 'Shibboleth IDP' along with other core components (oxTrust,oxAuth,Web Server and LDAP). After the completion of installation, we can move forward for rest of the work. 
 
-### SAML custom script configuration
+### SAML custom script configuration 
+
+Server: https://test.gluu.org
 
 ![SAML Script](https://github.com/GluuFederation/oxAuth/blob/master/Server/integrations/saml/SamlExternalAuthenticator.py) allows Gluu Server Administrator to prepare a complete SAML Proxy setup with their Gluu Server. 
 To configure this custom script, 
@@ -19,9 +34,9 @@ To configure this custom script,
     - Usage Type: Web
     - Custom property (key/value)
        - saml_deployment_type: enroll
-       - saml_idp_sso_target_url: https://hostname_of_gluu_server/asimba/profiles/saml2/sso/web
+       - saml_idp_sso_target_url: https://test.gluu.org/asimba/profiles/saml2/sso/web
        - saml_validate_response: false
-       - asimba_entity_id: https://hostname_of_gluu_server/saml
+       - asimba_entity_id: https://test.gluu.org/saml
        - asimba_saml_certificate_file: /etc/certs/saml.pem 
          - note: Deployer need to copy 'asimba.crt' in 'saml.pem' without any 'BEGIN CERTIFICATE' and 'END CERTIFICATE' tag. 
        - user_object_classes: eduPerson
@@ -37,6 +52,8 @@ To configure this custom script,
     - Enabled: True
     
 ### Asimba Configuration: 
+
+Server: https://test.gluu.org
 
 #### Enroll Remote Authentication servers: 
     
@@ -65,8 +82,7 @@ To configure this custom script,
   - SAML -> SP Requestors
      - Add SP Requestor
      - Select parent SP Pool: requestorpool.1
-     - ID: https://hostname_of_gluu_server/saml
-        - example: ```https://test.gluu.org/saml```
+     - ID: https://test.gluu.org/saml
      - Friendly Name: oxAuth SAML
      - Metadata URL: Not required
      - Metadata Timeout: -1
@@ -77,9 +93,9 @@ To configure this custom script,
      - Signing: No
      - metadata snippet: 
 ``` 
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://hostname_of_gluu_server/saml">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://test.gluu.org/saml">
   <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hostname_of_gluu_server/oxauth/postlogin" index="0"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.gluu.org/oxauth/postlogin" index="0"/>
   </md:SPSSODescriptor>
   <md:Organization>
     <md:OrganizationName xml:lang="en">Gluu</md:OrganizationName>
@@ -95,15 +111,19 @@ To configure this custom script,
 
 ### SAML Trust Relationship
 
+Server: https://test.gluu.org
+
 Create Trust relationships for all service provides which are included in SAML Proxy SSO workflow. In our test setup we created Trust relationship for remote SP which has entityID 'https://sp.gluu.org/shibboleth'. How to create Trust Relationship is available ![here](https://gluu.org/docs/integrate/outbound-saml/)
  
 
  
 ## Preparation in Remote Authentication Server (IDP)
 
+Server: https://nest.gluu.org
+
 Create a SAML Trust Relationship with Gluu Server's Asimba bit. 
 Requirements: 
-  - Gluu Server's Asimba metadata can be achieved from 'https://hostname_of_gluu_server/asimba/profiles/saml2'
+  - Gluu Server's Asimba metadata can be achieved from 'https://test.gluu.org/asimba/profiles/saml2'
     - Download the metadata and use 'File' method to create Trust relationship
   - Relying Party Configuration: 'SAML2SSO' Profile 
     - example: 
@@ -123,5 +143,7 @@ Requirements:
      - How to create nameID in Gluu Server is available ![here](https://gluu.org/docs/customize/attributes/#custom-nameid)
 
 ## Preparation in Service Provider (SP)
+
+Server: https://sp.gluu.org
 
 Preparing Service Provider for SAML Proxy worflow follows standard procedure. Service Provider need to connect with Gluu Server's Shibboleth part ( for our case, the entityID would be: https://test.gluu.org/idp/shibboleth ). How to configure any site with Shibboelth SP piece is available ![here](https://gluu.org/docs/integrate/ubuntu-shib-apache/). 
