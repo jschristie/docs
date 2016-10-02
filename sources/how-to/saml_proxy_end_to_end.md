@@ -2,11 +2,11 @@
 
 For this testing environment we have below pieces:
 
-   - https://sp.gluu.org/protected/print.py –> SP1
-   - https://test.gluu.org –> Gluu Server with Asimba
+   - https://sp.gluu.org/protected/print.py –> Service Provider
+   - https://test.gluu.org –> Gluu Server with SAML Script and Asimba
    - https://nest.gluu.org –> Gluu Server acting as remote authentication server
 
-The whole is:
+The whole workflow is:
 
 ```
 SP1 (sp1.gluu.org) → IDP (test.gluu.org) → oxAuth Saml script (test.gluu.org) → Asimba (test.gluu.org) → Remote IDP (nest.gluu.org) → oxAuth (any acr_values) → back_in reverser_order 
