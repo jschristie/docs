@@ -39,8 +39,8 @@ To configure this custom script,
 ### Asimba Configuration: 
 
 #### Enroll Remote Authentication servers: 
- 
-    - Log into oxTrust as admin user
+    
+  - Log into oxTrust as admin user
     - SAML -> IDPs
       - Add IDP
       - ID: The entityID of remote authentication server
