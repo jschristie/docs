@@ -46,8 +46,6 @@ To configure this custom script,
          - example: ```edupersonprincipalname, uid, mail, givenName```
        - saml_use_authn_context: false
        - saml_generate_name_id: true
-       - enroll_all_attr: attribute3, attribute4 
-         - example: ```memberOf, l```
     - Script: Grab script from github and paste it here. 
     - Enabled: True
     
