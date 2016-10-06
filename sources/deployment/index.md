@@ -45,7 +45,7 @@ to 65k. The following steps will help set the `file descriptor` limit.
 * hard nofile 262144
 ```
 
-If you would like to set limits on per-user basis for "tomcat", "ldap" and "apache" users, you can use next directives in there (please note, that users under which different Gluu services run within container may be named differently in different linux distros; you'll need to edit provided examples accordingly):
+* If you would like to set limits on per-user basis for "tomcat", "ldap" and "apache" users, you can use next directives in there (please note, that users under which different Gluu services run within container may be named differently in different linux distros; you'll need to edit provided examples accordingly):
 
 ```
     ldap soft nofile 131072
