@@ -13,6 +13,9 @@ SP1 (sp.gluu.org) → IDP (test.gluu.org) → oxAuth Saml script (test.gluu.org)
 
 ```
 
+Description of SAML Authentication Module is available here: https://github.com/GluuFederation/oxAuth/tree/master/Server/integrations/saml
+
+
 ## Preparation in Gluu Server
  
 During installation of Gluu Server (https://test.gluu.org), deployer need to select 'Asimba' and 'Shibboleth IDP' along with other core components (oxTrust,oxAuth,Web Server and LDAP). After the completion of installation, we can move forward for rest of the work. 
