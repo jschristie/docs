@@ -24,8 +24,10 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 
 ### Preparing Node-2 of cluster: 
    - Grab `setup.properties.last` from Node-1/host-1 ( location: /install/community-edition-setup/ )
-   - Change
-   Change IP address in it to the one of `host-2` and put it into the same directory of `host-2` while renaming the file to `setup.properties`, then run `setup.py` the usual way. As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run `# ./setup.py -h` for full list of them) Please be sure to read [this part](./index.md#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup the 2nd node using `setup.properties.last` file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.
+   - Change attribute 'ip': Provide node-2/host-2 IP address here. 
+   - Renaming `setup.properties.last` to  `setup.properties`
+   - Run `setup.py` 
+      - **As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run `# ./setup.py -h` for full list of them) Please be sure to read [this part](./index.md#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup the 2nd node using `setup.properties.last` file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.**
 
 ## LDAP Replication
 
