@@ -14,6 +14,8 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 |-----------------------|---------------|---------------|---------------|-------------------------------|
 |	2		|	2 CPU ea.	|	8 GB	|	40 GB	|	4444 and 8989 (LDAP replication), 30865 (file system syncing)|
 
+**NOTE: Above three ports should be opened in such a way that Node-1/host-1 can talk to Node-2/host-2 through these ports and vice versa**
+
 **Note:** For convenience, the VMs are identified as `host-1` and `host-2`
 
 ## Preparing VMs
@@ -25,11 +27,15 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 ### Preparing Node-2 of cluster: 
    - Grab `setup.properties.last` from Node-1/host-1 ( location: /install/community-edition-setup/ )
    - Change attribute 'ip': Provide node-2/host-2 IP address here. 
-   - Renaming `setup.properties.last` to  `setup.properties`
+   - Rename `setup.properties.last` to  `setup.properties`
+   - Put this new file inside 2nd node's Gluu Server container ( location: /install/community-edition/setup/ )
+   - Enter into Gluu Server Container
    - Run `setup.py` 
-      - **As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run `# ./setup.py -h` for full list of them) Please be sure to read [this part](./index.md#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup the 2nd node using `setup.properties.last` file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.**
+      - **NOTE: As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run `# ./setup.py -h` for full list of them) Please be sure to read [this part](./index.md#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you) in case you failed to setup the 2nd node using `setup.properties.last` file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.**
 
 ## LDAP Replication
+
+**NOTE: Deployer need to perform LDAP Replication in Node-1/host-1**
 
 * Things to know
 
@@ -39,6 +45,8 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 |	LDAP admin pass		|	LDAP admin pass	   |
 |ldapGeneralConfigInstall.py	|
 |replicationSetup.py		|
+
+* Log into `host-1` Gluu Server container
 
 * Run [ldapGeneralConfigInstall.py](./ldapGeneralConfigInstall.py) in `host-1`. This script will prepare the `host-1` LDAP server to accept various configurations such as `allow-pre-encoded-passwords` or applyting the host and port for LDAP Server.
 
@@ -154,7 +162,7 @@ operation.
 
 Please follow steps provided in next articles to install csync2 on both nodes: [CentOS 6.x](./csync-installation.md#centos-6x), [CentOS 7.x](./csync-installation.md#centos-7x), [Ubuntu 14.x (from repo)](./csync-installation.md#ubuntu-14x-from-repo), [Ubuntu 14.x (compiling from sources)](./csync-installation.md#ubuntu-14x-compiling-from-sources).
 
-### Csync2 configuration for host-1
+#### Csync2 configuration for host-1
 
 1. Log into Gluu-Server container
 
@@ -273,7 +281,7 @@ group cluster_group
 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp1.gluu.org -xv 2>/var/log/csync2.log 
 ```
 
-### Csync2 configuration for host-2
+#### Csync2 configuration for host-2
 
 1. Log into Gluu-Server container
 
