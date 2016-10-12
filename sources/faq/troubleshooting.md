@@ -49,7 +49,7 @@ and remember the displayed dn of the Gluu Manager Group for future use.
 3) Run this command:
 
 ```
-# /opt/opendj/bin/ldapsearch -p -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu ou=people 1.1
+# /opt/opendj/bin/ldapsearch -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu ou=people 1.1
 ```
 
 and remember the displayed dn of the People ou for future use.
