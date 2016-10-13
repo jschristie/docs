@@ -18,8 +18,15 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 
 **Note:** For convenience, the VMs are identified as `host-1` and `host-2`
 
-## Preparing VMs
+### Timezone Requirements
+It is mandatory to keep the date and time synced between all the nodes of a cluster. It is recommended to change the timzone from UTC to local timezone where the cluster is situated or use a single timezone if the cluster spans multiple timezones. The timezone requirement is applicable to both the VM and the `chroot` container.
 
+!!! Note
+    It is recommended to use a single timezone for all the nodes of the cluster in both VM and chroot.
+    
+Gluu strongly recommends using `ntpd` in the VMs and run the `ntp` daemon from `cronjob` to sync time. It is preferable if the cronjob is run every second to ensure smooth performance of the cluster.
+
+## Preparing VMs
 ### Preparing Node-1 of cluster: 
    - Install Gluu CE following the [Deployment Page](../deployment/index.md) in `host-1`. 
        - **NOTE: you must provide hostname of the cluster itself to `setup.py` script (`idp.gluu.org` in this example), not hostnames of individual nodes!**
