@@ -31,7 +31,7 @@ recommended to give enough memory via JVM system properties.
 3. Allow LDAP Server use cache as much as possible.
 
 ```
-dsconfig -n set-backed-prop --backend-name userRoot --set db-cache-percent:50
+dsconfig -n set-backend-prop --backend-name userRoot --set db-cache-percent:50
 ```
 
 ## Apache Tomcat
