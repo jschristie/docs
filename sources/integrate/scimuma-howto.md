@@ -5,7 +5,7 @@ A machine based authorization method is used to obtain the access tokens. SCIM/U
 into the Gluu Server CE and does not require any special package or installation. Please checkout 
 [Deployment Guides](../deployment/index.md) for installation instructions.
 
-# Installation
+##Installation
 
 * Install Gluu Server CE following the [Deployment Guides](../deployment/index.md) and 
 remember to install `Asimba` while running the setup script.  The setup script prepares the 
@@ -23,7 +23,7 @@ The `setup.properties.file` contains the RS and RP JWKS in Base64 format.
 
 **_NOTE:_ For versions before v2.4.4, the JWKS is put in the `./output/scim-rp-openid-keys.json` file instead.**
 
-# Configuration
+##Configuration
 
 * Enable SCIM from Organization Configuration
 
@@ -43,7 +43,7 @@ in the [oxtrust-config.json](https://github.com/GluuFederation/community-edition
 
 * `umaClientKeyId` can be updated with the `alias` from `scim-rp.jks` file; if it is not updated, the first key from the file is used automatically.
 
-# Testing SCIM UMA
+##Testing SCIM UMA
 The following is a sample code that can be run to test the configured SCIM UMA Gluu CE. It uses [SCIM-Client](https://github.com/GluuFederation/SCIM-Client), a Java library also developed by Gluu intended for client applications.
 
 * If you are using Maven, below is how to add SCIM-Client to your project:
@@ -121,7 +121,7 @@ public class TestScimClient {
 
 ```
 
-# SCIM 2.0 Test Mode (v2.4.4+)
+## SCIM 2.0 Test Mode (v2.4.4+)
 
 Starting with CE v2.4.4, the "test mode" configuration will help developers test the SCIM 2.0 endpoints easier. Instead of UMA + SCIM-Client, in test mode a long-lived OAuth2 access token issued by the Gluu server is used to authorize with the SCIM 2.0 endpoints.
 
@@ -149,3 +149,15 @@ You can verify the current authentication scheme of the SCIM 2.0 endpoints by br
 To exit test mode, just set `scimTestMode` back to `false` then click the "Save Configuration" button. This will switch the authentication scheme from OAuth2 Access Token to UMA. If you try using your access token again, you will now get the `403 Unauthorized` error:
 
 ![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-403.png)
+
+# Notes
+UMA is protected with SCIM in Gluu Server Community Edition (CE). The usage of UMA requires HTTP GET and HTTP POST requests. Before testing, the Client making the requests must be added/registered in Gluu CE. The UMA configuration is available @ `https://hostname/.well-known/uma-configuration`. The request to authorization endpoint must accompanied with  application/json content type. 
+
+The example below shows the parameters used in a real-life use case  where the UMA RPT Token is authorized in oxAuth.
+
+```
+    public RptAuthorizationResponse requestRptPermissionAuthorization(@HeaderParam("Authorization") String authorization,
+            @HeaderParam("Host") String amHost, RptAuthorizationRequest rptAuthorizationRequest);
+```
+
+If the default openID SCIM Client is not used, the `inum` must be added to the UMA Authorization Policy Custom Script.
