@@ -42,7 +42,7 @@ Gluu strongly recommends using `ntpd` in the VMs and run the `ntp` daemon from `
 
 ## LDAP Replication
 
-**NOTE: Deployer need to perform LDAP Replication in Node-1/host-1**
+**NOTE: Deployer need to perform LDAP Replication in Node-1/host-1 as user 'ldap'**
 
 * Things to know
 
