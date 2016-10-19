@@ -60,7 +60,7 @@ to 65k. The following steps will help set the `file descriptor` limit.
 
 * Edit the `/etc/pam.d/login` by adding the line:
 ```
-session required /lib/security/pam_limits.so
+session required pam_limits.so
 ```
 * Use the system file limit to increase the file descriptor limit to 262144. The system file limit is set in `/proc/sys/fs/file-max`.
 ```
