@@ -126,7 +126,8 @@ server:
   single sign-on.
 - **oxAuth RP:** The oxAuth RP is a web UI to enable OpenID Connect
   discovery, dynamic client registration, and authentication testing.
- 
+- **oxEleven:** Web Application providing REST API's for a PKCS #11
+  interface using SoftHSMv2 as cryptographic store.
 
 *__Note:__* * implies that the software should *always* be deployed.
 
