@@ -11,11 +11,11 @@ As an alternative, use our Gluu repository for Debian Jessie (8):
 ```
 # echo "deb https://repo.gluu.org/debian/ stable main" > /etc/apt/sources.list.d/gluu-repo.list
 
-# curl https://repo.gluu.org/debian/gluu-apt.key | apt-key add -
+# curl https://repo.gluu.org/debian/gluu-apt.key.new-xenial | apt-key add -
 
 # apt-get update
 
-# apt-get install gluu-server-2.4.3
+# apt-get install gluu-server-2.4.4
 ```
 
 ## Configuring Gluu Server
@@ -24,9 +24,9 @@ software package start the Gluu Server, and login into the local chroot
 environment to configure the Gluu Server. These are the single steps:
 
 ```
-# /etc/init.d/gluu-server-2.4.3 start
+# /etc/init.d/gluu-server-2.4.4 start
 
-# /etc/init.d/gluu-server-2.4.3 login
+# /etc/init.d/gluu-server-2.4.4 login
 
 # cd /install/community-edition-setup/
 
@@ -71,21 +71,21 @@ commenting out lines declaring Gluu CE's repos there.
 You can start the Gluu Server with this command:
 
 ```
-# /etc/init.d/gluu-server-2.4.3 start
+# /etc/init.d/gluu-server-2.4.4 start
 
 ```
 
 You can stop the Gluu Server with this command:
 
 ```
-# /etc/init.d/gluu-server-2.4.3 stop
+# /etc/init.d/gluu-server-2.4.4 stop
 
 ```
 
 ## Login to the chroot environment
 
 ```
-# /etc/init.d/gluu-server-2.4.3 login
+# /etc/init.d/gluu-server-2.4.4 login
 
 ```
 
@@ -120,11 +120,11 @@ packages that are installed, and the home directory of the Gluu Server
 user. The following commands illustrate the single steps:
 
 ```
-# service gluu-server-2.4.3 stop
+# service gluu-server-2.4.4 stop
 
-# apt-get remove gluu-server-2.4.3
+# apt-get remove gluu-server-2.4.4
 
-# rm -rf /opt/gluu-server-2.4.3*
+# rm -rf /opt/gluu-server-2.4.4*
 
 ```
 
@@ -137,7 +137,7 @@ In some circumstances, the installation can be broken. In that case
 please try the following to force to uninstall the package.
 
 ```
-# dpkg --purge --force-all gluu-server-2.4.3
+# dpkg --purge --force-all gluu-server-2.4.4
 
 ```
 
