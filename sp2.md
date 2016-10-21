@@ -8,3 +8,4 @@
   - https://github.com/GluuFederation/community-edition-setup/commit/a2164204dc617f629d6a9551420b62e7bc1eaf37
   - https://github.com/GluuFederation/oxTrust/commit/5db80a6696b9dbfba07991f9427e2c914e3541d7
 4. https://github.com/GluuFederation/oxTrust/issues/372
+5. https://github.com/GluuFederation/oxTrust/issues/355
