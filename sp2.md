@@ -9,3 +9,4 @@
   - https://github.com/GluuFederation/oxTrust/commit/5db80a6696b9dbfba07991f9427e2c914e3541d7
 4. https://github.com/GluuFederation/oxTrust/issues/372
 5. https://github.com/GluuFederation/oxTrust/issues/355
+6. https://github.com/GluuFederation/oxTrust/issues/367
