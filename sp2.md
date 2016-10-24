@@ -11,3 +11,4 @@
 5. https://github.com/GluuFederation/oxTrust/issues/355
 6. https://github.com/GluuFederation/oxTrust/issues/367
 7. https://github.com/GluuFederation/community-edition-setup/issues/163
+8. https://github.com/GluuFederation/oxShibboleth/issues/17
