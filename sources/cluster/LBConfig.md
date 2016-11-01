@@ -7,9 +7,9 @@ We are going to configure a Load Balancer with hostname 'clustering.gluu.org'.
   - Select 'Classic Load Balancer' 
     - ![ELB Classic](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/cluster/Classic_LB.png)
   - Click on 'Create Load Balancer'
-    - ![Create LB]((https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/cluster/Create_LB_1.png)
+    - ![Create LB](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/cluster/Create_LB_1.png)
   - Define Load Balancer settings: 
-     - ![Define LB]((https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/cluster/Define_LB_3.png)
+     - ![Define LB](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/cluster/Define_LB_3.png)
      - Load Balancer Name: Anything deployer prefer
      - Create LB Inside: My Default VPC ( by default )
      - Load Balancer Protocol: HTTPS/443 
