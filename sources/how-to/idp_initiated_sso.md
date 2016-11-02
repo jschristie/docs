@@ -1,8 +1,6 @@
  
 # IDP Initiated SSO with Gluu Server
-
-An IdP Initiated SSO flow is a SSO operation that intiate from the IdP Security Domain. IdP server create a Federation SSO Response and redirecting the user to the SP with the response message. 
-In this documentation we are going to see how we can configure a SSO which is IDP-initiated in Gluu Server. 
+IDP initiated SSO enables the SAML Response to be sent to an SP landing page. In this documentation we are going to see how we can configure a SSO which is IDP-initiated in Gluu Server. 
 
 ## Requirements
 
