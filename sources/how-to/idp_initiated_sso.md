@@ -19,18 +19,16 @@ In this documentation we are going to see how we can configure a SSO which is ID
 
  - Here is a sample metadata which we need to modify a bit for our desired SP. 
 ```
-    <EntityDescriptor entityID="https://ssc.advisory.com/shibboleth"
-           xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-           <SPSSODescriptor AuthnRequestsSigned="false"
-                  WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-                  <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
-                  </NameIDFormat>
-                  <AssertionConsumerService isDefault="true"
-                         index="0" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
-                         Location="https://ssc-sso.advisory.com/gsrc/SAML/SlipperyRock" />
-           </SPSSODescriptor>
-    </EntityDescriptor>
-
+<EntityDescriptor entityID="entityID_of_SP"
+    xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <SPSSODescriptor AuthnRequestsSigned="false"
+        WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified </NameIDFormat>
+             <AssertionConsumerService isDefault="true"
+                  index="0" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                  Location="ACS_location_of_SP" />
+    </SPSSODescriptor>
+</EntityDescriptor>
 ```
  - 
  - 
