@@ -1,7 +1,7 @@
 # SP2 fixes
 
 1. https://github.com/GluuFederation/oxAuth/issues/360
-2. The fix for MT related that shekhar worked on related to PPID
+2. https://github.com/GluuFederation/oxTrust/issues/364
 3. The id_token fix from javier (with the extra token)
   - Changes are:
   - https://github.com/GluuFederation/oxAuth/commit/eaaeb1faa1e764ac0b5b3659456dfbff01c5734c
