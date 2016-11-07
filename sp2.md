@@ -1,6 +1,6 @@
 # SP2 fixes
 
-1. The fix for clusters from Yura
+1. https://github.com/GluuFederation/oxAuth/issues/360
 2. The fix for MT related that shekhar worked on related to PPID
 3. The id_token fix from javier (with the extra token)
   - Changes are:
