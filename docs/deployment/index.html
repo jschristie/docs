@@ -494,6 +494,13 @@
     </li>
 
         
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
+        
+    </li>
+
+        
     </ul>
 <li>
 		
@@ -1059,22 +1066,35 @@ Click on the desired operating system for deployment guide.</p>
 to 65k. The following steps will help set the <code>file descriptor</code> limit.</p>
 <ul>
 <li>Edit the <code>/etc/security/limits.conf</code> file.</li>
-<li>Add the following lines in the <code>limits.conf</code> file. Please replace the <code>username</code> with the user that will install Gluu Server.</li>
+<li>By adding following lines to the file you can set default limits which will apply to any user for whom they weren't specified explicitly:</li>
 </ul>
 <pre><code>* soft nofile 65536
 * hard nofile 262144
 </code></pre>
 
 <ul>
-<li>Edit the <code>/etc/pam.d/login</code> by adding the line:</li>
+<li>If you would like to set limits on per-user basis for "tomcat", "ldap" and "apache" users, you can use next directives in there (please note, that users under which different Gluu services run within container may be named differently in different linux distros; you'll need to edit provided examples accordingly):</li>
 </ul>
-<pre><code>session required /lib/security/pam_limits.so
+<pre><code>    ldap soft nofile 131072
+    ldap hard nofile 262144
+
+    apache soft nofile 131072
+    apache hard nofile 262144
+
+    tomcat soft nofile 131072
+    tomcat hard nofile 262144
 </code></pre>
 
 <ul>
-<li>Use the system file limit to increase the file descriptor limit to 65535. The system file limit is set in <code>/proc/sys/fs/file-max</code>.</li>
+<li>Edit the <code>/etc/pam.d/login</code> by adding the line:</li>
 </ul>
-<pre><code>echo 65535 &gt; /proc/sys/fs/file-max
+<pre><code>session required pam_limits.so
+</code></pre>
+
+<ul>
+<li>Use the system file limit to increase the file descriptor limit to 262144. The system file limit is set in <code>/proc/sys/fs/file-max</code>.</li>
+</ul>
+<pre><code>echo 262144 &gt; /proc/sys/fs/file-max
 </code></pre>
 
 <ul>
@@ -1108,7 +1128,7 @@ to 65k. The following steps will help set the <code>file descriptor</code> limit
 </table>
 <h2 id="disable-selinux">Disable SELinux</h2>
 <ul>
-<li>Configure SELINUX=disabled in the /etc/selinux/config file.</li>
+<li>Make sure there is "SELINUX=disabled" directive in the /etc/selinux/config file.</li>
 <li>Reboot your system. After reboot, confirm that the <strong>getenforce</strong> command returns <strong>Disabled</strong>.</li>
 </ul>
 <h1 id="cloud-specific-requirements">Cloud Specific Requirements</h1>
@@ -1149,8 +1169,8 @@ server:</p>
   single sign-on.</li>
 <li><strong>oxAuth RP:</strong> The oxAuth RP is a web UI to enable OpenID Connect
   discovery, dynamic client registration, and authentication testing.</li>
-<li><strong>oxEleven:</strong>Web Application providing REST API's for a PKCS #11 interface
-using SoftHSMv2 as cryptographic store.</li>
+<li><strong>oxEleven:</strong> Web Application providing REST API's for a PKCS #11
+  interface using SoftHSMv2 as cryptographic store.</li>
 </ul>
 <p><em><strong>Note:</strong></em> * implies that the software should <em>always</em> be deployed.</p>
 <h1 id="support">Support</h1>

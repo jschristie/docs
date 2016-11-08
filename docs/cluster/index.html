@@ -482,6 +482,13 @@
     </li>
 
         
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
+        
+    </li>
+
+        
     </ul>
 <li>
 		
@@ -959,13 +966,22 @@
 <ul>
 <li><a href="#manual-cluster">Manual Cluster</a><ul>
 <li><a href="#design">Design</a></li>
-<li><a href="#requirements">Requirements</a></li>
-<li><a href="#preparing-vms">Preparing VMs</a></li>
+<li><a href="#requirements">Requirements</a><ul>
+<li><a href="#timezone-requirements">Timezone Requirements</a></li>
+</ul>
+</li>
+<li><a href="#preparing-vms">Preparing VMs</a><ul>
+<li><a href="#preparing-node-1-of-cluster">Preparing Node-1 of cluster:</a></li>
+<li><a href="#preparing-node-2-of-cluster">Preparing Node-2 of cluster:</a></li>
+</ul>
+</li>
 <li><a href="#ldap-replication">LDAP Replication</a></li>
 <li><a href="#file-system-replication">File System Replication</a><ul>
-<li><a href="#csync2-installation">Csync2 installation</a></li>
+<li><a href="#csync2-installation">Csync2 installation</a><ul>
 <li><a href="#csync2-configuration-for-host-1">Csync2 configuration for host-1</a></li>
 <li><a href="#csync2-configuration-for-host-2">Csync2 configuration for host-2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#certificate-management">Certificate Management</a></li>
@@ -1001,17 +1017,37 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 </tr>
 </tbody>
 </table>
+<p><strong>NOTE: Above three ports should be opened in such a way that Node-1/host-1 can talk to Node-2/host-2 through these ports and vice versa</strong></p>
 <p><strong>Note:</strong> For convenience, the VMs are identified as <code>host-1</code> and <code>host-2</code></p>
+<h3 id="timezone-requirements">Timezone Requirements</h3>
+<p>It is mandatory to keep the date and time synced between all the nodes of a cluster. It is recommended to change the timzone from UTC to local timezone where the cluster is situated or use a single timezone if the cluster spans multiple timezones. The timezone requirement is applicable to both the VM and the <code>chroot</code> container.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to use a single timezone for all the nodes of the cluster in both VM and chroot.</p>
+</div>
+<p>Gluu strongly recommends using <code>ntpd</code> in the VMs and run the <code>ntp</code> daemon from <code>cronjob</code> to sync time. It is preferable if the cronjob is run every second to ensure smooth performance of the cluster.</p>
 <h2 id="preparing-vms">Preparing VMs</h2>
+<h3 id="preparing-node-1-of-cluster">Preparing Node-1 of cluster:</h3>
 <ul>
-<li>
-<p>Install Gluu CE following the <a href="../deployment/">Deployment Page</a> in <code>host-1</code>. Please note you must provide hostname of the cluster itself to <code>setup.py</code> script (<code>idp.gluu.org</code> in this example), not hostnames of individual nodes!</p>
+<li>Install Gluu CE following the <a href="../deployment/">Deployment Page</a> in <code>host-1</code>. <ul>
+<li><strong>NOTE: you must provide hostname of the cluster itself to <code>setup.py</code> script (<code>idp.gluu.org</code> in this example), not hostnames of individual nodes!</strong></li>
+</ul>
 </li>
-<li>
-<p><sub><em><code>(!)</code>Please note: you must do this step right after initial installation on the 2nd node, but before you'll run setup.py script there<code>(!)</code></em></sub> Copy <code>setup.properties.last</code> that will be generated in <code>/install/community-edition-setup/</code> right after <code>setup.py</code>'s completion on <code>host-1</code>, change IP address in it to the one of <code>host-2</code> and put it into the same directory of <code>host-2</code> while renaming the file to <code>setup.properties</code>, then run <code>setup.py</code> the usual way. As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run <code># ./setup.py -h</code> for full list of them) Please be sure to read <a href="./#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">this part</a> in case you failed to setup the 2nd node using <code>setup.properties.last</code> file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.</p>
+</ul>
+<h3 id="preparing-node-2-of-cluster">Preparing Node-2 of cluster:</h3>
+<ul>
+<li>Grab <code>setup.properties.last</code> from Node-1/host-1 ( location: /install/community-edition-setup/ )</li>
+<li>Change attribute 'ip': Provide node-2/host-2 IP address here. </li>
+<li>Rename <code>setup.properties.last</code> to  <code>setup.properties</code></li>
+<li>Put this new file inside 2nd node's Gluu Server container ( location: /install/community-edition/setup/ )</li>
+<li>Enter into Gluu Server Container</li>
+<li>Run <code>setup.py</code> <ul>
+<li><strong>NOTE: As it won't be running in interactive mode this way, make sure you'll provide all optional components (like Shibboleth, Asimba etc) you need to be installed explicitly with keys (run <code># ./setup.py -h</code> for full list of them) Please be sure to read <a href="./#optional-actions-in-case-setuppropertieslast-method-of-installation-didnt-work-for-you">this part</a> in case you failed to setup the 2nd node using <code>setup.properties.last</code> file from the 1st one for some reason, and resorted to installing it from scratch, that will call for additional steps.</strong></li>
+</ul>
 </li>
 </ul>
 <h2 id="ldap-replication">LDAP Replication</h2>
+<p><strong>NOTE: Deployer need to perform LDAP Replication in Node-1/host-1 as user 'ldap'</strong></p>
 <ul>
 <li>Things to know</li>
 </ul>
@@ -1042,6 +1078,9 @@ The requirements for Clusters vary only in the RAM requirement. Clusters require
 </tbody>
 </table>
 <ul>
+<li>
+<p>Log into <code>host-1</code> Gluu Server container</p>
+</li>
 <li>
 <p>Run <a href="./ldapGeneralConfigInstall.py">ldapGeneralConfigInstall.py</a> in <code>host-1</code>. This script will prepare the <code>host-1</code> LDAP server to accept various configurations such as <code>allow-pre-encoded-passwords</code> or applyting the host and port for LDAP Server.</p>
 </li>
@@ -1153,7 +1192,7 @@ operation.
 </ol>
 <h3 id="csync2-installation">Csync2 installation</h3>
 <p>Please follow steps provided in next articles to install csync2 on both nodes: <a href="csync-installation/#centos-6x">CentOS 6.x</a>, <a href="csync-installation/#centos-7x">CentOS 7.x</a>, <a href="csync-installation/#ubuntu-14x-from-repo">Ubuntu 14.x (from repo)</a>, <a href="csync-installation/#ubuntu-14x-compiling-from-sources">Ubuntu 14.x (compiling from sources)</a>.</p>
-<h3 id="csync2-configuration-for-host-1">Csync2 configuration for host-1</h3>
+<h4 id="csync2-configuration-for-host-1">Csync2 configuration for host-1</h4>
 <ol>
 <li>
 <p>Log into Gluu-Server container</p>
@@ -1278,7 +1317,7 @@ group cluster_group
 <pre><code>1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59 * * * *    /usr/sbin/csync2 -N idp1.gluu.org -xv 2&gt;/var/log/csync2.log 
 </code></pre>
 
-<h3 id="csync2-configuration-for-host-2">Csync2 configuration for host-2</h3>
+<h4 id="csync2-configuration-for-host-2">Csync2 configuration for host-2</h4>
 <ol>
 <li>
 <p>Log into Gluu-Server container</p>

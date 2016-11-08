@@ -199,7 +199,7 @@
             
                 <li class="toctree-l3"><a href="#gluu-server-update-package">Gluu Server Update Package</a></li>
                 
-                    <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+                    <li><a class="toctree-l4" href="#backup">Backup</a></li>
                 
                     <li><a class="toctree-l4" href="#install-update-package">Install Update Package</a></li>
                 
@@ -468,6 +468,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
         
     </li>
 
@@ -950,7 +957,7 @@
 impact on deployment. Normally these involve updates to the java code,
 effected replacing the <code>war</code> file. These are installed using 
 <code>yum</code> or <code>apt-get</code> command.</p>
-<h2 id="requirements">Requirements</h2>
+<h2 id="backup">Backup</h2>
 <p>It is highly recommended to stop the Gluu Server, and <code>tar</code> 
 folder <code>/opt/gluu-server-2.4.4</code> to ensure speedy recovery from any 
 unexpected hiccup. If your organization has other contingency plans,
@@ -960,11 +967,12 @@ that is ok too.</p>
 <p>Please make sure that there is enough disk space to tar the entire 
 Gluu Server.</p>
 </div>
-<ul>
-<li>Use the following commands to tar the Gluu Server folder from the host
-OS:
-<code># tar cvf gluu-backup.tar /opt/gluu-server-2.4.4/</code></li>
-</ul>
+<p>Use the following commands to tar the Gluu Server folder from the host
+OS:</p>
+<pre><code># service gluu-server-2.4.4 stop
+# tar cvf gluu244-backup.tar /opt/gluu-server-2.4.4/
+</code></pre>
+
 <h2 id="install-update-package">Install Update Package</h2>
 <p>Gluu Server update packages are available from the Gluu Repository.
 Make sure to stop Gluu Server before installing and finalizing the 
@@ -972,20 +980,25 @@ update package.</p>
 <ul>
 <li><strong>CentOS 6.x/7.2, RHEL 6/7:</strong> </li>
 </ul>
-<pre><code># yum install gluu-updater-2.4.4
+<pre><code># yum update
+# service gluu-server-2.4.4 stop
+# yum install gluu-updater-2.4.4
 
 </code></pre>
 
 <ul>
 <li><strong>Ubuntu Server 14.04/16.04, Debian 8:</strong> </li>
 </ul>
-<pre><code># apt-get install gluu-updater-2.4.4
+<pre><code># apt-get update
+# service gluu-server-2.4.4 stop
+# apt-get install gluu-updater-2.4.4
 
 </code></pre>
 
 <p>After the update package is installed, use the following commands to 
 finalize the installation by running the update script. </p>
-<pre><code># service gluu-server-2.4.4 login
+<pre><code># service gluu-server-2.4.4 start
+# service gluu-server-2.4.4 login
 # cd /opt/upd/2.4.4.sp1/bin
 # ./update_war.sh
 </code></pre>

@@ -489,6 +489,13 @@
     </li>
 
         
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
+        
+    </li>
+
+        
     </ul>
 <li>
 		
@@ -1018,7 +1025,7 @@ ones used by your installation):</p>
 
 <p>and remember the displayed dn of the Gluu Manager Group for future use.</p>
 <p>3) Run this command:</p>
-<pre><code># /opt/opendj/bin/ldapsearch -p -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu ou=people 1.1
+<pre><code># /opt/opendj/bin/ldapsearch -p 1636 -Z -X -D 'cn=directory manager' -w 'YOUR_BIND_PASSWORD' -b o=gluu ou=people 1.1
 </code></pre>
 
 <p>and remember the displayed dn of the People ou for future use.</p>

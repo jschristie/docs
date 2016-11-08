@@ -147,7 +147,7 @@ Requirements:
 
 Server: https://sp.gluu.org
 
-Preparing Service Provider for SAML Proxy worflow follows standard procedure. Service Provider need to connect with Gluu Server's Shibboleth part ( for our case, the entityID would be: https://test.gluu.org/idp/shibboleth ). How to configure any site with Shibboelth SP piece is available ![here](https://gluu.org/docs/integrate/ubuntu-shib-apache/). 
+Preparing Service Provider for SAML Proxy worflow follows standard procedure. Service Provider need to connect with Gluu Server's Shibboleth part ( for our case, the entityID would be: https://test.gluu.org/idp/shibboleth ). How to configure any site with Shibboelth SP piece is available [here](https://gluu.org/docs/integrate/ubuntu-shib-apache/). 
 
 ## Test
 

@@ -441,17 +441,16 @@
             
                 <li class="toctree-l3"><a href="#overview">Overview</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#installation">Installation</a></li>
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+                
+                    <li><a class="toctree-l4" href="#testing-scim-uma">Testing SCIM UMA</a></li>
+                
+                    <li><a class="toctree-l4" href="#scim-20-test-mode-v244">SCIM 2.0 Test Mode (v2.4.4+)</a></li>
                 
             
-                <li class="toctree-l3"><a href="#configuration">Configuration</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#testing-scim-uma">Testing SCIM UMA</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#scim-20-test-mode-v244">SCIM 2.0 Test Mode (v2.4.4+)</a></li>
+                <li class="toctree-l3"><a href="#notes">Notes</a></li>
                 
             
             </ul>
@@ -476,6 +475,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../how-to/update-certificate/">Update Gluu Server Certificates</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
         
     </li>
 
@@ -955,11 +961,14 @@
               
                 <div class="toc">
 <ul>
-<li><a href="#overview">Overview</a></li>
+<li><a href="#overview">Overview</a><ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#configuration">Configuration</a></li>
 <li><a href="#testing-scim-uma">Testing SCIM UMA</a></li>
 <li><a href="#scim-20-test-mode-v244">SCIM 2.0 Test Mode (v2.4.4+)</a></li>
+</ul>
+</li>
+<li><a href="#notes">Notes</a></li>
 </ul>
 </div>
 <h1 id="overview">Overview</h1>
@@ -967,7 +976,7 @@
 A machine based authorization method is used to obtain the access tokens. SCIM/UMA is built
 into the Gluu Server CE and does not require any special package or installation. Please checkout 
 <a href="../../deployment/">Deployment Guides</a> for installation instructions.</p>
-<h1 id="installation">Installation</h1>
+<h2 id="installation">Installation</h2>
 <ul>
 <li>Install Gluu Server CE following the <a href="../../deployment/">Deployment Guides</a> and 
 remember to install <code>Asimba</code> while running the setup script.  The setup script prepares the 
@@ -987,7 +996,7 @@ The <code>setup.properties.file</code> contains the RS and RP JWKS in Base64 for
 </li>
 </ul>
 <p><strong><em>NOTE:</em> For versions before v2.4.4, the JWKS is put in the <code>./output/scim-rp-openid-keys.json</code> file instead.</strong></p>
-<h1 id="configuration">Configuration</h1>
+<h2 id="configuration">Configuration</h2>
 <ul>
 <li>Enable SCIM from Organization Configuration</li>
 </ul>
@@ -1008,7 +1017,7 @@ in the <a href="https://github.com/GluuFederation/community-edition-setup/blob/m
 <ul>
 <li><code>umaClientKeyId</code> can be updated with the <code>alias</code> from <code>scim-rp.jks</code> file; if it is not updated, the first key from the file is used automatically.</li>
 </ul>
-<h1 id="testing-scim-uma">Testing SCIM UMA</h1>
+<h2 id="testing-scim-uma">Testing SCIM UMA</h2>
 <p>The following is a sample code that can be run to test the configured SCIM UMA Gluu CE. It uses <a href="https://github.com/GluuFederation/SCIM-Client">SCIM-Client</a>, a Java library also developed by Gluu intended for client applications.</p>
 <ul>
 <li>If you are using Maven, below is how to add SCIM-Client to your project:</li>
@@ -1090,7 +1099,7 @@ public class TestScimClient {
 
 </code></pre>
 
-<h1 id="scim-20-test-mode-v244">SCIM 2.0 Test Mode (v2.4.4+)</h1>
+<h2 id="scim-20-test-mode-v244">SCIM 2.0 Test Mode (v2.4.4+)</h2>
 <p>Starting with CE v2.4.4, the "test mode" configuration will help developers test the SCIM 2.0 endpoints easier. Instead of UMA + SCIM-Client, in test mode a long-lived OAuth2 access token issued by the Gluu server is used to authorize with the SCIM 2.0 endpoints.</p>
 <p>To enable test mode, do the following:</p>
 <ul>
@@ -1111,6 +1120,14 @@ public class TestScimClient {
 <p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-config.png" /></p>
 <p>To exit test mode, just set <code>scimTestMode</code> back to <code>false</code> then click the "Save Configuration" button. This will switch the authentication scheme from OAuth2 Access Token to UMA. If you try using your access token again, you will now get the <code>403 Unauthorized</code> error:</p>
 <p><img alt="image" src="https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/2.4/scim-test-mode-403.png" /></p>
+<h1 id="notes">Notes</h1>
+<p>UMA is protected with SCIM in Gluu Server Community Edition (CE). The usage of UMA requires HTTP GET and HTTP POST requests. Before testing, the Client making the requests must be added/registered in Gluu CE. The UMA configuration is available @ <code>https://hostname/.well-known/uma-configuration</code>. The request to authorization endpoint must accompanied with  application/json content type. </p>
+<p>The example below shows the parameters used in a real-life use case  where the UMA RPT Token is authorized in oxAuth.</p>
+<pre><code>    public RptAuthorizationResponse requestRptPermissionAuthorization(@HeaderParam(&quot;Authorization&quot;) String authorization,
+            @HeaderParam(&quot;Host&quot;) String amHost, RptAuthorizationRequest rptAuthorizationRequest);
+</code></pre>
+
+<p>If the default openID SCIM Client is not used, the <code>inum</code> must be added to the UMA Authorization Policy Custom Script.</p>
               
             </div>
           </div>

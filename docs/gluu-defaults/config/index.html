@@ -461,6 +461,13 @@
     </li>
 
         
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
+        
+    </li>
+
+        
     </ul>
 <li>
 		
@@ -723,7 +730,7 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#default-configuation-wihtin-gluu-server">Default Configuation wihtin Gluu Server</a></li>
+                <li class="toctree-l3"><a href="#default-configuration-wihtin-gluu-server">Default Configuration wihtin Gluu Server</a></li>
                 
                     <li><a class="toctree-l4" href="#openid-connect">OpenID Connect</a></li>
                 
@@ -943,7 +950,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="default-configuation-wihtin-gluu-server">Default Configuation wihtin Gluu Server</h1>
+                <h1 id="default-configuration-wihtin-gluu-server">Default Configuration wihtin Gluu Server</h1>
 <p>This page contains the default configurations for Gluu Server Community Edition. The defaults are not recommended and can be changed according to the internal policy of the organization. This page will also be helpful in understanding the defaults and changing them.</p>
 <h2 id="openid-connect">OpenID Connect</h2>
 <table>
@@ -951,24 +958,29 @@
 <tr>
 <th>Attribute</th>
 <th>Description</th>
-<th>Default in Seconds</th>
+<th>Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>clientSecretExpiresAt</td>
+<td>dynamicRegistrationExpirationTime</td>
 <td>Expiration of client secret</td>
-<td>86400</td>
+<td>86400 seconds</td>
 </tr>
 <tr>
 <td>sessionIdUnusedLifetime</td>
 <td>Expiration of session for authenticated user</td>
-<td>86400</td>
+<td>86400 seconds</td>
 </tr>
 <tr>
 <td>sessionIdUnauthenticatedUnusedLifetime</td>
 <td>Expiration of session for unauthenticated user</td>
-<td>120</td>
+<td>120 seconds</td>
+</tr>
+<tr>
+<td>webKeysStorage</td>
+<td>Set to <strong>keystore</strong> to use a JKS file for private key storage. Set to <strong>pkcs11</strong> to use SoftHSMv2 storage (PKCS #11 interface) through oxEleven REST Services</td>
+<td>keystore</td>
 </tr>
 </tbody>
 </table>

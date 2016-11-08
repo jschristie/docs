@@ -461,6 +461,13 @@
     </li>
 
         
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../how-to/saml_proxy_end_to_end/">Inbound SAML End to End Testing</a>
+        
+    </li>
+
+        
     </ul>
 <li>
 		
@@ -992,7 +999,7 @@ recommended to give enough memory via JVM system properties.</p>
 <ol>
 <li>Allow LDAP Server use cache as much as possible.</li>
 </ol>
-<pre><code>dsconfig -n set-backed-prop --backend-name userRoot --set db-cache-percent:50
+<pre><code>dsconfig -n set-backend-prop --backend-name userRoot --set db-cache-percent:50
 </code></pre>
 
 <h2 id="apache-tomcat">Apache Tomcat</h2>
