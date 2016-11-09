@@ -2,9 +2,8 @@
 
 # Hardware Requirements
 The Gluu Server is very flexible, and can be used for a wide array of
-access management requirements. Depending on the size of your data, and
-the number of concurrent transactions you want to support, you may need
-more or less memory or CPU capacity.
+access management requirements. Depending on the size of data, and
+the number of concurrent transactions to be supported, depending on which memory(less or more) and CPU capacity may vary.
 
 If Gluu Server services are running on the same server (i.e.
 SAML, OAuth2, LDAP), server will need at least:
@@ -13,8 +12,7 @@ SAML, OAuth2, LDAP), server will need at least:
 |---------------|---------------|-----------------------|
 |	2	| 	4GB 	| 	40GB		|
 
-**Note:** *Not enough memory may produce some really weird bugs. From there, you
-may need to adjust the resources based on your specific requirements.*
+**Note:** *Not enough memory may produce some issues or errors, which may require few adjustments on the resources based on environment's specific requirements.*
 
 # Operating System Requirement
 Gluu Server Community Edition is available for the following Operating Systems.
@@ -31,11 +29,11 @@ Click on the desired operating system for deployment guide.
 ## Memory allocated for Tomcat's heap.
 Tomcat's heap  will require at least 3GB of RAM to spin up a test instance of Gluu CE 2.4.3 (and later). For production setups it is recommended to allocate at least 4-6GB of RAM to spin up a test instance of Gluu CE 2.4.3 and later.
 
-Tomcat configuration will allow to enter the allocation of RAM amount during `setup.py` script's phase of installation. Allocation of RAM could also be modified after the installation has conpleted, by editing `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside of the container and setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties there to desired values.
+Tomcat configuration will allow to enter the allocation of RAM amount during `setup.py` script's phase of installation. Allocation of RAM could also be modified after the installation has completed, by editing `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside of the container and setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties to desired values.
 
 ## File Descriptor
 Set `file descriptors`
-to 65k. The following steps will help set the `file descriptor` limit.
+to 65k. Following steps will help set the `file descriptor` limit.
 
 * Edit the `/etc/security/limits.conf` file.
 * By adding following lines to the file you can set default limits which will apply to any user for whom they weren't specified explicitly:
@@ -45,7 +43,7 @@ to 65k. The following steps will help set the `file descriptor` limit.
 * hard nofile 262144
 ```
 
-* If you would like to set limits on per-user basis for "tomcat", "ldap" and "apache" users, you can use next directives in there (please note, that users under which different Gluu services run within container may be named differently in different linux distros; you'll need to edit provided examples accordingly):
+* If set limits are set per-user basis for "tomcat", "ldap" and "apache" users, next directives can be used (please note, that users under which different Gluu services run within container may be named differently in different linux distros; need to edit provided examples accordingly):
 
 ```
     ldap soft nofile 131072
@@ -100,9 +98,7 @@ The Linode Virtual Machines (VM) use a custom kernel which is not supported by G
 
 # Available Components
 
-When you deploy the Gluu Server, you will have the opportunity to
-specify which of the following software you want to use on your
-server:
+When deploying the Gluu Server, installer will prompt on the following softwares to be installed along with Gluu Server:
 
 - __oxAuth:*__ oxAuth provides endpoints for an OpenID Connect Identity
   Provider (IdP) and an UMA Authorization Server (AS). Both OpenID
@@ -129,7 +125,7 @@ server:
 - **oxEleven:** Web Application providing REST API's for a PKCS #11
   interface using SoftHSMv2 as cryptographic store.
 
-*__Note:__* * implies that the software should *always* be deployed.
+*__Note:__* * implies that the software should *always* be deployed. And recommended to use defaults where ever required.
 
 # Support
 Gluu offers both community and VIP support. Anyone can browse and open
