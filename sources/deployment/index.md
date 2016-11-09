@@ -6,8 +6,8 @@ access management requirements. Depending on the size of your data, and
 the number of concurrent transactions you want to support, you may need
 more or less memory or CPU capacity.
 
-If you are running all the Gluu Server services on the same server (i.e.
-SAML, OAuth2, LDAP), you will need at least:
+If Gluu Server services are running on the same server (i.e.
+SAML, OAuth2, LDAP), server will need at least:
 
 |CPU Unit	|	RAM	|	Disk Space	|
 |---------------|---------------|-----------------------|
@@ -29,9 +29,9 @@ Click on the desired operating system for deployment guide.
 |[RHEL 7](./rhel7.md)		|**7**				|	64 Bit|
 	
 ## Memory allocated for Tomcat's heap.
-You must allocate at least 3GB of RAM for Tomcat's heap to spin up a test instance of Gluu CE 2.4.3 (and later). For production setups we strongly recommend to allocate at least 4-6GB of RAM for that purpose.
+Tomcat's heap  will require at least 3GB of RAM to spin up a test instance of Gluu CE 2.4.3 (and later). For production setups it is recommended to allocate at least 4-6GB of RAM to spin up a test instance of Gluu CE 2.4.3 and later.
 
-You'll be asked to provide amount of RAM allocated during `setup.py` script's phase of installation. You also will be able to change this property after installation has completed, by editing `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside of the container and setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties there to desired values.
+Tomcat configuration will allow to enter the allocation of RAM amount during `setup.py` script's phase of installation. Allocation of RAM could also be modified after the installation has conpleted, by editing `/opt/tomcat/conf/gluuTomcatWrapper.conf` file inside of the container and setting `wrapper.java.initmemory` and `wrapper.java.maxmemory` properties there to desired values.
 
 ## File Descriptor
 Set `file descriptors`
