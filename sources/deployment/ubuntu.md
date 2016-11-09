@@ -17,6 +17,7 @@ As an alternative, use our Gluu repository for Ubuntu Trusty (14.04):
 
 # apt-get install gluu-server-2.4.4
 ```
+Note: While entering the "deb" command manually, make sure to enter an extra space between "/ubuntu/" and "trusty main".
 
 ## Configuring Gluu Server
 After both the retrieval, and the installation of the Gluu Server
