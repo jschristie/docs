@@ -12,7 +12,7 @@ SAML, OAuth2, LDAP), server will need at least:
 |---------------|---------------|-----------------------|
 |	2	| 	4GB 	| 	40GB		|
 
-**Note:** *Not enough memory may produce some serious bugs, which may require few adjustments on the resources based on environments specific requirements.*
+**Note:** *Not enough memory may produce some issues or errors, which may require few adjustments on the resources based on environment's specific requirements.*
 
 # Operating System Requirement
 Gluu Server Community Edition is available for the following Operating Systems.
