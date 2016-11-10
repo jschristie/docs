@@ -56,7 +56,8 @@ GLUU:
   - 192.168.1.3 :11211:1 idp2.gluu.org
 GLUU.[root@idp- ~]#
 ```
-    - Restart nutcracker: service nutcracker restart
+
+  - Restart nutcracker: service nutcracker restart
 
 5. Configure CAS for nutcracker/twemproxy
 	5.1 Point CAS server to use nutcracker instead of memcached directly. 
