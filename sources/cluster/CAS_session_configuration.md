@@ -74,9 +74,9 @@ memcached.servers=127.0.0.1:22123
 ## Firewall setting
    - Modify firewall with below setting:
 ```
--A INPUT -s 192.168.63.173 -p tcp -m tcp --dport 22123 -j ACCEPT
--A INPUT -p tcp --destination-port 11211 -m state --state NEW  -m iprange --src-range 192.168.63.172-192.168.63.173 -j ACCEPT
--A INPUT -p udp --destination-port 11211 -m state --state NEW  -m iprange --src-range 192.168.63.172-192.168.63.173 -j ACCEPT
+-A INPUT -s 192.168.1.2 -p tcp -m tcp --dport 22123 -j ACCEPT
+-A INPUT -p tcp --destination-port 11211 -m state --state NEW  -m iprange --src-range 192.168.1.2-192.168.1.3 -j ACCEPT
+-A INPUT -p udp --destination-port 11211 -m state --state NEW  -m iprange --src-range 192.168.1.2-192.168.1.3 -j ACCEPT
 ```
 
 ## Testing
