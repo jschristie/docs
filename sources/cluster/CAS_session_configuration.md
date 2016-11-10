@@ -59,22 +59,27 @@ GLUU.[root@idp- ~]#
 
   - Restart nutcracker: service nutcracker restart
 
-5. Configure CAS for nutcracker/twemproxy
-	5.1 Point CAS server to use nutcracker instead of memcached directly. 
-		5.1 Location: '/opt/tomcat/webapps/cas/WEB-INF/cas.properties'
-			5.1.1 Working condition:
+## Configure CAS for nutcracker/twemproxy
+  
+  - Point CAS server to use nutcracker instead of memcached directly. 
+     - Location: '/opt/tomcat/webapps/cas/WEB-INF/cas.properties'
+     - Working condition:
 ```
 #=======================================
 # Memcached connection configuration
 #=======================================
 memcached.servers=127.0.0.1:22123
 ```
-6. Firewall setting
-	6.1 Modify firewall with below setting: 
+
+## Firewall setting
+   - Modify firewall with below setting:
+```
 -A INPUT -s 192.168.63.173 -p tcp -m tcp --dport 22123 -j ACCEPT
 -A INPUT -p tcp --destination-port 11211 -m state --state NEW  -m iprange --src-range 192.168.63.172-192.168.63.173 -j ACCEPT
 -A INPUT -p udp --destination-port 11211 -m state --state NEW  -m iprange --src-range 192.168.63.172-192.168.63.173 -j ACCEPT
-7. Testing
+```
+
+## Testing
 
 Best testing is to make sure both server are UP behind LB and push SSO from CAS app. 
 See if both servers can respond and 'IF ONE SERVER GENERATE A TICKET', 'OTHER SERVER CAN VALIDATE THAT SERVICE-TICKET'
