@@ -54,7 +54,6 @@ GLUU:
   servers:
   - 192.168.1.2 :11211:1 idp1.gluu.org
   - 192.168.1.3 :11211:1 idp2.gluu.org
-GLUU.[root@idp- ~]#
 ```
 
   - Restart nutcracker: service nutcracker restart
