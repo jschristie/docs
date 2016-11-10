@@ -60,7 +60,7 @@ scripts).
 ## Removing/disabling Gluu repo
 
 After initial installation is completed, it's recommended to remove Gluu
-repos from sources list, to avoid accidental upgrade your Gluu package by
+repos from sources list, to avoid accidental upgrade of the Gluu package by
 conducting regular system's update procedures (like, by running `# apt-get update`)
 
 For Example:
@@ -91,7 +91,7 @@ To stop the Gluu Server use the below command:
 
 ```
 
-or alternatively sudo can be used as below
+alternatively sudo can be used as below
 
 ```
 # chroot /home/gluu-server24/ su -
@@ -115,9 +115,9 @@ Below are the steps to script the installation of the Gluu Server:
 
 Step by Step instructions to uninstall Gluu Server:
 
-  1. Exit from the chroot environment to main linux, by entering Logout command
-  2. Stop the Gluu Server chroot environment which will unmount allchroot directories.
-  3. Delete both the Gluu Server packages that are installed, and the home directory of the Gluu Server user.
+1. Exit from the chroot environment to main linux, by entering Logout command.
+2. Stop the Gluu Server chroot environment which will unmount allchroot directories.
+3. Delete both the Gluu Server packages that are installed, and the home directory of the Gluu Server user.
 
 
 The following commands illustrate the steps:
