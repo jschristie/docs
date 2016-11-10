@@ -17,12 +17,22 @@ As an alternative, use our Gluu repository for Ubuntu Xenial (16.04):
 
 # apt-get install gluu-server-2.4.4
 ```
+Note: While entering the "deb" command manually, make sure to enter an extra space between "/ubuntu/" and "xenial main"
 
 ## Configuring Gluu Server
+
 After both the retrieval, and the installation of the Gluu Server
 software package start the Gluu Server, and login into the local chroot
-environment to configure the Gluu Server. These are the single steps:
+environment to configure the Gluu Server. 
 
+Below are the steps to configure Gluu Server:
+
+1. Start the Gluu Server
+2. Login into local chroot environment to configure Gluu Server.
+3. Navigate or change to community-edition-setup directory where setup.py script is located.
+4. Run setup.py to configure the Gluu Server
+
+Below are the following commands:
 ```
 # /etc/init.d/gluu-server-2.4.4 start
 
@@ -36,31 +46,30 @@ environment to configure the Gluu Server. These are the single steps:
 The `setup.py` script will bring up a prompt to provide information for certificate. It is recommened to use
 `hostname.domain` structure for hostname and refrain from using `127.x.x.x`
 for IP address. After the successful execution of `setup.py` script, login to oxTrust,
-the policy administration point for Gluu. Point your browser to the uri
+the policy administration point for Gluu. Access the uri in the local browser,
 `https://hostname.domain`.
 
 For both help and the latest
 installation options see either [setup.py help](./setup_py.md), or run
 `./setup.py -h`.
 
-If you are not using a resolvable DNS host, you will need to add
-the hostname to your hosts file on the server which is running your browser.
-Login with the default user name “admin” and the password printed back in
-the confirmation (also contained in `setup.properties.last` (use the
+
+If resolvable DNS host is not used, add the hostname to your hosts file on the server or the system where the oxtrust UI is accessed.
+Login with the default user name “admin” and the password used in the confirmation(also contained in `setup.properties.last` (use the
 Unix command `grep --color -i pass` to find the according line quickly)
 and look for the LDAP password which is the same as the admin password.
 
-Make sure you remove or encrypt `setup.properties.last` It has the clear 
+Make sure to remove or encrypt `setup.properties.last` It has the clear 
 text passwords for everything: LDAP, admin user, keystores, and 3DES salt.
-If something goes wrong, check `setup.log` for a detailed step-by-step
-of the installation. As an alternative you may check the file
+Logs can be analyzed for installation errors in `setup.log` for a detailed step-by-step
+of the installation. As an alternative one may check the file
 `setup_errors.log` to just see the errors (or stderr output from the
 scripts).
 
 ## Removing/disabling Gluu repo
 
 After initial installation is completed, it's recommended to remove Gluu
-repos from sources list so you won't inadvertently upgrade your Gluu package by
+repos from sources list, to avoid accidental upgrade of the Gluu package by
 conducting regular system's update procedures (like, by running `# apt-get update`)
 
 Either remove `/etc/apt/sources.list.d/gluu-repo.list` file, or modify it
@@ -68,14 +77,14 @@ commenting out lines declaring Gluu CE's repos there.
 
 ## Starting and Stopping the Gluu Server
 
-You can start the Gluu Server with this command:
+To start the Gluu Server use the below command:
 
 ```
 # /etc/init.d/gluu-server-2.4.4 start
 
 ```
 
-You can stop the Gluu Server with this command:
+To stop the Gluu Server use the below command:
 
 ```
 # /etc/init.d/gluu-server-2.4.4 stop
@@ -89,7 +98,7 @@ You can stop the Gluu Server with this command:
 
 ```
 
-Or if you prefer...
+alternatively sudo can be used as below:
 
 ```
 # chroot /home/gluu-server24/ su -
@@ -97,8 +106,7 @@ Or if you prefer...
 ```
 ### Scripted Installation
 
-If you want to script the installation of the Gluu Server, here is what
-you can do to achieve your goal:
+Below are the steps to script the installation of the Gluu Server:
 
 * Save and backup your existing file `setup.properties.last`.
 * Uninstall existing Gluu Server installation.
@@ -112,12 +120,13 @@ you can do to achieve your goal:
 
 ## Uninstallation
 
-First, exit from the chroot environment to main Linux.
+Step by Step instructions to uninstall Gluu Server:  
 
-Second, stop the Gluu Server chroot environment which will unmount all
-chroot directories. As a third step, delete both the Gluu Server
-packages that are installed, and the home directory of the Gluu Server
-user. The following commands illustrate the single steps:
+1. Exit from the chroot environment to main linux, by entering Logout command.  
+2. Stop the Gluu Server chroot environment which will unmount allchroot directories.  
+3. Delete both the Gluu Server packages that are installed, and the home directory of the Gluu Server user. 
+
+The following commands illustrate the steps:
 
 ```
 # service gluu-server-2.4.4 stop
@@ -128,9 +137,9 @@ user. The following commands illustrate the single steps:
 
 ```
 
-On an installation, any modified files are saved in the directory
-`/home/gluu-server24.save`. If you want to remove all the remnants of the
-installation, delete these files with the command `rm -rf
+During an installation, any modified files will be saved in the directory,
+`/home/gluu-server24.save`. 
+If required to remove all the remnants of the installation, delete these files with the command `rm -rf
 /home/gluu-server24.save'.
 
 In some circumstances, the installation can be broken. In that case
