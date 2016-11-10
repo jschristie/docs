@@ -38,9 +38,8 @@ OPTIONS=""
     - backlog: TCP backlog argument. 
     - server_retry_timeout: Time in msec. to wait before retyring a temporarily ejected server. 
     - server_failure_limit: Numeric value; number of consecutive failure after a temporary ejected connection from server. 
-    - servers: IP address with memcached port number and weight for all nodes in cluster. Adding internal hostname for all servers will be a 
-good choice. 
-	- Working condition: 
+    - servers: IP address with memcached port number and weight for all nodes in cluster. Adding internal hostname for all servers will be a good choice. 
+    - Working condition: 
 ```
 GLUU:
   listen: 127.0.0.1:22123
@@ -57,7 +56,7 @@ GLUU:
   - 192.168.1.3 :11211:1 idp2.gluu.org
 GLUU.[root@idp- ~]#
 ```
-	- Restart nutcracker: service nutcracker restart
+    - Restart nutcracker: service nutcracker restart
 
 5. Configure CAS for nutcracker/twemproxy
 	5.1 Point CAS server to use nutcracker instead of memcached directly. 
