@@ -69,7 +69,7 @@ echo 262144 > /proc/sys/fs/file-max
 ```
 ulimit -n unlimited
 ```
-* Restart your system.
+* Restart the server.
 
 ## Port
 The following ports need to stay open for the Gluu Server to run. Please keep the ports open before installing Gluu Server.
