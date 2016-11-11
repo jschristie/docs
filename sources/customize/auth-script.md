@@ -1,19 +1,14 @@
 [TOC]
 
 # Writing a Custom Authentication Script
-To develop this article, I decided to write a script to use
-[Twilio](http://twilio.com) to send an SMS code to implement a two-step
-out-of-band authentication mechanism.
+To develop Multi-factor Authentication with Custom Script, It was decided to write a script to use
+[Twilio](http://twilio.com) to send an SMS code to implement a two-step out-of-band authentication mechanism.
 
 ## Custom Script Location
-Gluu Server User Interface allows the developer to specify the path to
-script rather than use the text box from oxTrust. The script will be
-loaded from the specified path. This feature will improve script
-development and there is an option to revert back to working script, if
-the script is faulty or needs further development. 
+Gluu Server User Interface allows the developer to specify the path to script rather than use the text box from oxTrust. The script will be loaded from the specified path. This feature will improve script development and there is an option to revert back to working script, if the script is faulty or needs further enhancement. 
 
-The administrator can select `File` from the Script Location Type in oxTrust and the file
-input box will be displayed:
+The administrator can select `File` from the Script Location Type in oxTrust and the file input box will be displayed:
+
 ![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/auth_article/script_upload_box.png)
 
 The 'LDAP' option in the Script Location
@@ -27,10 +22,7 @@ upon LDAP selection:
 ## Suggested Development Environment
 
 Gluu Server custom scripts are written in
-[Jython](http://www.jython.org/). In this article, I'm going to
-recommend using Eclipse. You cannot actually run the scripts from
-Eclipse, but it provides a nice editor which makes coding more
-enjoyable.
+[Jython](http://www.jython.org/). It is recommended to use Eclipse for coding purposes.
 
 Before you begin, install the following:
 
