@@ -90,6 +90,7 @@ pages:
     - 'OpenID Connect RP in Ubuntu': 'integrate/ubuntu-installation.md'
     - 'OpenID Connect RP in CentOS': 'integrate/centos-installation.md'
     - 'OpenID Connect Liferay Plugin': 'integrate/oxray.md'
+    - 'OpenID Connect Java Authentication': 'integrate/java-connect.md'
     - 'SAML SP in CentOS': 'integrate/apache-saml.md'
     - 'SAML SP in Ubuntu': 'integrate/ubuntu-shib-apache.md'
     - 'SAML SP in IIS7': 'integrate/iis-saml.md'
