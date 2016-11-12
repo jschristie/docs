@@ -182,7 +182,7 @@ Please follow steps provided in next articles to install csync2 on both nodes: [
 ```
 openssl genrsa -out /etc/csync2_ssl_key.pem 1024
 openssl req -new -key /etc/csync2_ssl_key.pem -out /etc/csync2_ssl_cert.csr
-openssl x509 -req -days 600 -in /etc/csync2_ssl_cert.csr -signkey /etc/csync 2_ssl_key.pem \
+openssl x509 -req -days 600 -in /etc/csync2_ssl_cert.csr -signkey /etc/csync2_ssl_key.pem \
 -out /etc/csync2_ssl_cert.pem
 ```
 In case you've compiled csync from sources you may opt to just run `# make cert` while in the sources' directory, it will do everything for you.
