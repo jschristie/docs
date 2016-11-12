@@ -22,7 +22,16 @@ Note: While entering the "deb" command manually, make sure to enter an extra spa
 ## Configuring Gluu Server
 After both the retrieval, and the installation of the Gluu Server
 software package start the Gluu Server, and login into the local chroot
-environment to configure the Gluu Server. These are the single steps:
+environment to configure the Gluu Server.
+
+Below are the steps to configure Gluu Server:
+
+1. Start the Gluu Server
+2. Login into local chroot environment to configure Gluu Server.
+3. Navigate or change to community-edition-setup directory where setup.py script is located.
+4. Run setup.py to configure the Gluu Server
+
+Below are the following commands:
 
 ```
 # /etc/init.d/gluu-server-2.4.4 start
