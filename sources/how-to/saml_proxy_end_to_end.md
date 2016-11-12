@@ -47,17 +47,18 @@ To configure this custom script,
 
     - Custom property (key/value)
 
-       - saml_deployment_type: enroll
+        - saml_deployment_type: enroll
 
-       - saml_idp_sso_target_url: https://test.gluu.org/asimba/profiles/saml2/sso/web
+        - saml_idp_sso_target_url: https://test.gluu.org/asimba/profiles/saml2/sso/web
 
-       - saml_validate_response: false
+        - saml_validate_response: false
 
-       - asimba_entity_id: https://test.gluu.org/saml
+        - asimba_entity_id: https://test.gluu.org/saml
 
-       - asimba_saml_certificate_file: /etc/certs/saml.pem 
+        - asimba_saml_certificate_file: /etc/certs/saml.pem 
 
-         - note: Deployer need to copy 'asimba.crt' in 'saml.pem' without any 'BEGIN CERTIFICATE' and 'END CERTIFICATE' tag. 
+!!! note
+    The 'asimba.crt' certificate must be copied in 'saml.pem' without any 'BEGIN CERTIFICATE' and 'END CERTIFICATE' tag. 
 
        - user_object_classes: eduPerson
 
@@ -140,17 +141,16 @@ Server: https://test.gluu.org
 
 Create Trust relationships for all service provides which are included in SAML Proxy SSO workflow. In our test setup we created Trust relationship for remote SP which has entityID 'https://sp.gluu.org/shibboleth'. How to create Trust Relationship is available [here](https://gluu.org/docs/integrate/outbound-saml/)
  
-
- 
 ## Preparation in Remote Authentication Server (IDP)
 
 Server: https://nest.gluu.org
 
 Create a SAML Trust Relationship with Gluu Server's Asimba bit. 
 Requirements: 
-  - Gluu Server's Asimba metadata can be achieved from 'https://test.gluu.org/asimba/profiles/saml2'
-    - Download the metadata and use 'File' method to create Trust relationship
-  - Relying Party Configuration: 'SAML2SSO' Profile 
+
+- Download the Asimba metadata and use 'File' method to create Trust relationship
+    - Asimba metadata is available @ `https://test.gluu.org/asimba/profiles/saml2`
+- Relying Party Configuration: 'SAML2SSO' Profile 
     - example: 
         - includeAttributeStatement: Yes
         - assertionLifeTime: 300000
@@ -160,12 +160,14 @@ Requirements:
         - signRequests: conditional
         - encryptAssertions: never
         - encryptNameIds: never
+
   - Attribute: Any attribute according to Service Providers own need. Any kind of nameID from below list is mandatory. 
      - nameID: 
         - `nameIDFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"`
         - `nameIDFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"`
         - `nameIDFormat="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"`
-     - How to create nameID in Gluu Server is available ![here](https://gluu.org/docs/customize/attributes/#custom-nameid)
+
+     - How to create nameID in Gluu Server is available [here](https://gluu.org/docs/customize/attributes/#custom-nameid)
 
 ## Preparation in Service Provider (SP)
 
