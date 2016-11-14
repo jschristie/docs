@@ -17,7 +17,8 @@ As an alternative, use our Gluu repository for Ubuntu Xenial (16.04):
 
 # apt-get install gluu-server-2.4.4
 ```
-Note: While entering the "deb" command manually, make sure to enter an extra space between "/ubuntu/" and "xenial main"
+
+**Note: While entering the "deb" command manually, make sure to enter an extra space between "/ubuntu/" and "xenial main"**
 
 ## Configuring Gluu Server
 
@@ -46,8 +47,9 @@ Below are the following commands:
 The `setup.py` script will bring up a prompt to provide information for certificate. It is recommened to use
 `hostname.domain` structure for hostname and refrain from using `127.x.x.x`
 for IP address. After the successful execution of `setup.py` script, login to oxTrust,
-the policy administration point for Gluu. Access the uri in the local browser,
-`https://hostname.domain`.
+the policy administration point for Gluu. 
+
+Access the oxtrust UI from the local browser using `https://hostname.domain`, which was provided during the configuration. And the uri will be mentioned at the end of successful configuration.
 
 For both help and the latest
 installation options see either [setup.py help](./setup_py.md), or run
@@ -55,15 +57,13 @@ installation options see either [setup.py help](./setup_py.md), or run
 
 
 If resolvable DNS host is not used, add the hostname to your hosts file on the server or the system where the oxtrust UI is accessed.
-Login with the default user name “admin” and the password used in the confirmation(also contained in `setup.properties.last` (use the
+Login with the default user name “admin” and the password used in the configuration(also contained in `setup.properties.last` use the
 Unix command `grep --color -i pass` to find the according line quickly)
 and look for the LDAP password which is the same as the admin password.
 
 Make sure to remove or encrypt `setup.properties.last` It has the clear 
 text passwords for everything: LDAP, admin user, keystores, and 3DES salt.
-Logs can be analyzed for installation errors in `setup.log` for a detailed step-by-step
-of the installation. As an alternative one may check the file
-`setup_errors.log` to just see the errors (or stderr output from the
+Logs can be analyzed for installation errors in `setup.log` for a detailed step-by-step analysis of the installation. As an alternative, check the file `setup_errors.log` to just see the errors (or stderr output from the
 scripts).
 
 ## Removing/disabling Gluu repo
@@ -89,6 +89,12 @@ To stop the Gluu Server use the below command:
 ```
 # /etc/init.d/gluu-server-2.4.4 stop
 
+```
+
+To check the status of the Gluu Server use the below command:
+
+```
+#/etc/init.d/gluu-server-2.4.4 staus
 ```
 
 ## Login to the chroot environment
