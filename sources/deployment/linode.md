@@ -1,19 +1,25 @@
 # Linode VM
-As mentioned earlier that the Linode VMs come with a custom kernel and they are not compatiable with Gluu Server. The following steps will help you to update your kernel so that Gluu Server can be installed.
+As mentioned earlier that the Linode VMs come with a custom kernel and they are not compatiable with Gluu Server. The following steps will help to update your kernel so that Gluu Server can be installed.
 
 ## Update Kernel
-It is a good practice to check for the current version. Run the following command to check for kernel version:
+
+It is a recommended to check for the current version. Run the following command to check for kernel version:
+
 ```
 # uname -a
 ```
 
-If the output contains the `-Linode` then it is a custom kernel and you have to run the following command:
+If the output contains the `-Linode` then it is a custom kernel and it is mandate to run the following command:
+
 ```
 # apt-get install linux-image-virtual grub2
 ```
+
 ### Modify Grub2
-After the installation of the new kernel and grub2, it is time to configure grub2.
+After the installation of the new kernel and grub2, grub2 has to be configured.
+
 Edit the file `grub` under the `/etc/default/` folder.
+
 ```
 # vim /etc/default/grub
 ```
