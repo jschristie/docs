@@ -100,30 +100,17 @@ The Linode Virtual Machines (VM) use a custom kernel which is not supported by G
 
 When deploying the Gluu Server, installer will prompt on the following softwares to be installed along with Gluu Server:
 
-- __oxAuth:*__ oxAuth provides endpoints for an OpenID Connect Identity
-  Provider (IdP) and an UMA Authorization Server (AS). Both OpenID
-  Connect and UMA are standard profiles of OAuth 2.0, used for single
-  sign-on (SSO) and web and API access management, respectively.
-- __oxTrust:*__ oxTrust is the graphical user interface that is used for
-  server management.
-  __LDAP:*__ The Gluu Server ships with a fork of the OpenDJ LDAP server.
-  It is used to store attributes and server configurations locally.
-- __Apache 2 web server:*__ Apache 2 serves the web server for the Gluu
-  Server. Without Apache 2, it is not possible to see the hostname from 
-  a browser.
-- **Shibboleth 2 SAML IDP:** The Shibboleth server provides endpoints
-  for a SAML Identity Provider (IdP). If you want to create single
-  sign-on (SSO) to a SAML SP, you will need a SAML IdP.
-- **Asimba SAML Proxy:** The Asimba SAML proxy should be deployed on if
-  your organization needs to consolidate inbound SAML authentication
-  from the IdPs of partners to a single website or app.
-- **CAS:** CAS is legacy at this point and should only be deployed if
-  your organization has existing apps that can only support CAS for
-  single sign-on.
-- **oxAuth RP:** The oxAuth RP is a web UI to enable OpenID Connect
-  discovery, dynamic client registration, and authentication testing.
-- **oxEleven:** Web Application providing REST API's for a PKCS #11
-  interface using SoftHSMv2 as cryptographic store.
+|Software/Component| Feature and Functionality of the component |
+|------------------|--------------------------------------------|
+|  __oxAuth*__| oxAuth provides endpoints for an OpenID Connect Identity Provider (IdP) and an UMA Authorization Server (AS). Both OpenID Connect and UMA are standard profiles of OAuth 2.0, used for single sign-on (SSO) and web and API access management, respectively.|
+|  __oxTrust*__| oxTrust is the graphical user interface that is used for server management.|
+|  __LDAP*__ |The Gluu Server ships with a fork of the OpenDJ LDAP server.It is used to store attributes and server configurations locally.|
+|  __Apache 2 web server:*__| Apache 2 serves the web server for the Gluu Server. Without Apache 2, it is not possible to see the hostname from a browser.|
+|  **Shibboleth 2 SAML IDP:**| The Shibboleth server provides endpoints for a SAML Identity Provider (IdP). If the requirement requires to create single  sign-on (SSO) to a SAML SP, you will need a SAML IdP.|
+|  **Asimba SAML Proxy:**| The Asimba SAML proxy should be deployed on if organization needs to consolidate inbound SAML authentication from the IdPs of partners to a single website or app.|
+|  **CAS:**| CAS is legacy at this point and should only be deployed if organization has existing apps that can only support CAS for single sign-on.|
+|  **oxAuth RP:**| The oxAuth RP is a web UI to enable OpenID Connect discovery, dynamic client registration, and authentication testing.|
+|  **oxEleven:**| Web Application providing REST API's for a PKCS #11 interface using SoftHSMv2 as cryptographic store.|
 
 *__Note:__* * implies that the software should *always* be deployed. And recommended to use defaults where ever required.
 
