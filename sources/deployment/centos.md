@@ -52,14 +52,13 @@ For both help and the latest installation options see either [setup.py help](./s
 
 If resolvable DNS host is not used, add the hostname to your hosts file on the server or the system where the oxtrust UI is accessed. Login with the default user name “admin” and the password used in the confirmation(also contained in `setup.properties.last` (use the Unix command `grep --color -i pass` to find the according line quickly) and look for the LDAP password which is the same as the admin password.
 
-Make sure to remove or encrypt `setup.properties.last` It has the clear  text passwords for everything: LDAP, admin user, keystores, and 3DES salt. Logs can be analyzed for installation errors in setup.log for a detailed step-by-step of the installation. As an alternative one may check the file `setup_errors.log` to just see the errors (or stderr output from the scripts).
+Make sure to remove or encrypt `setup.properties.last` It has the clear  text passwords for everything: LDAP, admin user, keystores, and 3DES salt. Logs can be analyzed for installation errors in `setup.log` for a detailed step-by-step of the installation. As an alternative, check the file `setup_errors.log` to just see the errors (or stderr output from the scripts).
 
 ## Removing/disabling Gluu repo
 
 After initial installation is completed, it's recommended to remove Gluu repos from sources list, to avoid accidental upgrade of the Gluu package by conducting regular system's update procedures (like, by running `# yum update`)
 
-Either remove `/etc/yum.repos.d/Gluu.repo` file, or modify it setting
-"enabled" property to "0" for Gluu CE repos there.
+Either remove `/etc/yum.repos.d/Gluu.repo` file, or modify it setting "enabled" property to "0" for Gluu CE repos there.
 
 ## Starting and Stopping the Gluu Server
 
@@ -70,6 +69,12 @@ To start the Gluu Server use the below command:
 ```
 
 To stop the Gluu Server use the below command:
+
+```
+# service gluu-server-2.4.4 stop
+```
+
+To check the status of the Gluu Server use the below command:
 
 ```
 # service gluu-server-2.4.4 stop
@@ -107,11 +112,10 @@ The following commands illustrate the steps:
 
 ```
 # service gluu-server-2.4.4 stop
-
 # yum remove gluu-server-2.4.4
-
 # rm -rf /opt/gluu-server-2.4.4*
 ```
+
 During an installation, any modified files will be saved in the directory, `/opt/gluu-server24.save`.  If required to remove all the remnants of the installation, delete these files with the command `rm -rf /opt/gluu-server24.save`.
 
 ## Support
