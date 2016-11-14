@@ -9,12 +9,12 @@ effected replacing the `war` file. These are installed using
 
 It is highly recommended to stop the Gluu Server, and `tar` 
 folder `/opt/gluu-server-2.4.4` to ensure speedy recovery from any 
-unexpected hiccup. If your organization has other contingency plans,
+unexpected hiccup. If the organization has any other contingency plans,
 that is ok too.
 
 !!! Warning
     Please make sure that there is enough disk space to tar the entire 
-    Gluu Server.
+    Gluu Server, at least 4GB of Disk Space is recommended.
 
 Use the following commands to tar the Gluu Server folder from the host
 OS:
@@ -25,6 +25,7 @@ OS:
 ```
 
 ## Install Update Package
+
 Gluu Server update packages are available from the Gluu Repository.
 Make sure to stop Gluu Server before installing and finalizing the 
 update package.
@@ -57,5 +58,5 @@ finalize the installation by running the update script.
 # ./update_war.sh
 ```
 
-It is recommended to wait a few minutes while the changes take place and 
-Gluu Server CE can be used.
+** NOTE: It is recommended to wait for few minutes while the changes take place and 
+Gluu Server CE can be used.**
