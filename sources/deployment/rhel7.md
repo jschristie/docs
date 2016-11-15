@@ -31,9 +31,9 @@ Below are the steps to configure Gluu Server:
 4.  Run setup.py to configure the Gluu Server
 
 ```
-# /sbin/gluu-serverd-2.4.4 start
-# /sbin/gluu-serverd-2.4.4 enable
-# /sbin/gluu-serverd-2.4.4 login
+# /sbin/gluu-server-2.4.4 start
+# /sbin/gluu-server-2.4.4 enable
+# /sbin/gluu-server-2.4.4 login
 # cd /install/community-edition-setup/
 #./setup.py
 ```
@@ -71,25 +71,25 @@ Either remove `/etc/yum.repos.d/Gluu.repo` file, or modify it setting
 To start the Gluu Server use the below command:
 
 ```
-# /sbin/gluu-serverd-2.4.4 start
+# /sbin/gluu-server-2.4.4 start
 ```
 
 To start the Gluu Server use the below command:
 
 ```
-# /sbin/gluu-serverd-2.4.4 stop
+# /sbin/gluu-server-2.4.4 stop
 ```
 
 To check the status of Gluu Server use the below command:
 
 ```
-#/sbin/gluu-serverd-2.4.4 status
+#/sbin/gluu-server-2.4.4 status
 ```
 
 ## Login to the chroot environment
 
 ```
-# /sbin/gluu-serverd-2.4.4 login
+# /sbin/gluu-server-2.4.4 login
 ```
 
 ### Scripted Installation
