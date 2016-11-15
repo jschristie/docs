@@ -34,9 +34,9 @@ Below are the steps to configure Gluu Server:
 Below are the following commands:
 
 ```
-# /sbin/gluu-serverd-2.4.4 start
-# /sbin/gluu-serverd-2.4.4 enable
-# /sbin/gluu-serverd-2.4.4 login
+# /sbin/gluu-server-2.4.4 start
+# /sbin/gluu-server-2.4.4 enable
+# /sbin/gluu-server-2.4.4 login
 # cd /install/community-edition-setup/
 #./setup.py
 ```
@@ -75,25 +75,25 @@ Either remove `/etc/yum.repos.d/Gluu.repo` file, or modify it setting
 To start the Gluu Server use the below command:
 
 ```
-# /sbin/gluu-serverd-2.4.4 start
+# /sbin/gluu-server-2.4.4 start
 ```
 
 To stop the Gluu Server use the below command:
 
 ```
-# /sbin/gluu-serverd-2.4.4 stop
+# /sbin/gluu-server-2.4.4 stop
 ```
 
 To check the Gluu Server status use the below command:
 
 ```
-# /sbin/gluu-serverd-2.4.4 status
+# /sbin/gluu-server-2.4.4 status
 ```
 
 ## Login to the chroot environment
 
 ```
-# /sbin/gluu-serverd-2.4.4 login
+# /sbin/gluu-server-2.4.4 login
 ```
 
 ### Scripted Installation
@@ -119,7 +119,7 @@ Step by Step instructions to uninstall Gluu Server: 
 3.  Delete both the Gluu Server packages that are installed, and the home directory of the Gluu Server user. 
 
 ```
-# /sbin/gluu-serverd-2.4.4 stop
+# /sbin/gluu-server-2.4.4 stop
 # yum remove gluu-server-2.4.4
 # rm -rf /opt/gluu-server-2.4.4*
 ```
