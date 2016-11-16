@@ -7,6 +7,7 @@ on CentOS6.x operating system.
 
 ## Memcached configuration
 
+ - Deployer need to perform this operation as 'root' inside Gluu Server container
  - Install 'memcached-1.2.8-repcached-2.2-1.el6_.x86_64.rpm'
     - Get RPM from Gluu 
       - RPM is rare in internet; deployer can use the 'memcached-repcached' source to build his/her own setup
@@ -25,6 +26,7 @@ OPTIONS=""
 
 ## Twemproxy ( aka. nutcracker ) configuration
 
+ - Deployer need to perform this operation as 'root' inside Gluu Server container
  - Install 'nutcracker-0.3.0-1.x86_64.rpm'
 	  - Get RPM from Gluu
 		    - RPM is rare; deployer can use the 'twemproxy' source to build his/her own setup
@@ -60,6 +62,7 @@ GLUU:
 
 ## Configure CAS for nutcracker/twemproxy
   
+  - Deployer need to perform this operation as 'tomcat' user inside Gluu Server container
   - Point CAS server to use nutcracker instead of memcached directly. 
      - Location: '/opt/tomcat/webapps/cas/WEB-INF/cas.properties'
      - Working condition:
