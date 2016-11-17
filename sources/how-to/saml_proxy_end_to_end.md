@@ -20,6 +20,29 @@ Description of SAML Authentication Module is available here: https://github.com/
  
 During installation of Gluu Server (https://test.gluu.org), deployer need to select 'Asimba' and 'Shibboleth IDP' along with other core components (oxTrust,oxAuth,Web Server and LDAP). After the completion of installation, we can move forward for rest of the work. 
 
+### Asimba core configuration file modification
+ - File name: asimba.xml
+ - Location: /opt/tomcat/webapps/asimba/WEB-INF/conf ( inside Gluu Server container )
+ - After below modifications, restart tomcat: 
+  - Enable whitelist for attributes 
+```
+<gather>
+   <attribute name="whitelist-attribute-name" />
+</gather>
+```
+    - Allow all attributes released by remote AuthN server. Add '<attribute name="*" />` in attributeRelease class
+```
+<attributerelease class="com.alfaariss.oa.engine.attribute.release.configuration.ConfigurationFactory">
+         <policy id="asimba.releasepolicy.1" friendlyname="Default Attribute Release policy" enabled="true">
+                        <attribute name="firstname" />
+                        <attribute name="lastname" />
+                        <attribute name="email" />
+                        <attribute name="role" />
+                        <attribute name="country" />    <!-- country is defined in <global ..> attribute section -->
+                        <attribute name="*" />
+                        .............
+                        .............
+```
 ### SAML custom script configuration 
 
 Server: https://test.gluu.org
