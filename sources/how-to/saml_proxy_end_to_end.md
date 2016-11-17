@@ -30,7 +30,7 @@ During installation of Gluu Server (https://test.gluu.org), deployer need to sel
    <attribute name="whitelist-attribute-name" />
 </gather>
 ```
-    - Allow all attributes released by remote AuthN server. Add '<attribute name="*" />` in attributeRelease class
+  - Allow all attributes released by remote AuthN server. Add 'attribute name="*"' in attributeRelease class
 ```
 <attributerelease class="com.alfaariss.oa.engine.attribute.release.configuration.ConfigurationFactory">
          <policy id="asimba.releasepolicy.1" friendlyname="Default Attribute Release policy" enabled="true">
