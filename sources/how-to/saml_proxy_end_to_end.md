@@ -70,35 +70,21 @@ To configure this custom script,
 
     - Custom property (key/value)
 
-        - saml_deployment_type: enroll
-
-        - saml_idp_sso_target_url: https://test.gluu.org/asimba/profiles/saml2/sso/web
-
-        - saml_validate_response: false
-
-        - asimba_entity_id: https://test.gluu.org/saml
-
-        - asimba_saml_certificate_file: /etc/certs/saml.pem 
-
-!!! note
-    The 'asimba.crt' certificate must be copied in 'saml.pem' without any 'BEGIN CERTIFICATE' and 'END CERTIFICATE' tag. 
-
-       - user_object_classes: eduPerson
-
+       - saml_deployment_type: enroll_all_attr
+       - saml_idp_sso_target_url: https://test.gluu.org/asimba/profiles/saml2/sso/web
+       - saml_validate_response: false
+       - asimba_entity_id: https://test.gluu.org/saml
+       - asimba_saml_certificate_file: /etc/certs/saml.pem [ Deployer need to make sure that 'saml.pem' is there inside /etc/certs/. The ingredient of this pem is asimba.crt without '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----' header and footer ] 
+       - user_object_classes: eduPerson, ox-563D78CE5EDA45D900017569E2D5 [ This varies from org to org. If Organization want to process any eduPerson related attribute they need to add 'eduPerson' here. The other OC 'ox-563D....' is required if Organization need to process/use any custom attribute ] 
        - saml_idp_attributes_mapping: { "attribute_name": ["attribute_name", "SAML2 URI"] } 
          - example: ```{"uid": ["uid", "urn:oid:0.9.2342.19200300.100.1.1"], "mail": ["mail", "urn:oid:0.9.2342.19200300.100.1.3"], "givenName": ["givenName", "urn:oid:2.5.4.42"], "sn": ["sn", "urn:oid:2.5.4.4"], "eduPersonPrincipalName": ["eduPersonPrincipalName", "urn:oid:1.3.6.1.4.1.5923.1.1.1.6"] } ```
-
-       - enforce_uniqueness_attr_list: attribute1, attribute2
-
+       - enforce_uniqueness_attr_list: attribute1, attribute2 [ This also varies from Org to Org ] 
          - example: ```edupersonprincipalname, uid, mail, givenName```
-
        - saml_use_authn_context: false
-
        - saml_generate_name_id: true
-
-    - Script: Grab script from github and paste it here. 
-
-    - Enabled: True
+       - saml_update_user: true
+       - Script: Grab script from github and paste it here. 
+       - Enabled: True
     
 ### Asimba Configuration: 
 
