@@ -8,6 +8,19 @@ For the preparation of this documentation we have used three servers:
 
 ## Configuration in test.gluu.org server
 
+### SAML Custom Script setup: 
+  - Log into oxTrust as admin user / user who has Gluu Server administrative priviledge
+  - Configuration -> Manage Custom Scripts
+  - Under 'Person Authentication' tab, scroll down to 'saml': 
+    - Name: saml
+    - Description: SAML Authentication module
+    - Programming Language: Python
+    - Level: 50
+    - Location Type: Ldap
+    - Usage type: Web
+    - Custom property ( key/value ):
+      - saml_certificate_file: /etc/certs/saml.pem
+
 ## Configuration in nest.gluu.org server
 
 ## Configuration in sp.gluu.org
