@@ -19,7 +19,7 @@ For the preparation of this documentation we have used three servers:
     - Location Type: Ldap
     - Usage type: Web
     - Custom property ( key/value ):
-      - saml_certificate_file: /etc/certs/saml.pem
+      - saml_certificate_file: /etc/certs/saml.pem ( Deployer need to grab the SAML cert of remote authentication server and place it here inside SAML_Script enabled Gluu Server as 'saml.pem'. Make sure that there is no "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" delimeter in saml.pem. As for example... in our case we saved ........................
 
 ## Configuration in nest.gluu.org server
 
