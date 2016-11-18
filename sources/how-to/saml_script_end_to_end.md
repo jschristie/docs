@@ -707,3 +707,5 @@ class PersonAuthentication(PersonAuthenticationType):
 ```
 
 ## Configuration in sp.gluu.org
+
+Service Provider configuration is straight forward. 
