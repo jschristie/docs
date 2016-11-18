@@ -671,8 +671,23 @@ class PersonAuthentication(PersonAuthenticationType):
       - Description: Test
       - Metadata Type: File
         - Grab below xml file and use that as SAML metadata to create this trust. 
+      - Configure Relying Party: 
+         - SAML2SSO
+            - includeAttributeStatement: yes
+            - assertionLifetime: 300000
+            - assertionProxyCount: 0
+            - signResponses: conditional
+            - signAssertions: never
+            - signRequests: conditional
+            - encryptAssertions: never
+            - encryptNameIds: never
+        - Release attributes: 
+          - Email
+          - TransientId
+          - Username
+
 ```
- <!--
+<!--
    Unsigned metadata for oxAuth
 -->
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.gluu.org/shibboleth">
@@ -690,20 +705,5 @@ class PersonAuthentication(PersonAuthenticationType):
   </md:ContactPerson>
 </md:EntityDescriptor>
 ```
-
-          - Configure Relying Party: 
-          - SAML2SSO
-            - includeAttributeStatement: yes
-            - assertionLifetime: 300000
-            - assertionProxyCount: 0
-            - signResponses: conditional
-            - signAssertions: never
-            - signRequests: conditional
-            - encryptAssertions: never
-            - encryptNameIds: never
-        - Release attributes: 
-          - Email
-          - TransientId
-          - Username
 
 ## Configuration in sp.gluu.org
