@@ -29,6 +29,37 @@ For the preparation of this documentation we have used three servers:
       - saml_idp_attributes_list: urn:oid:0.9.2342.19200300.100.1.1, urn:oid:0.9.2342.19200300.100.1.3
       - saml_local_attributes_list: uid, mail
       - Script: 
+
+
+## Configuration in nest.gluu.org server
+  - SAML Trust Relationship: 
+    - Create a new Trust relationship for 'sp.gluu.org'
+      - DisplayName: sp.gluu.org
+      - Description: Test
+      - Metadata Type: File
+        - Grab below xml file and use that as SAML metadata to create this trust. 
+      - Configure Relying Party: 
+         - SAML2SSO
+            - includeAttributeStatement: yes
+            - assertionLifetime: 300000
+            - assertionProxyCount: 0
+            - signResponses: conditional
+            - signAssertions: never
+            - signRequests: conditional
+            - encryptAssertions: never
+            - encryptNameIds: never
+        - Release attributes: 
+          - Email
+          - TransientId
+          - Username
+
+## Configuration in sp.gluu.org
+
+Service Provider configuration is straight forward. We installed Shibboleth SP in Ubuntu 14.04 LTS. Sp configurations are also added below. 
+
+# Files
+
+## SAML Script: 
 ```
 from org.jboss.seam.contexts import Context, Contexts
 from org.jboss.seam.security import Identity
@@ -664,27 +695,7 @@ class PersonAuthentication(PersonAuthenticationType):
         return True
 ```
 
-## Configuration in nest.gluu.org server
-  - SAML Trust Relationship: 
-    - Create a new Trust relationship for 'sp.gluu.org'
-      - DisplayName: sp.gluu.org
-      - Description: Test
-      - Metadata Type: File
-        - Grab below xml file and use that as SAML metadata to create this trust. 
-      - Configure Relying Party: 
-         - SAML2SSO
-            - includeAttributeStatement: yes
-            - assertionLifetime: 300000
-            - assertionProxyCount: 0
-            - signResponses: conditional
-            - signAssertions: never
-            - signRequests: conditional
-            - encryptAssertions: never
-            - encryptNameIds: never
-        - Release attributes: 
-          - Email
-          - TransientId
-          - Username
+## Metadata for sp.gluu.org
 
 ```
 <!--
@@ -706,6 +717,285 @@ class PersonAuthentication(PersonAuthenticationType):
 </md:EntityDescriptor>
 ```
 
-## Configuration in sp.gluu.org
 
-Service Provider configuration is straight forward. 
+
+## sp.gluu.org configuration files
+
+### shibboleth2.xml
+```
+<SPConfig xmlns="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:conf="urn:mace:shibboleth:2.0:native:sp:config"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+    xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+    clockSkew="180">
+
+    <!--
+    By default, in-memory StorageService, ReplayCache, ArtifactMap, and SessionCache
+    are used. See example-shibboleth2.xml for samples of explicitly configuring them.
+    -->
+
+    <!--
+    To customize behavior for specific resources on Apache, and to link vhosts or
+    resources to ApplicationOverride settings below, use web server options/commands.
+    See https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPConfigurationElements for help.
+
+    For examples with the RequestMap XML syntax instead, see the example-shibboleth2.xml
+    file, and the https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPRequestMapHowTo topic.
+    -->
+
+    <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
+    <ApplicationDefaults entityID="https://sp.gluu.org/shibboleth"
+                         REMOTE_USER="eppn persistent-id targeted-id">
+
+        <!--
+        Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
+        You MUST supply an effectively unique handlerURL value for each of your applications.
+        The value defaults to /Shibboleth.sso, and should be a relative path, with the SP computing
+        a relative value based on the virtual host. Using handlerSSL="true", the default, will force
+        the protocol to be https. You should also set cookieProps to "https" for SSL-only sites.
+        Note that while we default checkAddress to "false", this has a negative impact on the
+        security of your site. Stealing sessions via cookie theft is much easier with this disabled.
+        -->
+        <Sessions lifetime="28800" timeout="3600" relayState="ss:mem"
+                  checkAddress="false" handlerSSL="false" cookieProps="http">
+
+            <!--
+            Configures SSO for a default IdP. To allow for >1 IdP, remove
+            entityID property and adjust discoveryURL to point to discovery service.
+            (Set discoveryProtocol to "WAYF" for legacy Shibboleth WAYF support.)
+            You can also override entityID on /Login query string, or in RequestMap/htaccess.
+            -->
+            <SSO entityID="https://test.gluu.org/idp/shibboleth"
+                 discoveryProtocol="SAMLDS" discoveryURL="https://ds.example.org/DS/WAYF">
+              SAML2 SAML1
+            </SSO>
+
+            <!-- SAML and local-only logout. -->
+            <Logout>SAML2 Local</Logout>
+
+            <!-- Extension service that generates "approximate" metadata based on SP configuration. -->
+            <Handler type="MetadataGenerator" Location="/Metadata" signing="false"/>
+
+            <!-- Status reporting service. -->
+            <Handler type="Status" Location="/Status" acl="127.0.0.1 ::1"/>
+
+            <!-- Session diagnostic service. -->
+            <Handler type="Session" Location="/Session" showAttributeValues="false"/>
+
+            <!-- JSON feed of discovery information. -->
+            <Handler type="DiscoveryFeed" Location="/DiscoFeed"/>
+        </Sessions>
+
+        <!--
+        Allows overriding of error template information/filenames. You can
+        also add attributes with values that can be plugged into the templates.
+        -->
+        <Errors supportContact="root@localhost"
+            helpLocation="/about.html"
+            styleSheet="/shibboleth-sp/main.css"/>
+
+        <!-- Example of remotely supplied batch of signed metadata. -->
+        <!--
+        <MetadataProvider type="XML" uri="http://federation.org/federation-metadata.xml"
+              backingFilePath="federation-metadata.xml" reloadInterval="7200">
+            <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
+            <MetadataFilter type="Signature" certificate="fedsigner.pem"/>
+        </MetadataProvider>
+        -->
+
+        <!-- Example of locally maintained metadata. -->
+        <!--
+        <MetadataProvider type="XML" file="partner-metadata.xml"/>
+        -->
+
+        <MetadataProvider type="XML" validate="true" file="/etc/shibboleth/test_gluu_org_metadata.xml"/>
+
+        <!-- Map to extract attributes from SAML assertions. -->
+        <AttributeExtractor type="XML" validate="true" reloadChanges="false" path="attribute-map.xml"/>
+
+        <!-- Use a SAML query if no attributes are supplied during SSO. -->
+        <AttributeResolver type="Query" subjectMatch="true"/>
+
+        <!-- Default filtering policy for recognized attributes, lets other data pass. -->
+        <AttributeFilter type="XML" validate="true" path="attribute-policy.xml"/>
+
+        <!-- Simple file-based resolver for using a single keypair. -->
+        <CredentialResolver type="File" key="/etc/certs/sp_gluu_org.key" certificate="/etc/certs/sp_gluu_org.crt"/>
+
+        <!--
+        The default settings can be overridden by creating ApplicationOverride elements (see
+        the https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPApplicationOverride topic).
+        Resource requests are mapped by web server commands, or the RequestMapper, to an
+        applicationId setting.
+
+        Example of a second application (for a second vhost) that has a different entityID.
+        Resources on the vhost would map to an applicationId of "admin":
+        -->
+        <!--
+        <ApplicationOverride id="admin" entityID="https://admin.example.org/shibboleth"/>
+        -->
+    </ApplicationDefaults>
+
+    <!-- Policies that determine how to process and authenticate runtime messages. -->
+    <SecurityPolicyProvider type="XML" validate="true" path="security-policy.xml"/>
+
+    <!-- Low-level configuration about protocols and bindings available for use. -->
+    <ProtocolProvider type="XML" validate="true" reloadChanges="false" path="protocols.xml"/>
+
+</SPConfig>
+
+```
+
+### attribute-map.xml
+
+```
+<Attributes xmlns="urn:mace:shibboleth:2.0:attribute-map" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!--
+    The mappings are a mix of SAML 1.1 and SAML 2.0 attribute names agreed to within the Shibboleth
+    community. The non-OID URNs are SAML 1.1 names and most of the OIDs are SAML 2.0 names, with a
+    few exceptions for newer attributes where the name is the same for both versions. You will
+    usually want to uncomment or map the names for both SAML versions as a unit.
+    -->
+
+    <!-- First some useful eduPerson attributes that many sites might use. -->
+
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrincipalName" id="eppn">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder"/>
+    </Attribute>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" id="eppn">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder"/>
+    </Attribute>
+
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" id="affiliation">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" id="affiliation">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonAffiliation" id="unscoped-affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" id="unscoped-affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonEntitlement" id="entitlement"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" id="entitlement"/>
+
+    <!-- A persistent id attribute that supports personalized anonymous access. -->
+
+    <!-- First, the deprecated/incorrect version, decoded as a scoped string: -->
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonTargetedID" id="targeted-id">
+        <AttributeDecoder xsi:type="ScopedAttributeDecoder"/>
+        <!-- <AttributeDecoder xsi:type="NameIDFromScopedAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/> -->
+    </Attribute>
+
+    <!-- Second, an alternate decoder that will decode the incorrect form into the newer form. -->
+    <!--
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonTargetedID" id="persistent-id">
+        <AttributeDecoder xsi:type="NameIDFromScopedAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    </Attribute>
+    -->
+
+    <!-- Third, the new version (note the OID-style name): -->
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" id="persistent-id">
+        <AttributeDecoder xsi:type="NameIDAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    </Attribute>
+
+    <!-- Fourth, the SAML 2.0 NameID Format: -->
+    <Attribute name="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" id="persistent-id">
+        <AttributeDecoder xsi:type="NameIDAttributeDecoder" formatter="$NameQualifier!$SPNameQualifier!$Name" defaultQualifiers="true"/>
+    </Attribute>
+
+    <!-- Some more eduPerson attributes, uncomment these to use them... -->
+    <!--
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrimaryAffiliation" id="primary-affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonNickname" id="nickname"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonPrimaryOrgUnitDN" id="primary-orgunit-dn"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonOrgUnitDN" id="orgunit-dn"/>
+    <Attribute name="urn:mace:dir:attribute-def:eduPersonOrgDN" id="org-dn"/>
+
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.5" id="primary-affiliation">
+        <AttributeDecoder xsi:type="StringAttributeDecoder" caseSensitive="false"/>
+    </Attribute>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.2" id="nickname"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.8" id="primary-orgunit-dn"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.4" id="orgunit-dn"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.3" id="org-dn"/>
+
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" id="assurance"/>
+
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.5.1.1" id="member"/>
+
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.6.1.1" id="eduCourseOffering"/>
+    <Attribute name="urn:oid:1.3.6.1.4.1.5923.1.6.1.2" id="eduCourseMember"/>
+    -->
+
+    <!-- Examples of LDAP-based attributes, uncomment to use these... -->
+    <!--
+    <Attribute name="urn:mace:dir:attribute-def:cn" id="cn"/>
+    <Attribute name="urn:mace:dir:attribute-def:sn" id="sn"/>
+    <Attribute name="urn:mace:dir:attribute-def:givenName" id="givenName"/>
+    <Attribute name="urn:mace:dir:attribute-def:displayName" id="displayName"/>
+    <Attribute name="urn:mace:dir:attribute-def:mail" id="mail"/>
+    <Attribute name="urn:mace:dir:attribute-def:telephoneNumber" id="telephoneNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:title" id="title"/>
+    <Attribute name="urn:mace:dir:attribute-def:initials" id="initials"/>
+    <Attribute name="urn:mace:dir:attribute-def:description" id="description"/>
+    <Attribute name="urn:mace:dir:attribute-def:carLicense" id="carLicense"/>
+    <Attribute name="urn:mace:dir:attribute-def:departmentNumber" id="departmentNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:employeeNumber" id="employeeNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:employeeType" id="employeeType"/>
+    <Attribute name="urn:mace:dir:attribute-def:preferredLanguage" id="preferredLanguage"/>
+    <Attribute name="urn:mace:dir:attribute-def:manager" id="manager"/>
+    <Attribute name="urn:mace:dir:attribute-def:seeAlso" id="seeAlso"/>
+    <Attribute name="urn:mace:dir:attribute-def:facsimileTelephoneNumber" id="facsimileTelephoneNumber"/>
+    <Attribute name="urn:mace:dir:attribute-def:street" id="street"/>
+    <Attribute name="urn:mace:dir:attribute-def:postOfficeBox" id="postOfficeBox"/>
+    <Attribute name="urn:mace:dir:attribute-def:postalCode" id="postalCode"/>
+    <Attribute name="urn:mace:dir:attribute-def:st" id="st"/>
+    <Attribute name="urn:mace:dir:attribute-def:l" id="l"/>
+    <Attribute name="urn:mace:dir:attribute-def:o" id="o"/>
+    <Attribute name="urn:mace:dir:attribute-def:ou" id="ou"/>
+    <Attribute name="urn:mace:dir:attribute-def:businessCategory" id="businessCategory"/>
+    <Attribute name="urn:mace:dir:attribute-def:physicalDeliveryOfficeName" id="physicalDeliveryOfficeName"/>
+
+    <Attribute name="urn:oid:2.5.4.3" id="cn"/>
+    <Attribute name="urn:oid:2.5.4.4" id="sn"/>
+    <Attribute name="urn:oid:2.5.4.42" id="givenName"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.241" id="displayName"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.3" id="mail"/>
+    <Attribute name="urn:oid:2.5.4.20" id="telephoneNumber"/>
+    <Attribute name="urn:oid:2.5.4.12" id="title"/>
+    <Attribute name="urn:oid:2.5.4.43" id="initials"/>
+    <Attribute name="urn:oid:2.5.4.13" id="description"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.1" id="carLicense"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.2" id="departmentNumber"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.3" id="employeeNumber"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.4" id="employeeType"/>
+    <Attribute name="urn:oid:2.16.840.1.113730.3.1.39" id="preferredLanguage"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.10" id="manager"/>
+    <Attribute name="urn:oid:2.5.4.34" id="seeAlso"/>
+    <Attribute name="urn:oid:2.5.4.23" id="facsimileTelephoneNumber"/>
+    <Attribute name="urn:oid:2.5.4.9" id="street"/>
+    <Attribute name="urn:oid:2.5.4.18" id="postOfficeBox"/>
+    <Attribute name="urn:oid:2.5.4.17" id="postalCode"/>
+    <Attribute name="urn:oid:2.5.4.8" id="st"/>
+    <Attribute name="urn:oid:2.5.4.7" id="l"/>
+    <Attribute name="urn:oid:2.5.4.10" id="o"/>
+    <Attribute name="urn:oid:2.5.4.11" id="ou"/>
+    <Attribute name="urn:oid:2.5.4.15" id="businessCategory"/>
+    <Attribute name="urn:oid:2.5.4.19" id="physicalDeliveryOfficeName"/>
+    -->
+
+
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.1" id="uid"/>
+    <Attribute name="urn:oid:0.9.2342.19200300.100.1.3" id="mail"/>
+
+</Attributes>
+```
