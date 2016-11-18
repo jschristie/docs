@@ -665,5 +665,44 @@ class PersonAuthentication(PersonAuthenticationType):
 ```
 
 ## Configuration in nest.gluu.org server
+  - SAML Trust Relationship: 
+    - Create a new Trust relationship for 'sp.gluu.org'
+      - DisplayName: sp.gluu.org
+      - Description: Test
+      - Metadata Type: File
+        - Grab below xml file and use that as SAML metadata to create this trust. 
+```
+ <!--
+   Unsigned metadata for oxAuth
+-->
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.gluu.org/shibboleth">
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.gluu.org/oxauth/postlogin" index="0"/>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Gluu</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Gluu - Open Source Access Management</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.gluu.org</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Administrator</md:GivenName>
+    <md:EmailAddress>support@gluu.org</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+```
+        - Configure Relying Party: 
+          - SAML2SSO
+            - includeAttributeStatement: yes
+            - assertionLifetime: 300000
+            - assertionProxyCount: 0
+            - signResponses: conditional
+            - signAssertions: never
+            - signRequests: conditional
+            - encryptAssertions: never
+            - encryptNameIds: never
+        - Release attributes: 
+          - Email
+          - TransientId
+          - Username
 
 ## Configuration in sp.gluu.org
