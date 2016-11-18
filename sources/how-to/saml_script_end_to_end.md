@@ -690,7 +690,8 @@ class PersonAuthentication(PersonAuthenticationType):
   </md:ContactPerson>
 </md:EntityDescriptor>
 ```
-        - Configure Relying Party: 
+
+          - Configure Relying Party: 
           - SAML2SSO
             - includeAttributeStatement: yes
             - assertionLifetime: 300000
