@@ -24,20 +24,31 @@ For the preparation of this documentation we have used three servers:
       - saml_use_authn_context: true
       - saml_validate_response: true
       - saml_idp_sso_target_url: https://nest.gluu.org/idp/profile/SAML2/Redirect/SSO
-      - saml_issuer: https://sp.gluu.org/shibboleth
+      - saml_issuer: https://test.gluu.org/saml
       - saml_name_identifier_format: urn:oasis:names:tc:SAML:2.0:nameid-format:transient
       - saml_idp_attributes_list: urn:oid:0.9.2342.19200300.100.1.1, urn:oid:0.9.2342.19200300.100.1.3
       - saml_local_attributes_list: uid, mail
       - Script: 
 
+### Trust Relationship
+Create SAML Trust relationship for 'sp.gluu.org'
+  - Log into Gluu oxTrust as admin
+  - SAML -> Trust Relatonships
+    - Add Relationship
+      - DisplayName: sp.gluu.org
+      - Description: sp test
+      - Metadata Type: File
+      - Upload xml metadata of 'sp.gluu.org'
+      - Release attributes: (a) Email (b) Username
+
 
 ## Configuration in nest.gluu.org server
   - SAML Trust Relationship: 
-    - Create a new Trust relationship for 'sp.gluu.org'
-      - DisplayName: sp.gluu.org
+    - Create a new Trust relationship for 'https://test.gluu.org/saml'
+      - DisplayName: test.gluu.org
       - Description: Test
       - Metadata Type: File
-        - Grab below xml file and use that as SAML metadata to create this trust. 
+        - Grab below xml file ('https://test.gluu.org/saml' file) and use that as xml metadata to create this trust. 
       - Configure Relying Party: 
          - SAML2SSO
             - includeAttributeStatement: yes
@@ -695,14 +706,11 @@ class PersonAuthentication(PersonAuthenticationType):
         return True
 ```
 
-## Metadata for sp.gluu.org
+## Metadata for 'test.gluu.org/saml'
 
 ```
-<!--
-   Unsigned metadata for oxAuth
--->
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.gluu.org/shibboleth">
-  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://test.gluu.org/saml">
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.gluu.org/oxauth/postlogin" index="0"/>
   </md:SPSSODescriptor>
   <md:Organization>
