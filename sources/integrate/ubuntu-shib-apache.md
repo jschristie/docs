@@ -30,26 +30,10 @@ Download `minnow-metadata.xml` to your machine. You will need this file
 later when you create the Trust Relationship in the Gluu Server.
 
 ```
-# mkdir protected
+# mkdir /var/www/protected
 # touch /var/www/protected/printHeaders.py
 # chmod ugo+x /var/www/protected/printHeaders.py
 ```
-
-Edit the default site at `/etc/apache2/sites-available/default-ssl.conf`, 
-and add this part:
-
-```
-ScriptAlias /protected/ /var/www/protected/
-<Directory /var/www/protected>
-	AddHandler cgi-script .py
-	Options +ExecCGI
-	SSLOptions +StdEnvVars
-	AuthType shibboleth
-	ShibRequestSetting requireSession 1
-	Require valid-user
-</Directory>
-```
-
 Edit `printHeaders.py`, and add this simple script. It will show you the
 HTTP headers:
 
@@ -70,6 +54,24 @@ for item in k:
 	print "<p><B>%s</B>: %s </p>" % (item, d[item])
 print "</BODY></HTML>"
 ```
+
+
+
+Edit the default site at `/etc/apache2/sites-available/default-ssl.conf`, 
+and add this part:
+
+```
+ScriptAlias /protected/ /var/www/protected/
+<Directory /var/www/protected>
+	AddHandler cgi-script .py
+	Options +ExecCGI
+	SSLOptions +StdEnvVars
+	AuthType shibboleth
+	ShibRequestSetting requireSession 1
+	Require valid-user
+</Directory>
+```
+
 
 # Configure the Shibboleth SP
 
