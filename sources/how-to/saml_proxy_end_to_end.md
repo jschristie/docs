@@ -83,7 +83,7 @@ To configure this custom script,
        - saml_use_authn_context: false
        - saml_generate_name_id: true
        - saml_update_user: true
-       - Script: Grab script from github and paste it here. 
+       - Script: Grab script from github ( https://github.com/GluuFederation/oxAuth/tree/master/Server/integrations/saml ) and paste it here. 
        - Enabled: True
     
 ### Asimba Configuration: 
