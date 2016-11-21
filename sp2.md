@@ -7,4 +7,3 @@
 5. Val: https://github.com/GluuFederation/oxTrust/issues/355
 6. Dmitry: https://github.com/GluuFederation/community-edition-setup/issues/163
 7. Javier: https://github.com/GluuFederation/oxAuth/issues/294
-8. Shekhar: I've not merged it into 2.4.4.2 yet. Shakhar, is it ready? https://github.com/GluuFederation/oxTrust/issues/367
