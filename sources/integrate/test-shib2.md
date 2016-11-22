@@ -38,7 +38,7 @@ It is necessary to create a Trust Relationship in the IdP for TestShib2.
 
 3. Upload the metadata of the IdP in the testshib webpage.
 
-    (a) To collect the metadata of Gluu IdP, please go to "https://support.gluu.org/view/application-integration/how-can-i-get-my-idps-metadata/216".
+    (a) To collect the metadata of Gluu IdP, please go to "https://support.gluu.org/216/.
 
 ![Upload Metadata](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/SamlIDPAdminGuide/testshib_uploadmetadata.png)
 
