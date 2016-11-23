@@ -92,14 +92,16 @@ assumption that step 1 and step 2 happen on the same server, therefore the value
 
 Below are few Methods and Libraries used to Save the Value to LDAP and retrieve the values as per the requirement.
 
-random.randit("start number",""end number") - Generates the code as per designer or requirements. 
+**random.randit("start number",""end number")** 
+Generates the code as per designer or requirements. 
 
 **Context.set()**
 This particular method is obtained from jboss to pass the session attribute value to ldap, by creating a temporary attribute which has limited life time and can be retrieved within the life span, expires and session becomes invalid. Save the value of the code obtained through the code generator method. context.set("Name of the temp attribute", `<key>`). Where `<key>` is the value that needs to be stored temporarily in ldap.
 Example:
 context.set("code",code)
 
-**UserService.instance()** -  Gets the user login instance
+**UserService.instance()** 
+Gets the user login instance
 
 **ServerUtil.getFirstValue():**
 
