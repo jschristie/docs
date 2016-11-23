@@ -39,8 +39,8 @@ pages:
     - 'Clustering with CE': 'cluster/index.md'
 - Gluu Server GUI:
     - 'Configuration': 'oxtrust/configuration.md'
-    - 'OxTrust JSON Configuration': 'gluu-defaults/oxtrust-properties.md'
-    - 'OxAuth JSON Configuration': 'gluu-defaults/oxauth-properties.md'
+    - 'OxTrust JSON Configuration': 'reference/oxtrust-properties.md'
+    - 'OxAuth JSON Configuration': 'reference/oxauth-properties.md'
     - 'SAML': 'integrate/outbound-saml.md'
     - 'OpenID Connect': 'integrate/openid-connect.md'
     - 'UMA': 'integrate/uma.md'
@@ -71,7 +71,7 @@ pages:
     - 'Configure UMA': 'how-to/uma-demo.md'
     - 'Update Gluu Server Certificates': 'how-to/update-certificate.md'
     - 'Inbound SAML End to End Testing': 'how-to/saml_proxy_end_to_end.md'
-    - 'Logout': 'gluu-defaults/logout.md'
+    - 'Logout': 'reference/logout.md'
 - Customize Gluu Server: 
     - 'Design Customization': 'customize/design.md'
     - 'Behaviour Customization': 'customize/script.md'
@@ -108,19 +108,16 @@ pages:
 - Fine Tuning and Benchmarking:
     - 'Tuning LDAP, Tomcat': 'fine-tuning/index.md'
 - Reference:
-    - 'Gluu Policy': 'gluu-defaults/policy.md'
-    - 'Configurations': 'gluu-defaults/config.md'
-    - 'Certificates': 'gluu-defaults/certificates.md'
-    - 'LDAP': 'gluu-defaults/ldap.md'
-<<<<<<< HEAD
-    - 'Schema': 'gluu-defaults/schema.md'
-=======
-    - 'LDAP Schema': 'gluu-defaults/schema.md'
-    - 'Logout': 'gluu-defaults/logout.md'
->>>>>>> 0266477a7c989d3415a7dc402c4d4409b1ffc071
-    - 'oxTrust Properties File': 'gluu-defaults/oxtrust-properties.md'
-    - 'oxAuth Properties File': 'gluu-defaults/oxauth-properties.md'
-    - 'Logs': 'gluu-defaults/logs.md'
+    - 'Gluu Policy': 'reference/policy.md'
+    - 'Configurations': 'reference/config.md'
+    - 'Certificates': 'reference/certificates.md'
+    - 'LDAP': 'reference/ldap.md'
+    - 'Schema': 'reference/schema.md'
+    - 'LDAP Schema': 'reference/schema.md'
+    - 'Logout': 'reference/logout.md'
+    - 'oxTrust Properties File': 'reference/oxtrust-properties.md'
+    - 'oxAuth Properties File': 'reference/oxauth-properties.md'
+    - 'Logs': 'reference/logs.md'
 - Gluu Server API:
     - 'OpenID Connect Authorization Endpoint': 'api/oic-authorization.md'
     - 'OpenID Connect Token Endpoint': 'api/oic-token.md'
