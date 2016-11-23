@@ -41,6 +41,21 @@ Create SAML Trust relationship for 'sp.gluu.org'
       - Upload xml metadata of 'sp.gluu.org'
       - Release attributes: (a) Email (b) Username
 
+### Add SP Requestor
+Enroll SP requestor for 'test.gluu.org/saml'
+  - Log into Gluu oxTrust as admin
+  - SAML -> SP Requestors
+  - Add SP Requestor
+    - Select parent SP Pool: requestorpool.1
+    - ID: https://test.gluu.org/saml 
+    - Friendly Name: oxAuth SAML
+    - Metadata URL: keep it blank, we will upload metadata
+    - Metadata Timeout: -1
+    - Metadata File: Upload metadata for 'https://test.gluu.org/saml' [ Metadata added below ] 
+    - Trust Certificate File: not required
+    - Properties: no required
+    - Enabled: Yes
+    - Signing: No
 
 ## Configuration in nest.gluu.org server
   - SAML Trust Relationship: 
