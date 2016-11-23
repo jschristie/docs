@@ -156,11 +156,11 @@ session_attributes.get("code")
 
 ##Saving the value in LDAP and Passing values between two steps
  
- ##Saving Values:
+####Saving Values:
 
 **Context.set** can be used to save values of the required key to an attribute temporarily and the created temporary attribute will be alive only for limited time and expires and gets removed, by that way, adding new attribute to the user is not messed up. And also the expired attribute kills the validity of the session and becomes invalid.
 
-##Retriving and passing values between the authentication steps:
+####Retriving and passing values between the authentication steps:
 
 Using **session_attrbiute.get()** method, stored session attribute could be retrieved anywhere between the authentication method, by that way the values can be passed between two authentication methods for verification and validation.
 Generated code and the entered "code" in the form can be verified using a simple if and the "code" from the form can be obtained using the requestParameters.get() method or serviceUtil.getFirstValue() method.
