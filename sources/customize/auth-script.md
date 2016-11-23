@@ -81,7 +81,7 @@ Simple example of how to add a custom template and how to pass values between 2 
 
 As shown in the below illustration:
 
-![image] (https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/auth_article/twillo.jpg)
+![image](https://github.com/GluuFederation/docs/blob/master/sources/img/auth_article/twillo.jpg)
 
 ##Methods 
 **authenticate():**
@@ -92,14 +92,17 @@ assumption that step 1 and step 2 happen on the same server, therefore the value
 
 Below are few Methods and Libraries used to Save the Value to LDAP and retrieve the values as per the requirement.
 
-random.randit("start number",""end number") - Generates the code as per designer or requirements. 
+**random.randit()**
+random.randit("start number",""end number"), Generates the code as per designer or requirements. 
+Example: random.randit(10000,99999)
 
-**Context.set()**
+**context.set()**
 This particular method is obtained from jboss to pass the session attribute value to ldap, by creating a temporary attribute which has limited life time and can be retrieved within the life span, expires and session becomes invalid. Save the value of the code obtained through the code generator method. context.set("Name of the temp attribute", `<key>`). Where `<key>` is the value that needs to be stored temporarily in ldap.
 Example:
 context.set("code",code)
 
-**UserService.instance()** -  Gets the user login instance
+**UserService.instance()** 
+Gets the user login instance
 
 **ServerUtil.getFirstValue():**
 
@@ -158,11 +161,11 @@ session_attributes.get("code")
  
 ####Saving Values:
 
-**Context.set** can be used to save values of the required key to an attribute temporarily and the created temporary attribute will be alive only for limited time and expires and gets removed, by that way, adding new attribute to the user is not messed up. And also the expired attribute kills the validity of the session and becomes invalid.
+**context.set** can be used to save values of the required key to an attribute temporarily and the created temporary attribute will be alive only for limited time and expires and gets removed, by that way, adding new attribute to the user is not messed up. And also the expired attribute kills the validity of the session and becomes invalid.
 
 ####Retriving and passing values between the authentication steps:
 
-Using **session_attrbiute.get()** method, stored session attribute could be retrieved anywhere between the authentication method, by that way the values can be passed between two authentication methods for verification and validation.
+Using **session_attribute.get()** method, stored session attribute could be retrieved anywhere between the authentication method, by that way the values can be passed between two authentication methods for verification and validation.
 Generated code and the entered "code" in the form can be verified using a simple if and the "code" from the form can be obtained using the requestParameters.get() method or serviceUtil.getFirstValue() method.
 
 ## Custom Properties
