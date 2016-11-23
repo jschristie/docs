@@ -80,6 +80,7 @@ Simple example of how to add a custom template and how to pass values between 2 
 **Note: All three custom properties are Mandatroy in order to Twilio 2 Factor Authentication to work**
 
 As shown in the below illustration:
+
 ![image] (https://github.com/GluuFederation/docs/blob/master/sources/img/auth_article/twillo.jpg)
 
 ##Methods 
