@@ -408,7 +408,7 @@ group cluster_group
 Certificates are not being synced automatically in the proposed setup. They must be initially copied by hand from one node to the other, and must be synced in this manner each time they are being updated.
 in each host, when required. Move to `/etc/certs/` on the 1st node (inside the container). Copy all keys, certs and key storages conforming to these masks: `httpd.*`, `asimba.*`, `asimbaIDP.*`, `idp-encryption.*`, `idp-signing.*`, `shibIDP.*`, `oxauth-keys.*` and ` scim-rs.*` - to the same directory on the 2nd node (overwriting files that exist there; you may opt to backup them first, just in case).
 
-After that's done you still will need to update default system storage (`cacerts` file) at the 2nd node with these newly copied certificates. The [Certificate Page](../gluu-defaults/certificates.md) contains the details about available certificates and how to update certificates are detailed in the [update-certificate page](../how-to/update-certificate.md).
+After that's done you still will need to update default system storage (`cacerts` file) at the 2nd node with these newly copied certificates. The [Certificate Page](../reference/certificates.md) contains the details about available certificates and how to update certificates are detailed in the [update-certificate page](../how-to/update-certificate.md).
 
 ## [Optional] Actions in case setup.properties.last method of installation didn't work for you
 

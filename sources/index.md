@@ -35,7 +35,7 @@ The following pages explain the oxTrust GUI
 
 |	oxTrust Tab Menu	|	Sub-menu	|
 |-------------------------------|-----------------------|
-|**[Configuration](./oxtrust/configuration.md)**| [oxTrust JSON Configuration](./gluu-defaults/oxtrust-properties.md) <br/>[oxAuth JSON Configuration](./gluu-defaults/oxauth-properties.md)<br/> [Cache Refresh/Backend LDAP/AD](./cache-refresh/index.md)|
+|**[Configuration](./oxtrust/configuration.md)**| [oxTrust JSON Configuration](./reference/oxtrust-properties.md) <br/>[oxAuth JSON Configuration](./reference/oxauth-properties.md)<br/> [Cache Refresh/Backend LDAP/AD](./cache-refresh/index.md)|
 |SAML|[Outbound](./integrate/outbound-saml.md)<br/> [Inbound](./integrate/inbound-saml.md)|
 |**[OpenID Connect](./integrate/openid-connect.md)**|n/a|
 |**[UMA](./integrate/uma.md)**|n/a|

@@ -1,7 +1,7 @@
 [TOC]
 
 # Logs
-When it comes to troubleshooting issues in the Gluu Server--from service hiccups to outages--your [server logs](../gluu-defaults/logs.md) are the best place to gather relevant information.
+When it comes to troubleshooting issues in the Gluu Server--from service hiccups to outages--your [server logs](../reference/logs.md) are the best place to gather relevant information.
 
 # Connectivity Issues?
 ## DNS names not resolving!
