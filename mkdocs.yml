@@ -71,6 +71,7 @@ pages:
     - 'Configure UMA': 'how-to/uma-demo.md'
     - 'Update Gluu Server Certificates': 'how-to/update-certificate.md'
     - 'Inbound SAML End to End Testing': 'how-to/saml_proxy_end_to_end.md'
+    - 'Logout': 'gluu-defaults/logout.md'
 - Customize Gluu Server: 
     - 'Design Customization': 'customize/design.md'
     - 'Behaviour Customization': 'customize/script.md'
@@ -106,12 +107,11 @@ pages:
     - 'Asimba & Gluu CE': 'integrate/asimba.md'
 - Fine Tuning and Benchmarking:
     - 'Tuning LDAP, Tomcat': 'fine-tuning/index.md'
-- Gluu Defaults:
+- Reference:
     - 'Gluu Policy': 'gluu-defaults/policy.md'
     - 'Configurations': 'gluu-defaults/config.md'
     - 'Certificates': 'gluu-defaults/certificates.md'
     - 'LDAP': 'gluu-defaults/ldap.md'
-    - 'Logout': 'gluu-defaults/logout.md'
     - 'Schema': 'gluu-defaults/schema.md'
     - 'oxTrust Properties File': 'gluu-defaults/oxtrust-properties.md'
     - 'oxAuth Properties File': 'gluu-defaults/oxauth-properties.md'
