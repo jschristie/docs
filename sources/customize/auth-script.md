@@ -71,14 +71,16 @@ Simple example of how to add a custom template and how to pass values between 2 
    ii. ACCOUNT_SID - Alphanumerical number provided by Twilio for the account holder to identify the user.
    
    iii. FROM_NUMBER - Number which is either assigned by Twilio or can be a number user provides to send the code from.
+
 10. Click on Enabled to enable the added custom script.
-11. Scroll down to the end of the update and click on Update button to submit the form.
-12. After the custom script is added, click on Manage Authenticaion on the Menu Panel to left.
+11. Scroll down to the end of the update and click on Update button to submit the form. 
+12. After the custom script is added, click on Manage Authenticaion on the Menu Panel to left. 
 13. Select "Default Authentication Method" tab and change the oxTrust authentication mode to "Twilio" or "Name of the script" from the drop down.
 
 **Note: All three custom properties are Mandatroy in order to Twilio 2 Factor Authentication to work**
 
 As shown in the below illustration:
+
 ![image] (https://github.com/GluuFederation/docs/blob/master/sources/img/auth_article/twillo.jpg)
 
 ##Methods 
