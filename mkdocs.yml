@@ -112,7 +112,12 @@ pages:
     - 'Configurations': 'gluu-defaults/config.md'
     - 'Certificates': 'gluu-defaults/certificates.md'
     - 'LDAP': 'gluu-defaults/ldap.md'
+<<<<<<< HEAD
     - 'Schema': 'gluu-defaults/schema.md'
+=======
+    - 'LDAP Schema': 'gluu-defaults/schema.md'
+    - 'Logout': 'gluu-defaults/logout.md'
+>>>>>>> 0266477a7c989d3415a7dc402c4d4409b1ffc071
     - 'oxTrust Properties File': 'gluu-defaults/oxtrust-properties.md'
     - 'oxAuth Properties File': 'gluu-defaults/oxauth-properties.md'
     - 'Logs': 'gluu-defaults/logs.md'
