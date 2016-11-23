@@ -65,9 +65,12 @@ Simple example of how to add a custom template and how to pass values between 2 
 7. Select Location Type from the script to be executed.
 8. Select the Usage Type required for the authentication.
 9. Define Custom property which is provided by Twilio and can be noted down from Twilio account page of the signed up user.
- a. AUTH_TOKEN - Numerical sequence of numbers, to identify the token assigned to the user associated with Twilio.
- b. ACCOUNT_SID - Alphanumerical number provided by Twilio for the account holder to identify the user.
- C. FROM_NUMBER - Number which is either assigned by Twilio or can be a number user provides to send the code from.
+   
+   i. AUTH_TOKEN - Numerical sequence of numbers, to identify the token assigned to the user associated with Twilio.
+   
+   ii. ACCOUNT_SID - Alphanumerical number provided by Twilio for the account holder to identify the user.
+   
+   iii. FROM_NUMBER - Number which is either assigned by Twilio or can be a number user provides to send the code from.
 10. Click on Enabled to enable the added custom script.
 11. Scroll down to the end of the update and click on Update button to submit the form.
 
@@ -76,6 +79,7 @@ Simple example of how to add a custom template and how to pass values between 2 
 As shown in the below illustration:
 ![image] (https://github.com/GluuFederation/docs/blob/master/sources/img/auth_article/twillo.jpg)
 
+##Methods 
 **authenticate():**
 
 The most important method to implement is obviously the `authenticate` method. This is where the main business logic is located for
@@ -146,7 +150,7 @@ Example:
 session_attributes.get("code")
 
 
-**Saving the value in LDAP and Passing values between two steps:**
+##Saving the value in LDAP and Passing values between two steps
  
  ##Saving Values:
 
@@ -161,8 +165,7 @@ Generated code and the entered "code" in the form can be verified using a simple
 
 Sometimes it is helpful to enable system administrators to
 enter properties that might change a lot. If administrators are
-not allowed to modify the script, Custom Property feature can be used, as seen
-in this screenshot:
+not allowed to modify the script, Custom Property feature can be used, as illustrated in below screenshot:
 
 ![image](https://raw.githubusercontent.com/GluuFederation/docs/master/sources/img/auth_article/07-custom-properties.jpg)
 
